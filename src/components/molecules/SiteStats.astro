@@ -1,7 +1,7 @@
 ---
 /**
  * 站点统计侧栏 widget（规格表风格）。
- * 行 = MetaIcon tonal 徽标 + 标签 + 点线引导 + 表格数字，
+ * 行 = MetaIcon tonal 徽标 + 标签 + 中段占位 + 表格数字（数值右对齐），
  * 与 PostMeta 的元信息语言同源；数据来自 utils/site-stats（备忘化汇总）。
  */
 import MetaIcon from "@components/atoms/display/MetaIcon.astro";
@@ -122,13 +122,10 @@ const rows = [
 		color: var(--on-surface-variant)
 		white-space: nowrap
 
-	/* 点线引导：沉到文字基线附近，长度伸缩填满中段 */
+	/* 中段伸缩占位：填满剩余空间，把数值推到行尾（不绘制引导线） */
 	&__rule
 		flex: 1
-		align-self: flex-end
-		margin-bottom: 0.35em
 		min-width: 0.75rem
-		border-bottom: 2px dotted var(--outline-variant)
 
 	&__value
 		font: var(--m3e-type-title-small)
