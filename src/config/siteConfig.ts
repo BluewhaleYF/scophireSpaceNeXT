@@ -58,9 +58,9 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		// 数组顺序就是轮播顺序；只需要静态 Banner 时，每组保留一张图片即可。
 		src: {
 			desktop: [
-        "assets/images/banner/desktop/Green.jpg",
-        "assets/images/banner/desktop/erin.webp"
-      ],
+				"assets/images/banner/desktop/Green.jpg",
+				"assets/images/banner/desktop/erin.webp",
+			],
 			mobile: ["assets/images/banner/mobile/1.webp"],
 		},
 		// 图片裁切焦点："top"、"center" 或 "bottom"。
@@ -74,9 +74,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
 			enable: true,
 			title: "ScophireSpace",
-			subtitle: [
-				"当有一天你不再纠结于答案，当我们又重逢于天涯或沧海"
-			],
+			subtitle: ["当有一天你不再纠结于答案，当我们又重逢于天涯或沧海"],
 			typewriter: {
 				// 副标题逐字显示；关闭后直接显示完整副标题。
 				enable: true,
@@ -120,7 +118,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	},
 	favicon: [
 		// 浏览器标签页图标，路径相对于 public 目录。
-		{ src: "/logo/icon.webp" },
+		{ src: "/logo/icon.png" },
 	],
 });
 

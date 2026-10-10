@@ -15,20 +15,20 @@ export const profileConfig: ProfileConfig = withUserConfig("profile", {
 			icon: "fa7-brands:github",
 			url: "https://github.com/BluewhaleYF",
 		},
-    {
-      name: "Mastodon",
-      icon: "fa7-brands:mastodon",
-      url: "https://mastodon.social/@scophire",
-    },
-    {
-      name: "Bilibili",
-      icon: "fa7-brands:bilibili",
-      url: "https://space.bilibili.com/1360046719",
-    },
-    {
-      name: "E-mail",
-      icon: "fa7-solid:envelope",
-      url: "mailto:scophire@proton.me"
-    }
+		{
+			name: "Mastodon",
+			icon: "fa7-brands:mastodon",
+			url: "https://mastodon.social/@scophire",
+		},
+		{
+			name: "Bilibili",
+			icon: "fa7-brands:bilibili",
+			url: "https://space.bilibili.com/1360046719",
+		},
+		{
+			name: "E-mail",
+			icon: "fa7-solid:envelope",
+			url: "mailto:scophire@proton.me",
+		},
 	],
 });
