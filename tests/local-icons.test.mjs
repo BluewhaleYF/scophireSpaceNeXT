@@ -9,12 +9,15 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test, { after } from "node:test";
+import { fileURLToPath } from "node:url";
 import {
 	collectLocalIcons,
 	ICON_PREFIXES,
 } from "../src/integration/vite/icon/collections.ts";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+// `fileURLToPath` rather than `.pathname`: the latter leaves `%E6%96%87…`
+// escapes in place, so the check fails in any checkout whose path is non-ASCII.
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
 
 const dir = mkdtempSync(join(tmpdir(), "shirones-local-icons-"));
