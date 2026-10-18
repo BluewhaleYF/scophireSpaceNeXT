@@ -55,6 +55,18 @@ export const devicesData: DeviceItem[] = [
 		featured: true,
 		year: "2025",
 	},
+	{
+		id: "apple-watch-s7",
+		name: "Apple Watch Series 7",
+		brand: "Apple",
+		category: "wearable",
+		status: "active",
+		specs: "41mm / GPS / 黑色铝合金",
+		description:
+			"轻巧好戴，健康监测依旧够用，妥妥钉子户。唯一短板是一天一充的续航。",
+		icon: "material-symbols:watch-rounded",
+		year: "2021",
+	},
 ];
 
 /** 获取所有设备数据列表 */

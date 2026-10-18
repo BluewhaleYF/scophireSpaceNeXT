@@ -29,6 +29,12 @@ export const devicesConfig: DevicesConfig = withUserConfig("devices", {
 			description: "Daily portable devices & smart gadgets",
 		},
 		{
+			key: "wearable",
+			label: "Wearables",
+			icon: "material-symbols:watch-rounded",
+			description: "Smartwatches & wearable gear",
+		},
+		{
 			key: "audio",
 			label: "Audio & Visual",
 			icon: "material-symbols:headphones-rounded",
