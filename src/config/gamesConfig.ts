@@ -30,10 +30,22 @@ export const gamesConfig: GamesConfig = withUserConfig("games", {
 			description: "Building, crafting & creative worlds",
 		},
 		{
+			key: "strategy",
+			label: "Strategy",
+			icon: "material-symbols:swords-outline-rounded",
+			description: "Strategy, tactics & grand campaigns",
+		},
+		{
 			key: "rpg",
 			label: "RPG",
 			icon: "material-symbols:shield-outline-rounded",
 			description: "Role-playing stories & builds",
+		},
+		{
+			key: "adventure",
+			label: "Adventure",
+			icon: "material-symbols:auto-stories-rounded",
+			description: "Story-driven & visual novel games",
 		},
 		{
 			key: "action",
