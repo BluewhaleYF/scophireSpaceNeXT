@@ -61,7 +61,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 				"assets/images/banner/desktop/Green.jpg",
 				"assets/images/banner/desktop/erin.webp",
 			],
-			mobile: ["assets/images/banner/mobile/1.webp"],
+			mobile: ["assets/images/banner/mobile/Boat.jpg"],
 		},
 		// 图片裁切焦点："top"、"center" 或 "bottom"。
 		position: "center",
