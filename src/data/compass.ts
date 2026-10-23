@@ -37,82 +37,58 @@ export interface CompassShelf {
 
 export const compassData: CompassShelf[] = [
 	{
-		key: "dev",
-		name: "Development",
-		icon: "material-symbols:code-rounded",
-		blurb: "Sites I keep open while writing code",
+		key: "friend-sites",
+		name: "友站",
+		icon: "material-symbols:group-outline-rounded",
+		entries: [
+			{
+				label: "Solsynth",
+				href: "https://solsynth.dev/",
+				note: "来自太阳系，向着全宇宙。",
+				image:
+					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Solsynth.png",
+			},
+			{
+				label: "羝 ICP 备案",
+				href: "https://solsynth.dev/zh/products/roy-filling",
+				note: "经中华羊国网络信息办公室授权的认证网站目录",
+				image:
+					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/ROY-ICP.png",
+			},
+		],
+	},
+	{
+		key: "community",
+		name: "社区",
+		icon: "material-symbols:forum-outline-rounded",
+		entries: [
+			{
+				label: "Solian",
+				href: "https://web.solian.app/",
+				note: "一个宁静的社交网络，让表达自我、结识他人变得简单",
+				image:
+					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Solian.webp",
+			},
+			{
+				label: "StyleStar",
+				href: "https://stylestar.win/",
+				note: "现代拟物化中文论坛",
+				image:
+					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Stylestar.png",
+			},
+		],
+	},
+	{
+		key: "frequent",
+		name: "常去",
+		icon: "material-symbols:bookmark-outline-rounded",
 		entries: [
 			{
 				label: "GitHub",
-				href: "https://github.com",
-				note: "Code hosting & collaboration",
-				icon: "fa7-brands:github",
-			},
-			{
-				label: "MDN",
-				href: "https://developer.mozilla.org",
-				note: "Authoritative web docs",
-				icon: "material-symbols:menu-book-rounded",
-			},
-			{
-				label: "Stack Overflow",
-				href: "https://stackoverflow.com",
-				note: "Q&A and debugging",
-			},
-		],
-	},
-	{
-		key: "design",
-		name: "Design",
-		icon: "material-symbols:palette-outline-rounded",
-		blurb: "Colors, icons and inspiration",
-		entries: [
-			{
-				label: "Iconify",
-				href: "https://icon-sets.iconify.design",
-				note: "Searchable open-source icon sets",
-			},
-			{
-				label: "Material Symbols",
-				href: "https://fonts.google.com/icons",
-				note: "Official M3 icon set",
-				icon: "material-symbols:star-rounded",
-			},
-			{
-				label: "Excalidraw",
-				href: "https://excalidraw.com",
-				note: "Hand-drawn whiteboard collaboration",
-			},
-		],
-	},
-	{
-		key: "tools",
-		name: "Tools",
-		icon: "material-symbols:build-outline-rounded",
-		entries: [
-			{
-				label: "Squoosh",
-				href: "https://squoosh.app",
-				note: "Image compression & conversion",
-			},
-			{
-				label: "Regex101",
-				href: "https://regex101.com",
-				note: "Regex testing & debugging",
-			},
-		],
-	},
-	{
-		key: "reads",
-		name: "Reading",
-		icon: "material-symbols:auto-stories-outline-rounded",
-		entries: [
-			{ label: "Hacker News", href: "https://news.ycombinator.com" },
-			{ label: "V2EX", href: "https://www.v2ex.com" },
-			{
-				label: "Solidot",
-				href: "https://www.solidot.org",
-				note: "Tech and culture news",
+				href: "https://github.com/",
+				note: "Change is constant",
+				image:
+					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Github.jpg",
 			},
 		],
 	},
