@@ -14,7 +14,7 @@ export const zh_CN: Translation = {
 
 	[Key.friends]: "友链",
 	[Key.friendsNoResults]: "没有符合条件的友链",
-	[Key.friendsBanner]: "欢迎交换友链，申请方式见「关于」页。",
+	[Key.friendsBanner]: "通往互联网有趣角落的传送门",
 	[Key.friendsCount]: "个友链",
 	[Key.friendsCounts]: "个友链",
 
