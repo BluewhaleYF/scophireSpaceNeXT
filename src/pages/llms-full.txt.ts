@@ -1,7 +1,7 @@
-import type { APIContext, APIRoute } from "astro";
 import { getSortedPosts } from "@utils/content-utils";
-import { isEncryptedPost } from "@utils/post-encryption";
 import { generateLlmsFullTxt } from "@utils/llms-utils";
+import { isEncryptedPost } from "@utils/post-encryption";
+import type { APIContext, APIRoute } from "astro";
 import { llmsConfig, siteConfig } from "@/config";
 
 export const GET: APIRoute = async (context: APIContext) => {

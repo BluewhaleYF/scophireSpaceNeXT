@@ -62,7 +62,7 @@ export function FieldGroupComponent(_properties, children = []) {
 }
 
 export function FieldComponent(properties = {}, children = []) {
-	let content = Array.isArray(children) ? [...children] : [];
+	const content = Array.isArray(children) ? [...children] : [];
 	let label = String(properties.name || "").trim();
 	if (properties["has-directive-label"] && content.length) {
 		label = label || textContent(content.shift()).trim();

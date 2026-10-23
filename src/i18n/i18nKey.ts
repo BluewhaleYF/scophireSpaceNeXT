@@ -169,6 +169,7 @@ enum I18nKey {
 	announcementClose = "announcementClose",
 
 	comments = "comments",
+	commentsEditor = "commentsEditor",
 	commentsLoading = "commentsLoading",
 	commentsLoadFailed = "commentsLoadFailed",
 	commentsRequiresJavaScript = "commentsRequiresJavaScript",
