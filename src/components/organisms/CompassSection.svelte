@@ -283,7 +283,8 @@ onMount(() => {
 
 .compass-shelf__grid
 	display: grid
-	grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr))
+	/* 瓷砖横向宽度较原 10rem 基准扩大 30%（10rem × 1.3） */
+	grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr))
 	gap: 0.75rem
 
 	@media (max-width: bp-sm - 1px)
