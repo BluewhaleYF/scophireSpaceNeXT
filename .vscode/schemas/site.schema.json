@@ -21,6 +21,15 @@
     "subtitle": {
       "type": "string"
     },
+    "startDate": {
+      "anyOf": [
+        {},
+        {
+          "type": "string"
+        }
+      ],
+      "description": "站点开始运行日期（YYYY-MM-DD），用于侧栏统计的“运行天数”。省略或无效时回退为最早一篇文章的发布日期。"
+    },
     "ogImage": {
       "anyOf": [
         {},
