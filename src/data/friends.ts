@@ -18,27 +18,30 @@ export interface FriendItem {
 export const friendsData: FriendItem[] = [
 	{
 		id: 1,
-		title: "Mizuki",
-		imgurl: "https://avatars.githubusercontent.com/u/225602409?v=4&s=640",
-		desc: "Another Fuwari-based blog theme with docs",
-		siteurl: "https://mizuki.mysqil.com",
-		tags: ["Blog", "Theme"],
+		title: "GoatShed",
+		imgurl:
+			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/Goatshed.webp",
+		desc: "while (活着) { 吃饭(); 上学(); 编程(); 睡觉(); }",
+		siteurl: "https://littlesheep.me/",
+		tags: ["Blog"],
 	},
 	{
 		id: 2,
-		title: "Astro",
-		imgurl: "https://avatars.githubusercontent.com/u/44914786?v=4&s=640",
-		desc: "The web framework for content-driven websites",
-		siteurl: "https://astro.build",
-		tags: ["Framework"],
+		title: "Texas0295's Blog",
+		imgurl:
+			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/texas0295.jpg?raw=true",
+		desc: "人生は意味無し",
+		siteurl: "https://texas0295.top/",
+		tags: ["Blog"],
 	},
 	{
 		id: 3,
-		title: "Material 3",
-		imgurl: "https://avatars.githubusercontent.com/u/19478152?v=4&s=640",
-		desc: "Material Design 3 — the next generation of Material Design",
-		siteurl: "https://m3.material.io",
-		tags: ["Design"],
+		title: "MKY-AN20's Home",
+		imgurl:
+			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/mky.png?raw=true",
+		desc: "MKY-AN20的主页",
+		siteurl: "https://3w.mky-an20.os.kg/",
+		tags: ["Blog"],
 	},
 ];
 
