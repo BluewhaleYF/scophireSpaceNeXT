@@ -147,11 +147,12 @@ $effect(() => {
             outline: 2px solid var(--primary)
             outline-offset: -2px
 
-    /* 选中/勾选态（M3 菜单规范）：.selected 单选高亮、.checked 勾选 */
+    /* 选中/勾选态（M3 MenuTokens.ListItemSelectedContainerColor = SecondaryContainer）：
+       .selected 单选高亮、.checked 勾选 */
     :global(.m3-menu-item.selected),
     :global(.m3-menu-item.checked)
-        background: var(--tertiary-container)
-        color: var(--on-tertiary-container)
+        background: var(--secondary-container)
+        color: var(--on-secondary-container)
 
     /* 勾选图标动画（官方 expandHorizontally + fadeIn）：调用方给 check 图标加该类 */
     :global(.m3-menu-item__check)
