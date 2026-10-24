@@ -94,7 +94,9 @@ $effect(() => {
     min-width: 7rem
     max-width: 17.5rem
     width: max-content
-    padding: var(--m3e-space-2) var(--m3e-space-1)
+    /* 四边统一 4px：让 16px 容器圆角与 12px 菜单项圆角保持同心
+       （16 - 4 = 12），首/末项的选中矩形不会在上下边缘露出错位缺口 */
+    padding: var(--m3e-space-1)
     border-radius: var(--shape-corner-l)
     /* StandardMenuTokens.ContainerColor = SurfaceContainerLow. */
     background: var(--surface-container-low)
