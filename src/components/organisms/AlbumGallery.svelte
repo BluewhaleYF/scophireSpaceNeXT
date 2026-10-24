@@ -65,31 +65,34 @@ function ratio(photo: AlbumPhoto): string {
 </script>
 
 {#if visiblePhotos.length > 0}
-			<div
-				class="album-gallery album-gallery--{layout}"
-				style={`--album-columns: ${columns}`}
-				role="list"
-				aria-label={i18n(I18nKey.imageViewer)}
-			>
+	<div
+		class="album-gallery album-gallery--{layout}"
+		style={`--album-columns: ${columns}`}
+		role="list"
+		aria-label={i18n(I18nKey.imageViewer)}
+	>
 		{#each visiblePhotos as photo, index (photo.id)}
-			<button
-				type="button"
+			<!-- role="list" 的必需子项：交互本身在 button 上，包裹层只承担列表语义 -->
+			<div class="album-gallery__cell" role="listitem">
+				<button
+					type="button"
 					class="album-gallery__item"
 					style={`--album-photo-ratio: ${ratio(photo)}`}
 					aria-label={`${i18n(I18nKey.openImage)} ${index + 1}: ${photo.alt}`}
-						onclick={(event) => openPhoto(event, photo)}
+					onclick={(event) => openPhoto(event, photo)}
 				>
 					<img
-					src={url(photo.thumbnail || photo.src)}
+						src={url(photo.thumbnail || photo.src)}
 						alt={photo.alt}
 						width={photo.width}
 						height={photo.height}
 						loading="lazy"
-					decoding="async"
-					referrerpolicy="no-referrer"
-					onload={(event) => rememberNaturalRatio(photo, event)}
+						decoding="async"
+						referrerpolicy="no-referrer"
+						onload={(event) => rememberNaturalRatio(photo, event)}
 					/>
 				</button>
+			</div>
 		{/each}
 	</div>
 {:else}
@@ -114,6 +117,10 @@ function ratio(photo: AlbumPhoto): string {
 		column-width: 240px
 		column-gap: var(--album-gap)
 		column-fill: balance
+
+	/* role="list" 的列表项容器：只承担语义与分列约束，不改变图表几何 */
+	&__cell
+		break-inside: avoid
 
 	&__item
 		position: relative
