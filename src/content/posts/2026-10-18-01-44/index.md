@@ -5,6 +5,7 @@ publishedAt: 2026-10-18T01:00:44+08:00
 description: 我作为社区成员和贡献者，对于羊稍早在开发群聊中关于修改 Solian 客户端登录方式的回应
 tags: [Solar Network, Community]
 category: 评论
+image: "cover.webp"
 lang: zh-CN
 draft: false
 ---

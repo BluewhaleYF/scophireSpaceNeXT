@@ -1,10 +1,10 @@
 ---
-title: "COSMIC 初体验：惊艳与遗憾并存"
+title: "浅谈 COSMIC 桌面体验"
 published: 2026-08-01
 publishedAt: 2026-08-01T01:32:00+08:00
 updated: 2026-10-24
-updatedAt: 2026-10-24T11:51:12+08:00
-description: "谈谈 COSMIC 桌面环境"
+updatedAt: 2026-10-24T20:53:44+08:00
+description: "被 COSMIC 的外观、Rust/Wayland 理念和双布局切换吸引后，我装上了它。"
 tags: [Linux, COSMIC, DE]
 category: 科技
 lang: zh-CN
@@ -20,7 +20,7 @@ lang: zh-CN
 
 - **前卫的理念**：COSMIC 的核心组件主要使用以内存安全和高性能著称的 Rust 编写，而不是传统的 C/C++；显示栈也完全围绕 Wayland 设计，从合成器到上层组件都尽量避开了传统 X11 桌面的历史包袱。
 
-- **完美的融合**：COSMIC 同时提供传统的堆叠式布局和自动平铺布局，让两种截然不同的工作方式在一个桌面环境中并存，只需切换开关就能快速切换。
+- **灵活的切换**：COSMIC 同时提供传统的堆叠式布局和自动平铺布局，让两种截然不同的工作方式在一个桌面环境中并存，只需切换开关就能快速切换。
 
 ![official image](https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Posts/6/COSMIC%20official%20demo.webp)
 
