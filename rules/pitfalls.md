@@ -214,6 +214,18 @@ svelte({
 
 ---
 
+### 3.4 新增页面标识符只加 `SidebarPage` 不够，`pages` 清单也要跟上
+
+**现象**：从侧栏点进 `/series/` 或 `/series/<slug>/` 后，左侧栏只剩作者卡片，分类 / 系列 / 标签 / 统计卡全部消失。
+
+**根因**：`SidebarPage` 早已包含 `"series"`，两个系列路由也都传了 `page="series"`，但 `src/config/sidebarConfig.ts` 里三个上下文 widget 的 `pages` 白名单是手工复制的枚举，没有 `"series"`。`isWidgetVisibleOnPage()` 对不在白名单里的页面一律返回 false，于是 SSR 与 Swup 导航后都是整块隐藏（`profile` 没配 `pages`，所以只剩它）。
+
+**解法**：把三个上下文 widget 的白名单收敛成一份 `CONTENT_WIDGET_PAGES`（统计卡为 `STATS_WIDGET_PAGES`），新增页面标识符只改一处；回归见 `tests/site/sidebar-page-filter.spec.ts`（直接加载 + Swup 导航两条路径，并保留「`toc` 仍只在 post 页出现」的反向断言）。
+
+**通用教训**：同一个枚举清单被复制到 N 处时，漏改是迟早的事；把它提成具名常量，让「新增一项」只有一处可改。
+
+---
+
 ## 4. 内容插件（rehype/remark）
 
 ### 4.1 rehype 插件改动不热更新（构建期缓存）

@@ -125,7 +125,7 @@ interface SidebarWidgetBase {
 - **数据源**：`src/utils/content-utils.ts` 的 `getSeriesCatalog()`（系列实体）+ `getSortedPostsList()`（统计每系列篇数与最近更新时间）；
 - **渲染**：`WidgetLayout` 外壳 + 复用数据驱动的 `CategoryList` 原子（名称 + 数量徽标），按最近更新降序；超出 `collapseAfter`（默认 5）时在卡片底部给出「查看全部系列」入口指向 `/series/`；
 - **开关**：受 `src/config/seriesConfig.ts` 的 `enable` 门控——关闭时连取数都跳过，且不产出任何 DOM；站点没有任何系列实体时同样不渲染（零额外负担）；
-- **页面范围**：默认条目 `pages` 覆盖常规内容页，不含 `"series"` 自身页面（避免系列页上重复列出系列）。
+- **页面范围**：默认条目 `pages` 覆盖常规内容页与系列页（`series` 索引与详情共用同一页面标识），系列页上侧栏仍保留分类 / 系列 / 标签三件套；索引页上系列列表与正文的重复是刻意取舍，换取侧栏内容在整站范围内稳定不闪空。
 
 ---
 

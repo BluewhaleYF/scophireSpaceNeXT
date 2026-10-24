@@ -19,8 +19,44 @@
  *
  * 类型定义见 src/types/sidebarConfig.ts。
  */
-import type { SidebarConfig } from "@/types/sidebarConfig";
+import type { SidebarConfig, SidebarPage } from "@/types/sidebarConfig";
 import { withUserConfig } from "../utils/config-overlay.ts";
+
+/**
+ * 上下文 widget（分类 / 系列 / 标签）的默认展示页面：内容页 + 聚合入口页。
+ * 三处 widget 共用同一份清单，新增页面标识符时只改这里一次；否则漏改其中
+ * 一处就会让整块侧栏在新页面类型上消失（`series` 页面曾经就是这样：
+ * `SidebarPage` 与页面 `page="series"` 都在，但三个 widget 的 pages 列表没跟上）。
+ *
+ * 刻意不含 `categories` / `tags` / `series` 三个索引页自身：索引页只保留统计卡，
+ * 避免同一类入口在当前页面重复出现。
+ */
+const CONTENT_WIDGET_PAGES: SidebarPage[] = [
+	"home",
+	"archive",
+	"friends",
+	"moments",
+	"anime",
+	"compass",
+	"skills",
+	"projects",
+	"devices",
+	"games",
+	"timeline",
+	"albums",
+	"about",
+	"post",
+	"series",
+];
+
+/** 统计卡只在聚合索引页出现（文章等内容页不显示） */
+const STATS_WIDGET_PAGES: SidebarPage[] = [
+	"home",
+	"archive",
+	"categories",
+	"tags",
+	"series",
+];
 
 export const sidebarConfig: SidebarConfig = withUserConfig("sidebar", {
 	enable: true,
@@ -35,73 +71,28 @@ export const sidebarConfig: SidebarConfig = withUserConfig("sidebar", {
 			enable: true,
 			slot: "sticky",
 			collapseAfter: 5,
-			pages: [
-				"home",
-				"archive",
-				"friends",
-				"moments",
-				"anime",
-				"compass",
-				"skills",
-				"projects",
-				"devices",
-				"games",
-				"timeline",
-				"albums",
-				"about",
-				"post",
-			],
+			pages: CONTENT_WIDGET_PAGES,
 		},
 		{
 			type: "series",
 			enable: true,
 			slot: "sticky",
 			collapseAfter: 5,
-			pages: [
-				"home",
-				"archive",
-				"friends",
-				"moments",
-				"anime",
-				"compass",
-				"skills",
-				"projects",
-				"devices",
-				"games",
-				"timeline",
-				"albums",
-				"about",
-				"post",
-			],
+			pages: CONTENT_WIDGET_PAGES,
 		},
 		{
 			type: "tags",
 			enable: true,
 			slot: "sticky",
 			collapseAfter: 6,
-			pages: [
-				"home",
-				"archive",
-				"friends",
-				"moments",
-				"anime",
-				"compass",
-				"skills",
-				"projects",
-				"devices",
-				"games",
-				"timeline",
-				"albums",
-				"about",
-				"post",
-			],
+			pages: CONTENT_WIDGET_PAGES,
 		},
 		{
 			type: "stats",
 			enable: true,
 			slot: "top",
 			column: "secondary",
-			pages: ["home", "archive", "categories", "tags"],
+			pages: STATS_WIDGET_PAGES,
 		},
 		{ type: "calendar", enable: true, slot: "top", column: "secondary" },
 		{

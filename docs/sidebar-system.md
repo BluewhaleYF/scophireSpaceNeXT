@@ -79,6 +79,11 @@ widget 的专属配置（如分类的折叠阈值 `collapseAfter`）只存在于
 | `"atom"` | Atom 订阅指南页（`atom.astro`） |
 | `"post"` | 文章详情页（`posts/[...slug].astro`、`[...permalink].astro`） |
 
+默认清单集中在 `src/config/sidebarConfig.ts`：分类 / 系列 / 标签三个 widget 共用
+`CONTENT_WIDGET_PAGES`（内容页 + 聚合入口页，含 `series`），统计卡用
+`STATS_WIDGET_PAGES`（仅索引页：`home` / `archive` / `categories` / `tags` / `series`）。
+新增页面标识符时改这一处即可，三个上下文 widget 自动跟随。
+
 **实现机制（含 Swup 站内导航）**：
 
 1. 每个页面通过 `MainGridLayout` 的 `page` prop 声明自身类型；
@@ -93,8 +98,11 @@ widget 的专属配置（如分类的折叠阈值 `collapseAfter`）只存在于
    reduced-motion 瞬切），实现走 `motion.ts` 的集合变更原语，
    见 `animation.md` §3。
 
-> 新增页面时务必在 `SidebarPage` 联合中加分支并传 `page` prop——漏传的页面
-> 上，带 `pages` 限制的 widget 一律不显示（宁可少显示，不显示到错误页面）。
+> 新增页面时务必三处同步：`SidebarPage` 联合分支、页面上的 `page` prop、
+> 以及 `src/config/sidebarConfig.ts` 的默认 `pages` 清单（`CONTENT_WIDGET_PAGES` /
+> `STATS_WIDGET_PAGES`）。只加类型不更新清单时，该页面上带 `pages` 限制的
+> widget 会全部隐藏——系列页曾因此让整个侧栏只剩作者卡片；直接加载与 Swup
+> 导航两条路径由 `tests/site/sidebar-page-filter.spec.ts` 锁定。
 
 ### 2.5 音乐 widget 的启用与加载
 
