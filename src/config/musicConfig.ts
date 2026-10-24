@@ -49,7 +49,9 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * ─────────────────────────────────────────────────────────────────────────────
  */
 export const musicConfig: MusicConfig = withUserConfig("music", {
-	enable: true,
+	// 暂时不显示侧栏播放器：曲目与 provider 配置全部保留，改回 true 即恢复。
+	// 关闭时零 DOM、零音频/封面请求，播放器代码也不进主 bundle。
+	enable: false,
 	provider: "mixed",
 	// tracks: [
 	// 	{

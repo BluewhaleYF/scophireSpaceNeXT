@@ -105,8 +105,8 @@ test.describe("music sidebar architecture", () => {
 		page,
 	}) => {
 		test.skip(
-			musicConfig.provider !== "mixed",
-			"Local configuration is not using the mixed provider",
+			!musicConfig.enable || musicConfig.provider !== "mixed",
+			"Music player is disabled or not using the mixed provider",
 		);
 		let metingRequests = 0;
 		await page.route("**/meting/**", async (route) => {
@@ -130,8 +130,9 @@ test.describe("music sidebar architecture", () => {
 		page,
 	}) => {
 		test.skip(
-			musicConfig.provider !== "local" && musicConfig.provider !== "mixed",
-			"Local configuration is not using local tracks",
+			!musicConfig.enable ||
+				(musicConfig.provider !== "local" && musicConfig.provider !== "mixed"),
+			"Music player is disabled or not using local tracks",
 		);
 
 		await page.goto("/");
