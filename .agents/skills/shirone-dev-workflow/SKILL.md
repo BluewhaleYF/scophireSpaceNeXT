@@ -45,7 +45,7 @@ Shirone 是 Astro 7 + Svelte 5 + Tailwind 4 + Stylus + pnpm 的 M3E 博客主题
 
 ## 提交约定
 
-- Conventional commits:`type(scope): subject`,`type` 取 `feat`/`fix`/`test`/`docs`/`refactor`/`chore`;body 用英语。
+- Conventional commits:`type(scope): subject`,`type` 取 `feat`/`fix`/`test`/`docs`/`refactor`/`chore`;subject 与 body 用中文(`type`/`scope` 保留英文)。
 - `git add -u` + 显式 `git add <新文件>`,**绝不 `git add -A`**(演示页、临时文件会被带进去);绝不提交 `*Demo.svelte`、`atoms-*-test.astro`。
 - 提交前先向用户确认,不擅自提交。
 - `research/` 目录已 gitignore、仅供参考,永不提交、不构建、不编辑。
