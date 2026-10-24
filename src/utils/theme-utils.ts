@@ -1,6 +1,7 @@
 import {
 	MC_SPECS,
 	MC_STYLES,
+	type McScheme,
 	type McSpec,
 	type McStyle,
 	resolveScheme,
@@ -94,6 +95,87 @@ export function setSpec(spec: McSpec): void {
 }
 
 /**
+ * Last resolved scheme per mode, so the inline `<head>` script can paint the
+ * visitor's own palette on the first frame — before the engine bundle (a
+ * deferred module script) has had a chance to run.
+ *
+ * Both the writer (`applyCurrentScheme`) and the reader (inline script in
+ * `Layout.astro`) compare the `hue`/`style`/`spec` triple, so a stale entry is
+ * simply ignored instead of being trusted.
+ */
+const SCHEME_CACHE_KEY = "mc-scheme-cache";
+
+interface SchemeCacheEntry {
+	hue: number;
+	style: McStyle;
+	spec: McSpec;
+	light?: Record<string, string>;
+	dark?: Record<string, string>;
+}
+
+/** CSS custom-property map for one mode, keyed by `--mc-<role>`. */
+function schemeCssRoles(scheme: McScheme): Record<string, string> {
+	const roles: Record<string, string> = {};
+	for (const [role, cssVar] of Object.entries(ROLE_TO_CSS)) {
+		const value = scheme[role];
+		if (value) roles[cssVar] = value;
+	}
+	return roles;
+}
+
+/**
+ * Render the dynamic scheme as an inline `<head>` stylesheet so the very first
+ * paint already uses the configured theme colors. The engine itself only runs
+ * from a deferred module script, so without this the sidebar badges and every
+ * other `--secondary-container` / `--tertiary-*` surface briefly fall back to
+ * the oklch approximations in `variables.styl` (whose hue offsets do not match
+ * the Material palettes).
+ */
+export function createSchemeStyle(
+	hue: number,
+	style: McStyle,
+	spec: McSpec,
+): string {
+	const block = (isDark: boolean, selector: string): string => {
+		const declarations = Object.entries(
+			schemeCssRoles(resolveScheme(hue, isDark, style, spec)),
+		)
+			.map(([cssVar, value]) => `\t${cssVar}: ${value};`)
+			.join("\n");
+		return `${selector} {\n${declarations}\n}`;
+	};
+	return `${block(false, ":root")}\n${block(true, ":root.dark")}`;
+}
+
+/** Persist the just-applied scheme for the inline `<head>` reader. */
+function cacheScheme(
+	hue: number,
+	isDark: boolean,
+	style: McStyle,
+	spec: McSpec,
+	scheme: McScheme,
+): void {
+	try {
+		const stored = localStorage.getItem(SCHEME_CACHE_KEY);
+		const parsed = (
+			stored ? JSON.parse(stored) : null
+		) as SchemeCacheEntry | null;
+		const cache: SchemeCacheEntry =
+			parsed &&
+			parsed.hue === hue &&
+			parsed.style === style &&
+			parsed.spec === spec
+				? parsed
+				: { hue, style, spec };
+		cache[isDark ? "dark" : "light"] = schemeCssRoles(scheme);
+		localStorage.setItem(SCHEME_CACHE_KEY, JSON.stringify(cache));
+	} catch {
+		// Storage disabled or full: first-paint colors fall back to the inline
+		// default scheme, which is still correct unless the visitor customized.
+	}
+}
+
+/**
  * Recompute and apply the dynamic M3/M3E scheme for the current hue, style,
  * spec and light/dark mode, writing concrete hex values onto CSS custom
  * properties on `:root`.
@@ -119,4 +201,6 @@ export function applyCurrentScheme(): void {
 			root.style.removeProperty(cssVar);
 		}
 	}
+
+	cacheScheme(hue, isDark, style, spec, scheme);
 }

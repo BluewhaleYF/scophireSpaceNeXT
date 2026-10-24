@@ -4,9 +4,13 @@ import Snackbar from "@components/atoms/overlay/Snackbar.svelte";
 import ConfigCarrier from "@components/system/ConfigCarrier.astro";
 import UmamiRuntime from "@components/system/UmamiRuntime.astro";
 import { resolveAsset } from "@utils/asset-utils";
+import type { McSpec, McStyle } from "@utils/mc-utils";
+import { createSchemeStyle } from "@utils/theme-utils";
 import { pathsEqual, toAbsoluteUrl, url } from "@utils/url-utils";
 import {
 	expressiveCodeConfig,
+	getDefaultSpec,
+	getDefaultStyle,
 	profileConfig,
 	resolvedFontOptions,
 	resolveTextureOptions,
@@ -81,6 +85,17 @@ const resolvedOgImage = await resolveAsset(candidateOgImage);
 const absoluteOgImage = toAbsoluteUrl(resolvedOgImage, canonicalUrl);
 
 const configHue = siteConfig.themeColor.hue;
+// 首屏配色：构建期算出站点默认方案的 `--mc-*`，内联进 <head>。
+// 引擎本身只在延迟加载的模块脚本里运行，慢网络下侧栏徽标等
+// `--secondary-container` 表面会先露出 variables.styl 的 oklch 回退色
+// （其色相偏移与 Material 调色板不一致），内联方案让首帧就是主题色。
+const defaultStyle = getDefaultStyle() as McStyle;
+const defaultSpec = getDefaultSpec() as McSpec;
+const themeSchemeStyle = createSchemeStyle(
+	configHue,
+	defaultStyle,
+	defaultSpec,
+);
 const lightTheme =
 	expressiveCodeConfig.lightTheme ?? expressiveCodeConfig.theme;
 const darkTheme = expressiveCodeConfig.darkTheme ?? expressiveCodeConfig.theme;
@@ -143,6 +158,7 @@ const configuredFontRoles = getConfiguredFontRoles(resolvedFontOptions);
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		{fontRoleStyle && <style is:inline set:html={fontRoleStyle}></style>}
+		<style is:inline set:html={themeSchemeStyle}></style>
 		{textureEnabled && <style is:inline set:html={textureStyles}></style>}
 		{configuredFontRoles.map((role) => (
 			<Font
@@ -161,7 +177,7 @@ const configuredFontRoles = getConfiguredFontRoles(resolvedFontOptions);
 			/>
 		))}
 
-		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, configHue, lightTheme, darkTheme, defaultWallpaperMode, defaultTexturePreset, defaultTextureOpacity, textureEnabled}}>
+		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, configHue, configStyle: defaultStyle, configSpec: defaultSpec, lightTheme, darkTheme, defaultWallpaperMode, defaultTexturePreset, defaultTextureOpacity, textureEnabled}}>
 			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
 			let isDark = false;
 			switch (theme) {
@@ -184,6 +200,24 @@ const configuredFontRoles = getConfiguredFontRoles(resolvedFontOptions);
 			document.documentElement.setAttribute('data-theme', isDark ? darkTheme : lightTheme);
 			const hue = localStorage.getItem('hue') || configHue;
 			document.documentElement.style.setProperty('--hue', hue);
+			// 访客自定义配色：色相/风格/规范改过时，用上次引擎算出的方案先写进
+			// :root，键不匹配（或没有缓存）就沿用 <head> 内联的站点默认方案，
+			// 首帧不会露出 variables.styl 的 oklch 回退色。
+			try {
+				const cached = JSON.parse(localStorage.getItem('mc-scheme-cache') || 'null');
+				const schemeStyle = localStorage.getItem('mc-style') || configStyle;
+				const schemeSpec = localStorage.getItem('mc-spec') || configSpec;
+				const matches = cached
+					&& cached.hue === Number(hue)
+					&& cached.style === schemeStyle
+					&& cached.spec === schemeSpec;
+				const roles = matches ? cached[isDark ? 'dark' : 'light'] : null;
+				if (roles) {
+					for (const name of Object.keys(roles)) {
+						document.documentElement.style.setProperty(name, roles[name]);
+					}
+				}
+			} catch {}
 			if (localStorage.getItem('mc-motion') === 'reduced') {
 				document.documentElement.classList.add('motion-reduced');
 			}

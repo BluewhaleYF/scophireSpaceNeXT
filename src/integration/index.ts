@@ -57,6 +57,18 @@ export type {
 const RESOLVED_MUSIC_VIRTUAL_ID = `\0${MUSIC_SIDEBAR_VIRTUAL_ID}`;
 
 /**
+ * Packages that must be bundled into the SSR/prerender graph instead of being
+ * externalized. `@material/material-color-utilities` ships extensionless
+ * relative ESM imports (`./dynamiccolor/dynamic_color`), which Node's ESM
+ * loader refuses to resolve. `Layout.astro` imports the engine from server code
+ * (`createSchemeStyle`) to inline the first-paint color scheme, so Vite has to
+ * resolve it itself in every server environment: dev SSR works with the
+ * top-level `ssr` setting, while the Astro 7 build renders pages in the
+ * dedicated `prerender` (and, with an adapter, `ssr`) environment.
+ */
+const SSR_BUNDLED_PACKAGES: string[] = ["@material/material-color-utilities"];
+
+/**
  * Vite aliases mapping the theme's TypeScript path aliases onto the installed
  * package. Without these, every `@/...` import inside the injected pages would
  * resolve against the *user's* `src/`, which does not contain the theme.
@@ -371,6 +383,14 @@ export function shirones(options: ShironesOptions = {}): AstroIntegration {
 					markdown: { processor: processor as never },
 					vite: {
 						resolve: { alias: createAliases(paths) },
+						// The HCT engine is imported from server code (first-paint scheme);
+						// see SSR_BUNDLED_PACKAGES above. `environments.*` is what the Astro 7
+						// build reads per environment, `ssr` keeps the dev SSR server in line.
+						ssr: { noExternal: SSR_BUNDLED_PACKAGES },
+						environments: {
+							ssr: { resolve: { noExternal: SSR_BUNDLED_PACKAGES } },
+							prerender: { resolve: { noExternal: SSR_BUNDLED_PACKAGES } },
+						},
 						plugins: [
 							// The overlay rewriter redirects user files onto package
 							// files; inside the theme's own repository every import already

@@ -26,7 +26,8 @@ mc-utils.ts  HCT 引擎（material-color-utilities）
    │  resolveScheme(hue, isDark, style, spec) → 56 个角色 hex
    ▼
 theme-utils.ts  写入 :root 的 --mc-* 自定义属性（localStorage 持久化）
-   │
+   │  ├─ 构建期：createSchemeStyle() → Layout.astro 内联进 <head>（:root / :root.dark）
+   │  └─ 运行时：applyCurrentScheme() 重写 :root，并缓存到 mc-scheme-cache
    ▼
 variables.styl  --mc-* → 语义令牌（--primary、--surface-container-low…），带 oklch 回退
    │
@@ -47,6 +48,13 @@ variables.styl  --mc-* → 语义令牌（--primary、--surface-container-low…
 
 引擎解析全部 M3/M3E 角色为 `--mc-<role>`（约 56 个，见 `theme-utils.ts` 的 `ROLE_TO_CSS`）。
 `variables.styl` 将常用角色映射为语义别名（`var(--mc-<role>, <oklch 回退>)`，明暗各一份）：
+
+**首屏配色（不依赖 JS）**：`--mc-*` 由两条同步路径在引擎执行前提供，`Layout.astro` 负责接线：
+
+1. 构建期：`createSchemeStyle(hue, style, spec)` 按站点默认配置算出明暗两份方案，作为 `<style is:inline>` 内联进 `<head>`（`:root` / `:root.dark`）。即使完全禁用 JS，站点配色也是主题色。
+2. 运行时（访客改过色相/风格/规范）：`applyCurrentScheme()` 把当前方案按 `{hue, style, spec, light|dark}` 写入 `localStorage` 的 `mc-scheme-cache`；`<head>` 内联脚本用同一组键匹配后，在首帧前把角色值写进 `:root` 内联样式，引擎随后接管并刷新缓存。
+
+因此 `variables.styl` 的 oklch 回退只在「缓存键不匹配且明暗未知」等边缘情况下出现；回归见 `tests/site/theme-first-paint.spec.ts`。注意引擎作为 SSR 依赖被 Vite 打包（`src/integration/index.ts` 的 `SSR_BUNDLED_PACKAGES`：`ssr.noExternal` + `environments.{ssr,prerender}.resolve.noExternal`），因为该库的 ESM 内部导入没有扩展名，Node 无法直接加载。
 
 | 族 | 令牌 |
 |---|---|
@@ -309,7 +317,7 @@ variables.styl  --mc-* → 语义令牌（--primary、--surface-container-low…
 | 文件 | 职责 |
 |---|---|
 | `src/utils/mc-utils.ts` | HCT 引擎：9 风格 × 2 规范 × 56 角色 → hex |
-| `src/utils/theme-utils.ts` | 角色 → `--mc-*` 映射、localStorage（`mc-style`/`mc-spec`）、`applyCurrentScheme` |
+| `src/utils/theme-utils.ts` | 角色 → `--mc-*` 映射、localStorage（`mc-style`/`mc-spec`）、`applyCurrentScheme`、构建期内联方案 `createSchemeStyle` + `mc-scheme-cache` 首帧缓存 |
 | `src/utils/setting-utils.ts` | 色相 / 明暗 / Expressive Code 主题联动 |
 | `src/utils/snackbar.ts` | Snackbar 事件总线 |
 | `src/utils/menu-bus.ts` | 菜单互斥事件总线（Menu/FABMenu 单开联动，`exclusive` 参数） |
