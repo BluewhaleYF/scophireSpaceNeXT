@@ -25,6 +25,6 @@ For remote media, set `mode` to `external` and provide `cover` plus a `photos` a
 
 Protected albums use the same `layout` and `columns` contract as regular albums. Set `layout` to `masonry` when the album should use the left-to-right masonry gallery; unlocking must not require a separate layout configuration.
 
-The included examples demonstrate local, external, hidden, and protected modes. The sample images are copied from the research fixture for development and are not claimed as generally redistributable media.
+The example that ships with this site is the external mode album (`ExternalExample/`). Local, hidden and protected modes documented above are supported when you add your own album directory.
 
 After changing an album's `info.json` or image files, run `npx.cmd playwright test tests/site/albums.spec.ts` from the project root.

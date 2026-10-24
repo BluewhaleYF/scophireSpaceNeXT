@@ -1,9 +1,24 @@
+import { existsSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 
+/**
+ * 相册目录属于站点内容数据，可以只保留其中一部分。用例按目录是否存在决定
+ * 是否执行，避免删掉示例相册后把整套回归变成 404 失败。
+ */
+const ALBUMS_DIR = new URL("../../public/images/albums/", import.meta.url);
+const albumExists = (id: string) =>
+	existsSync(new URL(`${id}/info.json`, ALBUMS_DIR));
+
 test.describe("相册页响应式滚动", () => {
+	// 滚动回归需要「本地多图相册」：masonry 布局给图片设了 aspect-ratio: auto，
+	// 高度随图片加载到位；外部图源在慢网络下会先保持 0 高，不适合做滚动基线。
+	const LOCAL_ALBUM = "AcgExample";
+
 	test("从手机视口切换到桌面视口后仍可滚动", async ({ page }) => {
+		test.skip(!albumExists(LOCAL_ALBUM), `站点未包含 albums/${LOCAL_ALBUM}`);
+
 		await page.setViewportSize({ width: 390, height: 844 });
-		await page.goto("/albums/AcgExample/", { waitUntil: "networkidle" });
+		await page.goto(`/albums/${LOCAL_ALBUM}/`, { waitUntil: "networkidle" });
 		await expect(page.locator(".album-gallery__item").first()).toBeVisible();
 
 		await page.setViewportSize({ width: 1440, height: 900 });
@@ -29,9 +44,40 @@ test.describe("相册页响应式滚动", () => {
 	});
 });
 
+test.describe("外部图源相册", () => {
+	test("索引与详情按 info.json 渲染", async ({ page }) => {
+		test.skip(
+			!albumExists("ExternalExample"),
+			"站点未包含 albums/ExternalExample",
+		);
+
+		await page.goto("/albums/", { waitUntil: "domcontentloaded" });
+		await expect(
+			page.locator('a[href="/albums/ExternalExample/"]').first(),
+		).toBeVisible();
+
+		await page.goto("/albums/ExternalExample/", {
+			waitUntil: "domcontentloaded",
+		});
+		// 外部照片立即以 DOM 形式就位（高度等远程图片加载后再撑开）
+		await expect(page.locator(".album-gallery__item")).toHaveCount(2);
+		await expect(page.locator(".album-gallery")).toHaveClass(
+			/album-gallery--masonry/,
+		);
+		await expect(page.locator(".album-gallery__item").first()).toHaveAttribute(
+			"aria-label",
+			/A remote (portrait|landscape) photograph/,
+		);
+	});
+});
+
 test.describe("受保护相册", () => {
 	test("提供完整的密码输入与解锁反馈", async ({ page }) => {
-		await page.goto("/albums/EncryptedExample/", { waitUntil: "networkidle" });
+		test.skip(!albumExists("EncryptedExample"), "站点未包含受保护相册示例");
+
+		await page.goto("/albums/EncryptedExample/", {
+			waitUntil: "domcontentloaded",
+		});
 
 		const input = page.getByRole("textbox", { name: "Password" });
 		const submit = page.getByRole("button", { name: "Unlock album" });

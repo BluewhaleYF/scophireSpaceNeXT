@@ -25,7 +25,7 @@ const pages = [
 	{ name: "设备展示", path: "/devices/" },
 	{ name: "游戏", path: "/games/" },
 	{ name: "时间线", path: "/timeline/" },
-	{ name: "受保护相册", path: "/albums/EncryptedExample/" },
+	{ name: "相册详情", path: "/albums/ExternalExample/" },
 	{ name: "关于", path: "/about/" },
 	{ name: "文章页", path: "/posts/guide/" },
 	{ name: "MDX文章页", path: "/posts/mdx-showcase/" },

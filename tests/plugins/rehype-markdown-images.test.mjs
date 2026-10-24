@@ -21,7 +21,8 @@ async function render(markdown) {
 	return code;
 }
 
-const IMAGE = "/images/albums/AcgExample/01.webp";
+// 用主题自带的默认 favicon 作为可读的本地图片夹具（相册示例可能被站点删除）
+const IMAGE = "/favicon/favicon-light-192.png";
 
 test("parses the w-N% width token out of alt text", () => {
 	assert.deepEqual(parseMarkdownImageAlt("A demo image w-50%"), {
