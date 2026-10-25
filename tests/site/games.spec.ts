@@ -36,7 +36,7 @@ test.describe("游戏展示页", () => {
 		);
 		await expect(minecraft).not.toHaveClass(/game-card--featured/);
 		await expect(
-			minecraft.getByRole("link", { name: "Store page" }),
+			minecraft.getByRole("link", { name: "Learn more" }),
 		).toHaveAttribute("href", "https://www.minecraft.net/");
 
 		// 精选卡：徽标与横屏封面主视觉
