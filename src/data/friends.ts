@@ -43,6 +43,15 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://3w.mky-an20.os.kg/",
 		tags: ["Blog"],
 	},
+	{
+		id: 4,
+		title: "涵哲子居",
+		imgurl:
+			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/iluc.webp",
+		desc: "天哲地理，共公卿好",
+		siteurl: "https://iluc.cn",
+		tags: ["Blog"],
+	},
 ];
 
 // 获取所有友情链接数据（稳定顺序，测试可复现）
