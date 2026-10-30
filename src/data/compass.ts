@@ -89,8 +89,14 @@ export const compassData: CompassShelf[] = [
 			{
 				label: "Wayback Machine",
 				href: "https://web.archive.org/",
-				note: "互联网的时光机，替消失的网页留一盏灯。",
+				note: "互联网时光机",
 				image: "assets/compass/wayback-machine.webp",
+			},
+			{
+				label: "Arch Linux 中文维基",
+				href: "https://wiki.archlinuxcn.org/",
+				note: "由社区驱动的中文 Arch Linux 知识库",
+				image: "assets/compass/archlinuxcn.webp",
 			},
 		],
 	},
