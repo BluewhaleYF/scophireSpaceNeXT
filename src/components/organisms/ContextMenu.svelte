@@ -229,10 +229,9 @@ $effect(() => {
 	pointer-events: auto
 	min-width: 12rem
 	max-width: 17rem
-	background: var(--surface-container-low)
-	padding: 0.5rem 0.25rem
-	border-radius: var(--shape-corner-l)
-	box-shadow: var(--m3e-elevation-2)
+	/* 容器背景 / 圆角 / 阴影 / 四边内边距全部继承 Menu 原子：
+	   4px 内边距让 16px 容器圆角与 12px 菜单项圆角同心（7bd17b1），
+	   这里不再覆盖，避免两处样式漂移。 */
 
 .context-menu-layer :global(.context-menu .m3-menu-item)
 	min-height: 3rem

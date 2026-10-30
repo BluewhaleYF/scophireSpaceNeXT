@@ -100,11 +100,14 @@ test.describe("desktop context menu", () => {
 				containerRadius: container
 					? getComputedStyle(container).borderRadius
 					: "",
+				containerPadding: container ? getComputedStyle(container).padding : "",
 				itemRadius: firstItem ? getComputedStyle(firstItem).borderRadius : "",
 				itemOutline: firstItem ? getComputedStyle(firstItem).outlineStyle : "",
 			};
 		});
 		expect(visual.containerRadius).toBe("16px");
+		// 4px 四边内边距：16px 容器圆角与 12px 菜单项圆角保持同心
+		expect(visual.containerPadding).toBe("4px");
 		expect(visual.itemRadius).toBe("12px");
 		expect(visual.itemOutline).toBe("none");
 		await expect(
