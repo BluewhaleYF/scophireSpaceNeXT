@@ -18,6 +18,12 @@ description: Managing Shirone data-backed pages and albums - adding or editing a
 2. 只修改内容实体；筛选、排序、页面开关使用对应 `src/config/*Config.ts` 的 `categories`、`disabledKeys`、`order` 和 `enable`。
 3. 新增条目后运行 `npx.cmd astro check`、`pnpm.cmd check:manifest`，并执行对应页面测试，例如 `tests/site/friends.spec.ts`、`tests/site/anime.spec.ts`、`tests/site/projects.spec.ts`、`tests/site/devices.spec.ts`、`tests/site/games.spec.ts`、`tests/site/timeline.spec.ts`。
 
+## 友链数据
+
+- 条目在 `src/data/friends.ts`；页面开关与申请卡片在 `src/config/friendsConfig.ts`。
+- `imgurl` 支持 `src/assets` 相对路径、`/public` 绝对路径与远程 URL。本地头像统一放在 `src/assets/friends/`，192×192 WebP（显示 40px，留 4x 余量），构建期由 `resolveAsset()` 输出带哈希地址。
+- 新增友链时把原图裁成正方形再压缩，不要把大图直接放进仓库；远程头像保持 `https://` 写法即可。
+
 ## 相册工作流
 
 每个相册是 `public/images/albums/<id>/` 目录：

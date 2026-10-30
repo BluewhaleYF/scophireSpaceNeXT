@@ -6,6 +6,12 @@
  * tags 会聚合为页面顶部的筛选 chip（OR 命中：选中多个标签时命中任一即显示）。
  * 列表下方的「申请友链」卡片（本站信息模板 / 收件邮箱 / 开关）由
  * src/config/friendsConfig.ts 的 apply 配置控制。
+ *
+ * imgurl 支持三种写法（与 games.ts 一致）：
+ * - src/assets 相对路径（如本文件所用，构建期由 Astro 输出带哈希的静态地址）；
+ * - /public 绝对路径（如 "/images/friends/x.webp"，原样输出）；
+ * - 远程 URL（https://…，原样输出）。
+ * 本地头像统一存放在 src/assets/friends/，192×192 WebP，显示尺寸 40px（4x 余量）。
  */
 export interface FriendItem {
 	id: number;
@@ -21,8 +27,7 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 1,
 		title: "GoatShed",
-		imgurl:
-			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/Goatshed.webp",
+		imgurl: "assets/friends/goatshed.webp",
 		desc: "while (活着) { 吃饭(); 上学(); 编程(); 睡觉(); }",
 		siteurl: "https://littlesheep.me/",
 		tags: ["Friend", "Blog"],
@@ -30,8 +35,7 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 2,
 		title: "Chaos的小站",
-		imgurl:
-			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/Chaos.webp",
+		imgurl: "assets/friends/chaos.webp",
 		desc: "调制饮料，改变人生。正在尝试写点有用的",
 		siteurl: "https://www.nachaos.xyz/",
 		tags: ["Friend", "Blog"],
@@ -39,8 +43,7 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 3,
 		title: "涵哲子居",
-		imgurl:
-			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/iluc.webp",
+		imgurl: "assets/friends/iluc.webp",
 		desc: "天哲地理，共公卿好",
 		siteurl: "https://iluc.cn",
 		tags: ["Friend", "Blog"],
@@ -48,8 +51,7 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 4,
 		title: "Texas0295's Blog",
-		imgurl:
-			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/texas0295.jpg?raw=true",
+		imgurl: "assets/friends/texas0295.webp",
 		desc: "人生は意味無し",
 		siteurl: "https://texas0295.top/",
 		tags: ["Friend", "Blog"],
@@ -57,8 +59,7 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 5,
 		title: "MKY-AN20's Home",
-		imgurl:
-			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/mky.png?raw=true",
+		imgurl: "assets/friends/mky-an20.webp",
 		desc: "MKY-AN20的主页",
 		siteurl: "https://3w.mky-an20.os.kg/",
 		tags: ["Friend", "Blog"],

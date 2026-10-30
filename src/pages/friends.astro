@@ -3,6 +3,7 @@ import FriendApplyCard from "@components/molecules/FriendApplyCard.svelte";
 import FriendSection from "@components/organisms/FriendSection.svelte";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { resolveAsset } from "@utils/asset-utils";
 import { resolveFriendApply } from "@utils/friend-apply";
 import { resolveI18nText } from "@utils/i18n-utils";
 import { friendsConfig } from "@/config/friendsConfig";
@@ -19,10 +20,18 @@ const pageDescription = resolveI18nText(
 );
 // 申请卡片：关闭时返回 null，不输出任何 DOM 与客户端脚本
 const friendApply = resolveFriendApply();
+// 构建期解析头像：src/assets 相对路径输出带哈希的静态地址；
+// /public 绝对路径与远程 URL 原样返回（与 games 页同一套规则）。
+const friends = await Promise.all(
+	getFriendsList().map(async (friend) => ({
+		...friend,
+		imgurl: await resolveAsset(friend.imgurl),
+	})),
+);
 ---
 
 <MainGridLayout title={pageTitle} description={pageDescription} page="friends">
-    <FriendSection friends={getFriendsList()} title={pageTitle} subtitle={pageDescription} client:visible></FriendSection>
+    <FriendSection friends={friends} title={pageTitle} subtitle={pageDescription} client:visible></FriendSection>
     {friendApply && (
         <FriendApplyCard
             snippet={friendApply.snippet}
