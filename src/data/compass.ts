@@ -45,13 +45,13 @@ export const compassData: CompassShelf[] = [
 			{
 				label: "Solsynth",
 				href: "https://solsynth.dev/",
-				note: "来自太阳系，向着全宇宙。",
+				note: "来自太阳系，向着全宇宙",
 				image: "assets/compass/solsynth.webp",
 			},
 			{
 				label: "羝 ICP 备案",
 				href: "https://solsynth.dev/zh/products/roy-filling",
-				note: "经中华羊国网络信息办公室授权的认证网站目录",
+				note: "中华羊国网络信息办公室备案",
 				image: "assets/compass/roy-icp.webp",
 			},
 		],
@@ -64,7 +64,7 @@ export const compassData: CompassShelf[] = [
 			{
 				label: "Solian",
 				href: "https://web.solian.app/",
-				note: "一个宁静的社交网络，让表达自我、结识他人变得简单",
+				note: "一个宁静的社交网络",
 				image: "assets/compass/solian.webp",
 			},
 			{
