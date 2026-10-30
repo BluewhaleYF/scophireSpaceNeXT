@@ -6,7 +6,7 @@ import {
 	type McStyle,
 	resolveScheme,
 } from "@utils/mc-utils";
-import { getDefaultSpec, getDefaultStyle } from "@/config";
+import { getDefaultSpec, getDefaultStyle, siteConfig } from "@/config";
 
 const STYLE_KEY = "mc-style";
 const SPEC_KEY = "mc-spec";
@@ -101,7 +101,8 @@ export function setSpec(spec: McSpec): void {
  *
  * Both the writer (`applyCurrentScheme`) and the reader (inline script in
  * `Layout.astro`) compare the `hue`/`style`/`spec` triple, so a stale entry is
- * simply ignored instead of being trusted.
+ * simply ignored instead of being trusted. The site-default triple is never
+ * applied from the cache: it is already inlined as static CSS.
  */
 const SCHEME_CACHE_KEY = "mc-scheme-cache";
 
@@ -121,30 +122,6 @@ function schemeCssRoles(scheme: McScheme): Record<string, string> {
 		if (value) roles[cssVar] = value;
 	}
 	return roles;
-}
-
-/**
- * Render the dynamic scheme as an inline `<head>` stylesheet so the very first
- * paint already uses the configured theme colors. The engine itself only runs
- * from a deferred module script, so without this the sidebar badges and every
- * other `--secondary-container` / `--tertiary-*` surface briefly fall back to
- * the oklch approximations in `variables.styl` (whose hue offsets do not match
- * the Material palettes).
- */
-export function createSchemeStyle(
-	hue: number,
-	style: McStyle,
-	spec: McSpec,
-): string {
-	const block = (isDark: boolean, selector: string): string => {
-		const declarations = Object.entries(
-			schemeCssRoles(resolveScheme(hue, isDark, style, spec)),
-		)
-			.map(([cssVar, value]) => `\t${cssVar}: ${value};`)
-			.join("\n");
-		return `${selector} {\n${declarations}\n}`;
-	};
-	return `${block(false, ":root")}\n${block(true, ":root.dark")}`;
 }
 
 /** Persist the just-applied scheme for the inline `<head>` reader. */
@@ -176,9 +153,29 @@ function cacheScheme(
 }
 
 /**
+ * Serialize the site-default light and dark schemes as static CSS so the first
+ * paint already carries them and visitors on the defaults never run the engine.
+ */
+export function createDefaultSchemeStyle(): string {
+	const { hue, style, spec } = siteConfig.themeColor;
+	const block = (isDark: boolean) => {
+		const scheme = resolveScheme(hue, isDark, style as McStyle, spec as McSpec);
+		return Object.entries(ROLE_TO_CSS)
+			.filter(([role]) => scheme[role])
+			.map(([role, cssVar]) => `${cssVar}:${scheme[role]}`)
+			.join(";");
+	};
+	return `:root{${block(false)}}:root.dark{${block(true)}}`;
+}
+
+let appliedSchemeKey = "";
+
+/**
  * Recompute and apply the dynamic M3/M3E scheme for the current hue, style,
  * spec and light/dark mode, writing concrete hex values onto CSS custom
- * properties on `:root`.
+ * properties on `:root`. The site-default scheme is shipped as static CSS by
+ * `createDefaultSchemeStyle()`, so for it the inline overrides are cleared
+ * instead; unchanged inputs are skipped to avoid redundant style recalcs.
  */
 export function applyCurrentScheme(): void {
 	const root = document.querySelector(":root") as HTMLElement | null;
@@ -191,7 +188,17 @@ export function applyCurrentScheme(): void {
 	const isDark = root.classList.contains("dark");
 	const style = getStyle();
 	const spec = getSpec();
-	const scheme = resolveScheme(hue, isDark, style, spec);
+	const key = `${hue}|${isDark}|${style}|${spec}`;
+	if (key === appliedSchemeKey) return;
+	appliedSchemeKey = key;
+
+	const isDefault =
+		hue === siteConfig.themeColor.hue &&
+		style === getDefaultStyle() &&
+		spec === getDefaultSpec();
+	const scheme: McScheme = isDefault
+		? {}
+		: resolveScheme(hue, isDark, style, spec);
 
 	for (const [role, cssVar] of Object.entries(ROLE_TO_CSS)) {
 		const value = scheme[role];

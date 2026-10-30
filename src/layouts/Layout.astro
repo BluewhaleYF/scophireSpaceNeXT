@@ -5,7 +5,7 @@ import ConfigCarrier from "@components/system/ConfigCarrier.astro";
 import UmamiRuntime from "@components/system/UmamiRuntime.astro";
 import { resolveAsset } from "@utils/asset-utils";
 import type { McSpec, McStyle } from "@utils/mc-utils";
-import { createSchemeStyle } from "@utils/theme-utils";
+import { createDefaultSchemeStyle } from "@utils/theme-utils";
 import { pathsEqual, toAbsoluteUrl, url } from "@utils/url-utils";
 import {
 	expressiveCodeConfig,
@@ -85,17 +85,9 @@ const resolvedOgImage = await resolveAsset(candidateOgImage);
 const absoluteOgImage = toAbsoluteUrl(resolvedOgImage, canonicalUrl);
 
 const configHue = siteConfig.themeColor.hue;
-// 首屏配色：构建期算出站点默认方案的 `--mc-*`，内联进 <head>。
-// 引擎本身只在延迟加载的模块脚本里运行，慢网络下侧栏徽标等
-// `--secondary-container` 表面会先露出 variables.styl 的 oklch 回退色
-// （其色相偏移与 Material 调色板不一致），内联方案让首帧就是主题色。
 const defaultStyle = getDefaultStyle() as McStyle;
 const defaultSpec = getDefaultSpec() as McSpec;
-const themeSchemeStyle = createSchemeStyle(
-	configHue,
-	defaultStyle,
-	defaultSpec,
-);
+
 const lightTheme =
 	expressiveCodeConfig.lightTheme ?? expressiveCodeConfig.theme;
 const darkTheme = expressiveCodeConfig.darkTheme ?? expressiveCodeConfig.theme;
@@ -125,6 +117,7 @@ if (!lang) {
 const siteLang = lang.replace("_", "-");
 const fontRoleStyle = createFontRoleStyle(resolvedFontOptions);
 const configuredFontRoles = getConfiguredFontRoles(resolvedFontOptions);
+const defaultSchemeStyle = createDefaultSchemeStyle();
 ---
 
 <!DOCTYPE html>
@@ -157,8 +150,8 @@ const configuredFontRoles = getConfiguredFontRoles(resolvedFontOptions);
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<style is:inline set:html={defaultSchemeStyle}></style>
 		{fontRoleStyle && <style is:inline set:html={fontRoleStyle}></style>}
-		<style is:inline set:html={themeSchemeStyle}></style>
 		{textureEnabled && <style is:inline set:html={textureStyles}></style>}
 		{configuredFontRoles.map((role) => (
 			<Font
@@ -201,13 +194,17 @@ const configuredFontRoles = getConfiguredFontRoles(resolvedFontOptions);
 			const hue = localStorage.getItem('hue') || configHue;
 			document.documentElement.style.setProperty('--hue', hue);
 			// 访客自定义配色：色相/风格/规范改过时，用上次引擎算出的方案先写进
-			// :root，键不匹配（或没有缓存）就沿用 <head> 内联的站点默认方案，
-			// 首帧不会露出 variables.styl 的 oklch 回退色。
+			// :root，首帧不会露出 variables.styl 的 oklch 回退色。站点默认配色
+			// 已由 <head> 的静态方案覆盖，因此默认三元组直接跳过缓存。
 			try {
 				const cached = JSON.parse(localStorage.getItem('mc-scheme-cache') || 'null');
 				const schemeStyle = localStorage.getItem('mc-style') || configStyle;
 				const schemeSpec = localStorage.getItem('mc-spec') || configSpec;
-				const matches = cached
+				const isDefaultScheme = Number(hue) === configHue
+					&& schemeStyle === configStyle
+					&& schemeSpec === configSpec;
+				const matches = !isDefaultScheme
+					&& cached
 					&& cached.hue === Number(hue)
 					&& cached.style === schemeStyle
 					&& cached.spec === schemeSpec;
@@ -342,8 +339,8 @@ function loadTheme() { setTheme(getStoredTheme()); }
 function loadHue() { setHue(getHue()); }
 
 function init() {
-	loadTheme();
 	loadHue();
+	loadTheme();
 }
 init();
 initLastUpdatedNotices();

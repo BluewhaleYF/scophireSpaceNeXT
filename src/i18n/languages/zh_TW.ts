@@ -296,6 +296,7 @@ tags: ["Friend"]
 	[Key.lastUpdatedNotice]: "最後更新於 {date}，距今已過 {days} 天",
 	[Key.lastUpdatedWarning]: "部分內容可能已過時",
 	[Key.license]: "許可協議",
+	[Key.reprintSource]: "轉載自",
 	[Key.continueReading]: "繼續閱讀",
 	[Key.relatedReading]: "沿著主題讀",
 	[Key.relatedReadingSubtitle]: "基於共同的標籤與分類",

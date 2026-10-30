@@ -11,8 +11,18 @@ import { expect, test } from "@playwright/test";
 
 const BADGE = ".m3-blog-categorylist__badge";
 
-/** 主题引擎已把方案写进 `:root` 内联样式（既有测试共用的就绪条件） */
-async function waitForEngine(page: import("@playwright/test").Page) {
+/** 计算值已带 `--mc-*`：静态默认方案在首屏即满足，引擎不在默认方案上写内联值 */
+async function waitForComputedScheme(page: import("@playwright/test").Page) {
+	await page.waitForFunction(() =>
+		getComputedStyle(document.documentElement)
+			.getPropertyValue("--mc-primary")
+			.trim()
+			.startsWith("#"),
+	);
+}
+
+/** 引擎已应用「非默认」方案：此时才会写 `:root` 内联 `--mc-*` 覆盖 */
+async function waitForInlineScheme(page: import("@playwright/test").Page) {
 	await page.waitForFunction(() =>
 		document.documentElement.style
 			.getPropertyValue("--mc-primary")
@@ -39,7 +49,7 @@ test("无 JS 时首帧徽标已是主题配色（构建期内联方案）", asyn
 	const jsPage = await jsContext.newPage();
 	await jsPage.addInitScript(() => localStorage.setItem("theme", "light"));
 	await jsPage.goto("/", { waitUntil: "domcontentloaded" });
-	await waitForEngine(jsPage);
+	await waitForComputedScheme(jsPage);
 	const engineBackground = await badgeBackground(jsPage);
 	await jsContext.close();
 
@@ -53,10 +63,11 @@ declare global {
 	}
 }
 
-test("内联方案覆盖暗色角色，与引擎的暗色方案一致", async ({ page }) => {
+test("内联默认方案覆盖暗色角色，与计算样式一致且不写内联覆盖", async ({
+	page,
+}) => {
 	await page.addInitScript(() => localStorage.setItem("theme", "dark"));
 	await page.goto("/", { waitUntil: "domcontentloaded" });
-	await waitForEngine(page);
 
 	const state = await page.evaluate(() => {
 		const fromStylesheet = (selector: string): string => {
@@ -79,7 +90,10 @@ test("内联方案覆盖暗色角色，与引擎的暗色方案一致", async ({
 		};
 		return {
 			inlineDark: fromStylesheet(":root.dark"),
-			engineDark: document.documentElement.style
+			computedDark: getComputedStyle(document.documentElement)
+				.getPropertyValue("--mc-secondary-container")
+				.trim(),
+			rootOverride: document.documentElement.style
 				.getPropertyValue("--mc-secondary-container")
 				.trim(),
 			isDark: document.documentElement.classList.contains("dark"),
@@ -88,7 +102,9 @@ test("内联方案覆盖暗色角色，与引擎的暗色方案一致", async ({
 
 	expect(state.isDark).toBe(true);
 	expect(state.inlineDark).toMatch(/^#[0-9a-f]{6}$/);
-	expect(state.inlineDark).toBe(state.engineDark);
+	expect(state.computedDark).toBe(state.inlineDark);
+	// 默认配色由静态 CSS 提供，引擎不再写 `:root` 内联覆盖。
+	expect(state.rootOverride).toBe("");
 });
 
 test("访客自定义配色在引擎写入前由缓存方案接管", async ({ page }) => {
@@ -127,14 +143,17 @@ test("访客自定义配色在引擎写入前由缓存方案接管", async ({ pa
 	expect(await page.evaluate(() => window.__firstSecondary)).toBe("#123456");
 
 	// 引擎随后接管为 hue 345 的真实方案：缓存只负责首帧，不是最终态。
-	await waitForEngine(page);
+	await waitForInlineScheme(page);
 	expect(await badgeBackground(page)).toBe("rgb(251, 217, 234)");
 });
 
 test("引擎把当前方案写入缓存，键与内联读取端一致", async ({ page }) => {
-	await page.addInitScript(() => localStorage.setItem("theme", "light"));
+	await page.addInitScript(() => {
+		localStorage.setItem("theme", "light");
+		localStorage.setItem("hue", "345");
+	});
 	await page.goto("/", { waitUntil: "domcontentloaded" });
-	await waitForEngine(page);
+	await waitForInlineScheme(page);
 
 	const state = await page.evaluate(() => ({
 		cache: JSON.parse(localStorage.getItem("mc-scheme-cache") || "null"),
@@ -146,6 +165,6 @@ test("引擎把当前方案写入缓存，键与内联读取端一致", async ({
 	expect(state.cache).not.toBeNull();
 	expect(state.cache.style).toBe("tonalSpot");
 	expect(state.cache.spec).toBe("2021");
-	expect(state.cache.hue).toBe(230);
+	expect(state.cache.hue).toBe(345);
 	expect(state.cache.light["--mc-secondary-container"]).toBe(state.secondary);
 });

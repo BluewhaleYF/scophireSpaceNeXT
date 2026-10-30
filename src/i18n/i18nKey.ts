@@ -307,6 +307,7 @@ enum I18nKey {
 	lastUpdatedNotice = "lastUpdatedNotice",
 	lastUpdatedWarning = "lastUpdatedWarning",
 	license = "license",
+	reprintSource = "reprintSource",
 	continueReading = "continueReading",
 	relatedReading = "relatedReading",
 	relatedReadingSubtitle = "relatedReadingSubtitle",

@@ -382,10 +382,15 @@ export function shirones(options: ShironesOptions = {}): AstroIntegration {
 					integrations,
 					markdown: { processor: processor as never },
 					vite: {
-						resolve: { alias: createAliases(paths) },
-						// The HCT engine is imported from server code (first-paint scheme);
-						// see SSR_BUNDLED_PACKAGES above. `environments.*` is what the Astro 7
-						// build reads per environment, `ssr` keeps the dev SSR server in line.
+						resolve: {
+							alias: createAliases(paths),
+						},
+						// The HCT engine is imported from server code (the build-time
+						// default scheme and the first-paint cache); see
+						// SSR_BUNDLED_PACKAGES above. This package ships extensionless
+						// ESM imports that Node cannot load when externalized.
+						// `environments.*` is what the Astro 7 build reads per
+						// environment, `ssr` keeps the dev SSR server in line.
 						ssr: { noExternal: SSR_BUNDLED_PACKAGES },
 						environments: {
 							ssr: { resolve: { noExternal: SSR_BUNDLED_PACKAGES } },
