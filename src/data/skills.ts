@@ -4,8 +4,7 @@
  */
 import type { SkillItem } from "@/types/skillsConfig";
 
-export const skillsData: SkillItem[] = [
-];
+export const skillsData: SkillItem[] = [];
 
 /** 获取所有技能数据列表 */
 export function getSkillsList(): SkillItem[] {

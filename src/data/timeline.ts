@@ -4,8 +4,7 @@
  */
 import type { TimelineItem } from "@/types/timelineConfig";
 
-export const timelineData: TimelineItem[] = [
-];
+export const timelineData: TimelineItem[] = [];
 
 /** 获取所有时间线数据列表 */
 export function getTimelineList(): TimelineItem[] {

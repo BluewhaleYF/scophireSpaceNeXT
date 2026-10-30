@@ -4,8 +4,7 @@
  */
 import type { ProjectItem } from "@/types/projectsConfig";
 
-export const projectsData: ProjectItem[] = [
-];
+export const projectsData: ProjectItem[] = [];
 
 /** 获取所有项目数据列表 */
 export function getProjectsList(): ProjectItem[] {
