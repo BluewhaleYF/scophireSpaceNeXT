@@ -356,7 +356,7 @@
 				{
 					"kind": "text-directive",
 					"pattern": ":audio-reader[title]{src=\"...\"}",
-					"example": ":audio-reader[Pronunciation sample]{src=\"/assets/music/url/cl.mp3\"}"
+					"example": ":audio-reader[Pronunciation sample]{src=\"/assets/audio/sample.mp3\"}"
 				}
 			],
 			"attributes": [
