@@ -86,6 +86,12 @@ export const compassData: CompassShelf[] = [
 				note: "Change is constant",
 				image: "assets/compass/github.webp",
 			},
+			{
+				label: "Wayback Machine",
+				href: "https://web.archive.org/",
+				note: "互联网的时光机，替消失的网页留一盏灯。",
+				image: "assets/compass/wayback-machine.webp",
+			},
 		],
 	},
 ];
