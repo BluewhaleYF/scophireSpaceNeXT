@@ -6,6 +6,7 @@
 import CompassSection from "@components/organisms/CompassSection.svelte";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { resolveAsset } from "@utils/asset-utils";
 import { resolveI18nText } from "@utils/i18n-utils";
 import { compassConfig } from "@/config/compassConfig";
 import { compassData } from "../data/compass";
@@ -19,8 +20,22 @@ const pageDescription = resolveI18nText(
 	compassConfig.description,
 	I18nKey.compassBanner,
 );
+
+// 构建期解析站点图标：src/assets 相对路径输出带哈希的静态地址；
+// /public 绝对路径与远程 URL 原样返回（与友链 / 游戏页同一套规则）。
+const shelves = await Promise.all(
+	compassData.map(async (shelf) => ({
+		...shelf,
+		entries: await Promise.all(
+			shelf.entries.map(async (entry) => ({
+				...entry,
+				image: entry.image ? await resolveAsset(entry.image) : entry.image,
+			})),
+		),
+	})),
+);
 ---
 
 <MainGridLayout title={pageTitle} description={pageDescription} page="compass">
-    <CompassSection shelves={compassData} title={pageTitle} subtitle={pageDescription} client:visible></CompassSection>
+    <CompassSection shelves={shelves} title={pageTitle} subtitle={pageDescription} client:visible></CompassSection>
 </MainGridLayout>

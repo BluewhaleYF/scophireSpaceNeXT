@@ -24,6 +24,12 @@ description: Managing Shirone data-backed pages and albums - adding or editing a
 - `imgurl` 支持 `src/assets` 相对路径、`/public` 绝对路径与远程 URL。本地头像统一放在 `src/assets/friends/`，192×192 WebP（显示 40px，留 4x 余量），构建期由 `resolveAsset()` 输出带哈希地址。
 - 新增友链时把原图裁成正方形再压缩，不要把大图直接放进仓库；远程头像保持 `https://` 写法即可。
 
+## 站点罗盘数据
+
+- 条目在 `src/data/compass.ts`（`CompassShelf[]`，分组顺序即展示顺序），页面开关在 `src/config/compassConfig.ts`。
+- `image` 支持 `src/assets` 相对路径、`/public` 绝对路径与远程 URL。本地站点图标统一放在 `src/assets/compass/`，128×128 WebP（瓷砖内显示 32px），构建期由 `compass.astro` 的 `resolveAsset()` 输出带哈希地址。
+- 只有 `icon` 是 Iconify 名时才走图标字体；图片形态优先看 `image`，加载失败自动降级为首字母块。
+
 ## 相册工作流
 
 每个相册是 `public/images/albums/<id>/` 目录：

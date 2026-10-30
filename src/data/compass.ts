@@ -4,8 +4,9 @@
  * 添加站点：往对应 Shelf.entries 追加一项；数组顺序即展示顺序。
  * - icon：Iconify 名（material-symbols:xxx）或图片 URL（http(s)/绝对路径）；
  *   省略时瓷砖显示 label 首字母 tonal 块（不自动抓取 favicon）。
- * - image：用户自定义图片 URL（http(s)/绝对路径），优先于 icon 渲染；
- *   加载失败自动降级为首字母块。
+ * - image：用户自定义图片，支持 src/assets 相对路径（如本文件所用）、/public
+ *   绝对路径与远程 URL；优先于 icon 渲染，加载失败自动降级为首字母块。
+ *   本地图标统一存放在 src/assets/compass/，128×128 WebP（瓷砖内显示 32px）。
  */
 
 /** 单条站点记录 */
@@ -18,7 +19,7 @@ export interface CompassEntry {
 	note?: string;
 	/** 图标：Iconify 名或图片 URL；省略 = 首字母兜底 */
 	icon?: string;
-	/** 用户自定义图片（http(s)/绝对路径）：优先于 icon 渲染；省略则走 icon/首字母 */
+	/** 用户自定义图片（src/assets 相对路径 / /public / http(s)）：优先于 icon 渲染；省略则走 icon/首字母 */
 	image?: string;
 }
 
@@ -45,15 +46,13 @@ export const compassData: CompassShelf[] = [
 				label: "Solsynth",
 				href: "https://solsynth.dev/",
 				note: "来自太阳系，向着全宇宙。",
-				image:
-					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Solsynth.png",
+				image: "assets/compass/solsynth.webp",
 			},
 			{
 				label: "羝 ICP 备案",
 				href: "https://solsynth.dev/zh/products/roy-filling",
 				note: "经中华羊国网络信息办公室授权的认证网站目录",
-				image:
-					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/ROY-ICP.png",
+				image: "assets/compass/roy-icp.webp",
 			},
 		],
 	},
@@ -66,15 +65,13 @@ export const compassData: CompassShelf[] = [
 				label: "Solian",
 				href: "https://web.solian.app/",
 				note: "一个宁静的社交网络，让表达自我、结识他人变得简单",
-				image:
-					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Solian.webp",
+				image: "assets/compass/solian.webp",
 			},
 			{
 				label: "StyleStar",
 				href: "https://stylestar.win/",
 				note: "现代拟物化中文论坛",
-				image:
-					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Stylestar.png",
+				image: "assets/compass/stylestar.webp",
 			},
 		],
 	},
@@ -87,8 +84,7 @@ export const compassData: CompassShelf[] = [
 				label: "GitHub",
 				href: "https://github.com/",
 				note: "Change is constant",
-				image:
-					"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Compass/Github.jpg",
+				image: "assets/compass/github.webp",
 			},
 		],
 	},
