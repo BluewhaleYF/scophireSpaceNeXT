@@ -7,6 +7,7 @@ updatedAt: 2026-10-24T20:53:44+08:00
 description: "被 COSMIC 的外观、Rust/Wayland 理念和双布局切换吸引后，我装上了它。"
 tags: [Linux, COSMIC, DE]
 category: 科技
+series: linux-talk
 lang: zh-CN
 ---
 
