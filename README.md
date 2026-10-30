@@ -1,255 +1,217 @@
 <div align="center">
 
-<img src="./public/logo/icon.webp" width="88" height="88" alt="Shirone logo" />
+<img src="./public/logo/icon.png" width="88" height="88" alt="ScophireSpace logo" />
 
-# Shirone
+# ScophireSpace
 
-**An expressive, anime-inspired blog theme built on Material 3 Expressive.**
+**Flint Scophire 的个人博客，基于 [Shirone](https://github.com/LyraVoid/Shirone) 主题定制。**
 
-A calm reading space for long-form writing, personal collections, and the small details that make a site feel like yours.
+[线上站点](https://scophire.space/) · [归档](https://scophire.space/archive/) · [友链](https://scophire.space/friends/) · [RSS](https://scophire.space/rss.xml)
 
-[Live demo](https://shirone.mysqil.com/) · [Documentation](https://docs.shirone.mysqil.com/) · [Report an issue](https://github.com/LyraVoid/Shirone/issues)
-
-[English](./README.md) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-TW.md) · [日本語](./README.ja.md)
-
-![Node.js >= 22.12](https://img.shields.io/badge/Node.js-%3E%3D22.12-5FA04E?logo=nodedotjs&logoColor=white)
-![pnpm 9](https://img.shields.io/badge/pnpm-9-F69220?logo=pnpm&logoColor=white)
 ![Astro 7](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
+![Svelte 5](https://img.shields.io/badge/Svelte-5-FF3E00?logo=svelte&logoColor=white)
+![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Node.js >= 22.12](https://img.shields.io/badge/Node.js-%3E%3D22.12-5FA04E?logo=nodedotjs&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
 
 </div>
 
-> [!IMPORTANT]
-> **Start with the [online documentation](https://docs.shirone.mysqil.com/).** It is the primary guide for setup, configuration, content workflows, and deployment.
+## 关于这个仓库
 
-## Start Here
+这是 [ScophireSpace](https://scophire.space/) 的完整源码，一个基于 [Shirone](https://github.com/LyraVoid/Shirone) 的个人博客站点。
 
-The [online documentation](https://docs.shirone.mysqil.com/) is the main entry point for setup, configuration, content workflows, and deployment. This repository contains the theme source. If tracking it is more maintenance than you want, install the [`shirones` npm package](#use-the-npm-package) instead: your blog stays one small repository and theme updates arrive with `pnpm add shirones@latest`. Use [Shirone-Content](https://github.com/LyraVoid/Shirone-Content) when you would rather keep personal content in a separate repository.
+> 如果你想用 Shirone 搭建自己的站点，请优先阅读[上游项目](https://github.com/LyraVoid/Shirone)及其文档。
 
-## Verified In Practice
+## 技术栈
 
-The current reference run scores 100 for Performance, Accessibility, Best Practices, and SEO, with all three agentic browsing checks passing. The detailed performance metrics also reach 100 in this run; results can vary with hosting, content, and network conditions.
+| 层 | 选型 |
+| --- | --- |
+| 框架 | [Astro 7](https://astro.build/)（SSR 优先，静态输出） |
+| 交互 | [Svelte 5](https://svelte.dev/)（runes，按需水合交互岛） |
+| 样式 | [Tailwind CSS 4](https://tailwindcss.com/) + [Stylus](https://stylus-lang.com/) + M3E 设计令牌 |
+| 导航 | [Swup](https://swup.js.org/)（无刷新站内跳转 + 持久化外壳） |
+| 搜索 | [Pagefind](https://pagefind.app/)（构建期生成的全文索引） |
+| 测试 | [Playwright](https://playwright.dev/) + axe-core + Biome |
 
-![Shirone benchmark](./Benchmark.webp)
+## 快速开始
 
-![Shirone homepage](./public/assets/projects/shirone.webp)
+### 环境要求
 
-<table>
-  <tr>
-    <td align="center"><strong>Chromatic Spell</strong><br><sub>Dynamic HCT palettes that respond to light, mood, and choice.</sub></td>
-    <td align="center"><strong>Seamless Passage</strong><br><sub>Swup navigation keeps the surrounding world gently in motion.</sub></td>
-  </tr>
-  <tr>
-    <td align="center"><strong>Story Grimoire</strong><br><sub>Markdown, MDX, math, diagrams, code, and images in one writing flow.</sub></td>
-    <td align="center"><strong>Quiet by Design</strong><br><sub>SSR-first, accessible, and truly weightless when features are disabled.</sub></td>
-  </tr>
-</table>
+- [Node.js](https://nodejs.org/) **22.12+**
+- [pnpm](https://pnpm.io/) **11.x**（仓库通过 `packageManager` 固定为 `pnpm@11.28.2`）
 
-## ✦ A Small Spell for Every Story
-
-Shirone is a static personal blog theme built with Astro 7, Svelte 5, Tailwind CSS 4, and Stylus. Its magic is not a layer of spectacle: it lives in colors that shift with light and mood, pages that turn without breaking the atmosphere, and small details that make a personal corner of the web feel alive.
-
-Behind that softness is a token-driven Material 3 Expressive component system. Content is rendered server-side, while Swup provides smooth in-site navigation and keeps the surrounding application shell alive between pages.
-
-The theme is designed for long-form writing as well as personal collections such as moments, albums, anime lists, friends, projects, skills, devices, games, series, and timelines.
-
-## ✦ Inside the Grimoire
-
-- Dynamic HCT color palettes with Material 3 and Material 3 Expressive specifications
-- Light and dark themes, banner and solid backgrounds, optional textures, and visitor display preferences
-- Responsive layouts with configurable single or dual sidebars
-- Smooth Swup navigation with a persistent shell, route progress, and reduced-motion support
-- Markdown and MDX content with math, Mermaid, admonitions, enhanced code blocks, and image galleries
-- Full-text search powered by Pagefind, plus RSS and sitemap output
-- Article table of contents, related posts, sharing, encryption, and optional comments
-- Dedicated pages for archives, categories, tags, friends, moments, anime, albums, projects, skills, devices, games, series, and timelines
-- Ten built-in interface locales
-- SSR-first output, keyboard-friendly interactions, and accessibility testing
-- Optional integrations follow a zero-burden rule: when disabled, they add no external requests, DOM, layout shift, or main-bundle code
-
-## ✦ AI Skills
-
-Shirone ships with [agent skills](./.agents/skills/README.md) in `.agents/skills/`. AI coding assistants that support the Agent Skills standard (Claude Code, Codex, ZCode, and others) discover them automatically after you clone the repository — developer-oriented skills guide theme development, while user-oriented skills help you write posts, use the custom Markdown syntaxes, and configure your site. To package the same skills as one installable Codex plugin, run `pnpm.cmd skills:package -- --zip`.
-
-## Quick Start
-
-If keeping up with theme updates is a chore, or you would rather not maintain a
-separate theme repository at all, use the npm package instead — see
-[Use the npm package](#use-the-npm-package). It keeps your blog in one small
-repository and updates the theme with `pnpm add shirones@latest`.
-
-### Requirements
-
-- [Node.js](https://nodejs.org/) 22.12 or newer
-- [pnpm](https://pnpm.io/) 11.x (the repository pins `pnpm@11.28.2`)
-
-### Run locally
+### 本地运行
 
 ```bash
-git clone https://github.com/LyraVoid/Shirone.git
-cd Shirone
+git clone https://github.com/BluewhaleYF/scophireSpaceNeXT.git
+cd scophireSpaceNeXT
 corepack enable
 pnpm install
 pnpm dev
 ```
 
-Open `http://localhost:4321` in your browser.
+打开 `http://localhost:4321`。在 Windows PowerShell 中若脚本执行受限，请改用 `pnpm.cmd` / `npx.cmd`。
 
-On Windows PowerShell installations where script execution is restricted, use `pnpm.cmd` and `npx.cmd` instead.
+### 常用命令
 
-### Use the npm package
+| 命令 | 作用 |
+| --- | --- |
+| `pnpm dev` | 启动开发服务器 |
+| `pnpm build` | 构建站点、生成 Pagefind 索引并校验字体，输出到 `dist/` |
+| `pnpm preview` | 预览生产构建 |
+| `pnpm check` | Astro 类型与模板诊断 |
+| `pnpm type-check` | TypeScript 严格检查 |
+| `pnpm format` / `pnpm lint` | Biome 格式化 / 自动修复（会写文件） |
+| `pnpm test` | 运行 Playwright 测试 |
+| `pnpm new-post <filename>` | 创建新文章 |
+| `pnpm check:manifest` | 校验组件、Markdown 语法、技能与字体清单 |
+| `pnpm lighthouse` | 桌面端 Lighthouse 审计 |
 
-Prefer not to clone the theme? Install it as the `shirones` npm package and
-scaffold a blog from an empty folder — no Astro starter and no manual installs:
+## 目录结构
 
-```bash
-mkdir my-blog
-cd my-blog
-npx shirones init   # writes package.json, installs astro + the theme + peers
-pnpm dev
+```text
+.
+├── src/
+│   ├── config/        # 站点、导航、侧栏与各功能页配置（唯一配置入口）
+│   ├── data/          # 友链、罗盘、项目、技能等页面数据
+│   ├── content/       # 文章（posts）与动态（moments）
+│   ├── assets/        # 构建期优化的图片、字体等资源
+│   ├── components/    # atoms / molecules / organisms 分层组件
+│   ├── layouts/       # 页面模板
+│   ├── pages/         # 路由与页面编排
+│   ├── plugins/       # Markdown 扩展、语法清单与运行时
+│   ├── i18n/          # 界面文案与十种语言
+│   └── integration/   # Astro 集成（同时支撑 npm 包模式）
+├── public/            # 原样输出的静态文件（favicon、logo、相册等）
+├── docs/              # 设计、Markdown、侧栏、打包等开发文档
+├── rules/             # 项目规则与常见陷阱
+├── scripts/           # 内容同步、构建与维护脚本
+└── tests/             # 单元测试与 Playwright 站点测试
 ```
 
-`init` creates `astro.config.mjs`, the typed configuration under `shirones/`,
-example content and static assets; `src/components/` and `src/layouts/` still
-work for overriding theme components. Re-run `npx shirones init` anytime to
-check for drift — it reports without changing anything. Run `npx shirones
-init --update` to restore missing files, or `--force` to re-scaffold from the
-template. See the [shirones wiki](https://github.com/yCENzh/shirones/wiki),
-[npm package mode](./docs/npm-package-mode.md) and the
-[shirones repository](https://github.com/yCENzh/shirones) for details.
+## 写内容
 
-### Customize your site
+文章放在 `src/content/posts/`，支持 Markdown 与 MDX；动态放在 `src/content/moments/`。
 
-1. Set the canonical URL, title, language, theme, banner, and display options in `src/config/siteConfig.ts`.
-2. Update the profile and navigation in `src/config/profileConfig.ts` and `src/config/navBarConfig.ts`.
-3. Review the feature-specific files in `src/config/`; their inline comments document defaults and supported values.
-4. Replace the sample posts, personal data, and media under `src/content/`, `src/data/`, and `public/`.
-5. Create a post with `pnpm new-post <filename>`, then edit it under `src/content/posts/`.
-
-See [`src/config/README.md`](./src/config/README.md) for the complete configuration contract.
-
-## Official Companion Repositories
-
-Shirone keeps theme source, personal site content, and npm publishing responsibilities separate. These official repositories serve different workflows:
-
-| Repository | Use it for | What it contains |
-| --- | --- | --- |
-| [Shirone-Content](https://github.com/LyraVoid/Shirone-Content) | Running a blog in the external-content, dual-repository mode | A content template for posts, moments, data, media, and `config/*.yaml` overlays. Fork or clone it into your own repository, normally private, then point this theme repository at it. See the [content-separation guide](./docs/content-separation/README.md). |
-| [shirones](https://github.com/yCENzh/shirones) | Maintaining and publishing the `shirones` npm package | The manual build-and-publish pipeline. It pulls this repository at build time and deliberately contains no theme source; regular blog users install `shirones` rather than working in this repository. See [npm package mode](./docs/npm-package-mode.md). |
-
-## Main Configuration
-
-| File | Purpose |
-| --- | --- |
-| `src/config/siteConfig.ts` | Site URL, identity, locale, dynamic color, banner, texture, TOC, and display settings |
-| `src/config/profileConfig.ts` | Author profile and social links |
-| `src/config/navBarConfig.ts` | Main navigation |
-| `src/config/sidebarConfig.ts` | Sidebar layout, widgets, and page filters |
-| `src/config/postListConfig.ts` | Pagination and list/grid presentation |
-| `src/config/articleConfig.ts` | Update notice, related posts, and article sharing |
-| `src/config/commentConfig.ts` | Optional comments via Twikoo/Giscus/Waline |
-| `src/config/musicConfig.ts` | Optional local, custom, Meting, or mixed music source |
-| `src/config/animeConfig.ts` | Anime page and local/Bangumi/Bilibili snapshot source |
-
-## Writing a Post
-
-Posts live in `src/content/posts/` and may be Markdown or MDX. A minimal frontmatter block looks like this:
+### 最小化
 
 ```yaml
 ---
-title: My First Post
-published: 2026-08-26
-description: A short summary shown in post lists and metadata.
+title: 我的第一篇文章
+published: 2026-10-30
+description: 列表与元信息中展示的摘要。
 image: ./cover.webp
 tags: [Astro, Notes]
-category: Writing
+category: 技术
 draft: false
 ---
+
+正文……
 ```
 
-Frequently used optional fields include `updated`, `pinned`, `comment`, `lang`, `encrypted`, `password`, `passwordHint`, and `hideHomeContent`. Images may be remote URLs, absolute paths from `public/`, or paths relative to the post file.
+### 最大化
 
-## Commands
+```yaml
+---
+title: 文章标题
+published: 2026-10-30                    # 必填，日历日期
+publishedAt: 2026-10-30T09:30:00+08:00   # 可选，精确发布时间；须与 published 同一天（站点时区）
+updated: 2026-11-02                      # 可选，更新日期
+updatedAt: 2026-11-02T14:20:00+08:00     # 可选，精确更新时间；须与 updated 同一天
+description: 列表与元信息中展示的摘要
+image: ./cover.webp                      # 封面：相对路径 / public 绝对路径 / 远程 URL
+tags: [Astro, Notes]
+category: 技术
+lang: zh-CN                              # 覆盖站点默认的渲染语言
+pinned: false                            # 置顶
+draft: false                             # 草稿
+comment: true                            # 文章级评论开关，继承全局配置
+series: markdown-syntax-guide            # 所属系列 slug，留空表示普通文章
+seriesOrder: 1                           # 系列内顺序，缺省按发布日期
+alias: my-first-post                     # 备用 slug
+permalink: /posts/my-first-post/         # 自定义根路径链接
+license:                                 # 覆写全站版权声明；也可简写为 license: CC BY 4.0
+  enable: true
+  name: CC BY-NC-SA 4.0
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+  author:
+    name: Flint Scophire
+    url: https://scophire.space/
+  source: https://example.com/original-post   # 转载来源；留空表示原创
+encrypted: false                         # 加密文章
+password: ""                             # 加密密码，字符串或数字
+passwordHint: ""                         # 密码提示
+hideHomeContent: true                    # 加密文章在首页 / Feed 隐藏正文
+---
 
-| Command | Action |
+正文……
+```
+
+`prevUrl`、`prevTitle`、`prevSlug`、`nextUrl`、`nextTitle`、`nextSlug` 为系统内部字段，由构建流程维护，无需手写。
+
+- 页面数据（友链、罗盘、项目、技能、时间线等）在 `src/data/`；页面行为与开关在 `src/config/`。
+- 本地图片优先放进 `src/assets/`（构建期优化并输出带哈希地址）；`public/` 适合 favicon、相册等需要固定路径的资源。
+- 自定义 Markdown 语法与写法见 [`docs/markdown-extensions.md`](./docs/markdown-extensions.md) 和 [`src/plugins/markdown/manifest.json`](./src/plugins/markdown/manifest.json)。
+
+## 配置
+
+配置遵循「配置管行为，数据管内容」：
+
+| 文件 | 职责 |
 | --- | --- |
-| `pnpm dev` | Start the development server |
-| `pnpm new-post <filename>` | Create a new post |
-| `pnpm format` | Format source files with Biome (mandatory before commit) |
-| `pnpm check` | Run Astro diagnostics |
-| `pnpm type-check` | Run TypeScript checks |
-| `pnpm check:manifest` | Validate the component manifest |
-| `pnpm test` | Run the Playwright test suite |
-| `pnpm build` | Build the site and Pagefind index into `dist/` |
-| `pnpm preview` | Preview the production build |
-| `pnpm lighthouse` | Run the desktop production audit |
+| `src/config/siteConfig.ts` | 站点 URL、标题、语言、主题色、横幅、纹理、目录、favicon |
+| `src/config/profileConfig.ts` | 博主头像、名称、简介、社交链接 |
+| `src/config/navBarConfig.ts` / `sidebarConfig.ts` | 顶部导航与侧栏编排 |
+| `src/config/friendsConfig.ts` | 友链页开关与申请卡片（邮箱、本站信息模板） |
+| `src/config/compassConfig.ts` | 站点罗盘页开关与文案 |
+| `src/config/commentConfig.ts` / `musicConfig.ts` / `umamiConfig.ts` | 可选评论、音乐与统计 |
 
-## Deployment
+完整契约见 [`src/config/README.md`](./src/config/README.md)。
 
-Shirone produces a static `dist/` directory and can be deployed to Vercel, Netlify, GitHub Pages, or any static hosting service.
+## 部署
 
-Before deploying, update `site` and `base` in `src/config/siteConfig.ts` (or in your content repository's `config/site.yaml`):
+`pnpm build` 生成纯静态的 `dist/`，可部署到 Cloudflare、Vercel、Netlify、GitHub Pages 或任意静态托管。仓库自带 `wrangler.jsonc`（Cloudflare 静态资源，`dist/` 目录），使用其他平台时按平台要求调整即可。
 
-- If deployed to a domain root (e.g., `https://example.com/` or a custom domain), keep `base` as `"/"`.
-- If deployed to a subpath directory (such as GitHub Pages repository URL `https://username.github.io/Shirone/`), set `base` to the subpath (e.g. `"/Shirone"` or `"/Shirone/"`), and set `site` to `https://username.github.io`. The build pipeline and internal assets will adapt automatically.
+部署前确认 `src/config/siteConfig.ts` 中的 `site` 与 `base`：
 
-Then run:
+- 部署在域名根目录：`site: "https://example.com/"`，`base: "/"`；
+- 部署在子路径（如 GitHub Pages 项目页）：`site: "https://username.github.io"`，`base: "/repo-name/"`。
+
+若需要把内容拆到独立仓库（双仓模式），可直接参考 [`docs/content-separation/README.md`](./docs/content-separation/README.md) 与 [`.github/workflows/deploy.yml.example`](./.github/workflows/deploy.yml.example)。
+
+## 与上游同步
+
+本仓库从 `LyraVoid/Shirone` fork 而来并保留上游历史。同步上游更新：
 
 ```bash
-pnpm install --frozen-lockfile
-pnpm check
-pnpm type-check
-pnpm check:manifest
-pnpm build
+git remote add upstream https://github.com/LyraVoid/Shirone.git   # 首次
+git fetch upstream --prune
+git merge upstream/main
 ```
 
-Use `pnpm build` as the build command and `dist` as the output directory. More details are available in [`INDEX.md`](./INDEX.md).
+合并后按需处理冲突，并运行 `pnpm check`、`pnpm type-check`、`pnpm build` 验证。建议把 `upstream` 的 push URL 禁用，避免误推到上游：
 
-## Documentation
+```bash
+git remote set-url --push upstream DISABLED
+```
 
-- [shirones wiki](https://github.com/yCENzh/shirones/wiki) - the user-facing guide: installation, configuration, content, component overrides, the CLI and troubleshooting
-- [`src/config/README.md`](./src/config/README.md) - configuration reference
-- [`docs/m3e-standard.md`](./docs/m3e-standard.md) - design tokens and component standard
-- [`docs/atomic-structure.md`](./docs/atomic-structure.md) - component layers and dependency rules
-- [`docs/markdown-extensions.md`](./docs/markdown-extensions.md) - Markdown plugin, styling, cache, and testing contracts
-- [`docs/markdown-on-demand-loading.md`](./docs/markdown-on-demand-loading.md) - content-driven Markdown asset loading and Swup lifecycle
-- [`docs/sidebar-system.md`](./docs/sidebar-system.md) - sidebar orchestration and Swup synchronization
-- [`docs/on-demand-loading.md`](./docs/on-demand-loading.md) - zero-burden optional features
-- [`docs/font-system.md`](./docs/font-system.md) - font configuration and production subsetting
-- [`docs/npm-package-mode.md`](./docs/npm-package-mode.md) - how the theme also runs as an npm package, and the override system
-- [`docs/packaging-contract.md`](./docs/packaging-contract.md) - rules new theme code must follow to keep working when installed from npm
+## 文档
 
-## Contributing
+- [`AGENTS.md`](./AGENTS.md)：仓库结构与开发约束总览
+- [`src/config/README.md`](./src/config/README.md)：配置契约
+- [`docs/m3e-standard.md`](./docs/m3e-standard.md)：设计令牌与组件标准
+- [`docs/atomic-structure.md`](./docs/atomic-structure.md)：组件分层与依赖方向
+- [`docs/markdown-extensions.md`](./docs/markdown-extensions.md)：Markdown 插件与验证
+- [`docs/sidebar-system.md`](./docs/sidebar-system.md)：侧栏编排与 Swup 同步
+- [`rules/pitfalls.md`](./rules/pitfalls.md)：常见陷阱与排查清单
 
-Issues and pull requests are welcome. For substantial features or visual changes, please open an issue or discussion first. Read [`CONTRIBUTING.md`](./CONTRIBUTING.md) and the repository rules before submitting code. Always format your changes with `pnpm format` before committing, keep each pull request focused, and use Conventional Commits.
+## 致谢
 
-## Acknowledgements
-
-Shirone began as a refactor of [Fuwari](https://github.com/saicaca/fuwari) by [saicaca](https://github.com/saicaca). Its current M3E design system, component architecture, page modules, and orchestration are developed as Shirone. Thanks to the Fuwari project and its contributors for the original foundation.
-
-## Contributors
-
-Every contribution adds a new line to Shirone's spellbook. Thank you to everyone who helps this little world grow.
-
-<div align="center">
-  <a href="https://github.com/LyraVoid/Shirone/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=LyraVoid/Shirone" alt="Shirone contributors" />
-  </a>
-</div>
-
-## Star Trail
-
-<div align="center">
-  <a href="https://star-history.com/#LyraVoid/Shirone&amp;Date">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=LyraVoid/Shirone&amp;type=Date&amp;theme=dark" />
-      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=LyraVoid/Shirone&amp;type=Date" />
-      <img alt="Shirone Star History chart" src="https://api.star-history.com/svg?repos=LyraVoid/Shirone&amp;type=Date" />
-    </picture>
-  </a>
-  <p><sub>Each star is a spark that helps Shirone shine a little farther.</sub></p>
-</div>
+- [Shirone](https://github.com/LyraVoid/Shirone)：本项目的上游主题与 M3E 设计体系；
+- [Fuwari](https://github.com/saicaca/fuwari)：Shirone 最初的设计与结构来源；
+- [Chaos的小站](https://www.nachaos.xyz/)：本站部分灵感来源；
+- [Astro](https://astro.build/)、[Svelte](https://svelte.dev/)、[Swup](https://swup.js.org/) 及所有开源依赖的作者。
 
 ## License
 
-Shirone is released under the [MIT License](./LICENSE). The repository retains the original copyright notice required by that license.
+基于 [MIT License](./LICENSE) 发布。作为 Shirone 的衍生项目，本仓库保留上游要求的原始版权声明。
