@@ -18,6 +18,31 @@ export const ja: Translation = {
 		"リンクの交換を歓迎します。申請方法は About ページをご覧ください。",
 	[Key.friendsCount]: "件の友達リンク",
 	[Key.friendsCounts]: "件の友達リンク",
+	[Key.friendsApplyTitle]: "友達リンクを申請",
+	[Key.friendsApplyDescription]:
+		"相互リンク募集中です！下のサイト情報をコピーして追加するか、あなたのサイト情報をメールでお送りください。",
+	[Key.friendsApplySiteInfo]:
+		"当サイトの情報（先に追加していただけると嬉しいです）",
+	[Key.friendsApplyCopy]: "情報をコピー",
+	[Key.friendsApplyCopied]: "コピーしました",
+	[Key.friendsApplyCopyFailed]:
+		"コピーに失敗しました。テキストを選択して手動でコピーしてください。",
+	[Key.friendsApplySend]: "メールで申請する",
+	[Key.friendsApplyEmailTip]: "または直接こちらへ：{email}",
+	[Key.friendsApplyMailSubject]: "【相互リンク申請】{siteTitle}",
+	[Key.friendsApplyMailBody]: `こんにちは。「{siteTitle}」と相互リンクを交換したいです。
+
+【当サイトの情報】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【そちらのサイト情報】
+{siteInfo}
+
+お返事お待ちしています。よろしくお願いします！`,
 
 	[Key.moments]: "モーメンツ",
 	[Key.momentsNoResults]: "条件に一致するモーメンツはありません",

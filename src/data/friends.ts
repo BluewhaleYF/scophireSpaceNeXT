@@ -4,6 +4,8 @@
  *
  * 添加友链：在 friendsData 中追加一项即可，页面 / 筛选标签自动生成。
  * tags 会聚合为页面顶部的筛选 chip（OR 命中：选中多个标签时命中任一即显示）。
+ * 列表下方的「申请友链」卡片（本站信息模板 / 收件邮箱 / 开关）由
+ * src/config/friendsConfig.ts 的 apply 配置控制。
  */
 export interface FriendItem {
 	id: number;
@@ -23,34 +25,43 @@ export const friendsData: FriendItem[] = [
 			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/Goatshed.webp",
 		desc: "while (活着) { 吃饭(); 上学(); 编程(); 睡觉(); }",
 		siteurl: "https://littlesheep.me/",
-		tags: ["Blog"],
+		tags: ["Friend", "Blog"],
 	},
 	{
 		id: 2,
-		title: "Texas0295's Blog",
+		title: "Chaos的小站",
 		imgurl:
-			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/texas0295.jpg?raw=true",
-		desc: "人生は意味無し",
-		siteurl: "https://texas0295.top/",
-		tags: ["Blog"],
+			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/Chaos.webp",
+		desc: "调制饮料，改变人生。正在尝试写点有用的",
+		siteurl: "https://www.nachaos.xyz/",
+		tags: ["Friend", "Blog"],
 	},
 	{
 		id: 3,
-		title: "MKY-AN20's Home",
-		imgurl:
-			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/mky.png?raw=true",
-		desc: "MKY-AN20的主页",
-		siteurl: "https://3w.mky-an20.os.kg/",
-		tags: ["Blog"],
-	},
-	{
-		id: 4,
 		title: "涵哲子居",
 		imgurl:
 			"https://raw.githubusercontent.com/BluewhaleYF/ScophireSpace-Files/refs/heads/main/Friends/iluc.webp",
 		desc: "天哲地理，共公卿好",
 		siteurl: "https://iluc.cn",
-		tags: ["Blog"],
+		tags: ["Friend", "Blog"],
+	},
+	{
+		id: 4,
+		title: "Texas0295's Blog",
+		imgurl:
+			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/texas0295.jpg?raw=true",
+		desc: "人生は意味無し",
+		siteurl: "https://texas0295.top/",
+		tags: ["Friend", "Blog"],
+	},
+	{
+		id: 5,
+		title: "MKY-AN20's Home",
+		imgurl:
+			"https://github.com/BluewhaleYF/ScophireSpace-Files/blob/main/Friends/mky.png?raw=true",
+		desc: "MKY-AN20的主页",
+		siteurl: "https://3w.mky-an20.os.kg/",
+		tags: ["Friend", "Blog"],
 	},
 ];
 

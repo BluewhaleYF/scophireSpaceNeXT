@@ -17,6 +17,29 @@ export const th: Translation = {
 	[Key.friendsBanner]: "ยินดีแลกลิงก์ ดูวิธีสมัครได้ที่หน้าเกี่ยวกับ",
 	[Key.friendsCount]: "ลิงก์",
 	[Key.friendsCounts]: "ลิงก์",
+	[Key.friendsApplyTitle]: "ขอแลกลิงก์",
+	[Key.friendsApplyDescription]:
+		"ยินดีแลกลิงก์กันครับ! คัดลอกข้อมูลเว็บไซต์ด้านล่างไปเพิ่ม หรือส่งข้อมูลเว็บไซต์ของคุณมาทางอีเมล",
+	[Key.friendsApplySiteInfo]: "ข้อมูลเว็บไซต์นี้ (เพิ่มก่อนได้เลย)",
+	[Key.friendsApplyCopy]: "คัดลอกข้อมูล",
+	[Key.friendsApplyCopied]: "คัดลอกแล้ว",
+	[Key.friendsApplyCopyFailed]: "คัดลอกไม่สำเร็จ กรุณาเลือกข้อความแล้วคัดลอกด้วยตนเอง",
+	[Key.friendsApplySend]: "ส่งคำขอทางอีเมล",
+	[Key.friendsApplyEmailTip]: "หรือส่งตรงมาที่: {email}",
+	[Key.friendsApplyMailSubject]: "[ขอแลกลิงก์] {siteTitle}",
+	[Key.friendsApplyMailBody]: `สวัสดีครับ! ผมอยากแลกลิงก์กับ {siteTitle}
+
+【เว็บไซต์ของผม】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【เว็บไซต์ของคุณ】
+{siteInfo}
+
+รอการตอบกลับ ขอบคุณครับ!`,
 
 	[Key.moments]: "โมเมนต์",
 	[Key.momentsNoResults]: "ไม่มีโมเมนต์ที่ตรงกับตัวกรอง",

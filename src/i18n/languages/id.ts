@@ -18,6 +18,30 @@ export const id: Translation = {
 		"Tukar tautan dipersilakan — lihat halaman Tentang untuk cara mendaftar.",
 	[Key.friendsCount]: "teman",
 	[Key.friendsCounts]: "teman",
+	[Key.friendsApplyTitle]: "Ajukan tautan teman",
+	[Key.friendsApplyDescription]:
+		"Senang bertukar tautan! Salin info situs di bawah untuk menambahkan saya, atau kirim info situs Anda lewat email.",
+	[Key.friendsApplySiteInfo]: "Info situs ini (silakan tambahkan lebih dulu)",
+	[Key.friendsApplyCopy]: "Salin info",
+	[Key.friendsApplyCopied]: "Tersalin",
+	[Key.friendsApplyCopyFailed]:
+		"Gagal menyalin. Pilih teksnya lalu salin secara manual.",
+	[Key.friendsApplySend]: "Kirim permintaan lewat email",
+	[Key.friendsApplyEmailTip]: "Atau kirim langsung ke: {email}",
+	[Key.friendsApplyMailSubject]: "[Permintaan tautan] {siteTitle}",
+	[Key.friendsApplyMailBody]: `Halo! Saya ingin bertukar tautan teman dengan {siteTitle}.
+
+【Situs saya】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【Situs Anda】
+{siteInfo}
+
+Menunggu balasan Anda. Terima kasih!`,
 
 	[Key.moments]: "Momen",
 	[Key.momentsNoResults]: "Tidak ada momen yang cocok dengan filter",

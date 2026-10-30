@@ -17,6 +17,29 @@ export const zh_TW: Translation = {
 	[Key.friendsBanner]: "歡迎交換友鏈，申請方式請見「關於」頁。",
 	[Key.friendsCount]: "個友鏈",
 	[Key.friendsCounts]: "個友鏈",
+	[Key.friendsApplyTitle]: "申請友鏈",
+	[Key.friendsApplyDescription]:
+		"歡迎交換友鏈！複製下方本站資訊加入到我這裡，或寄信告訴我你的網站資訊。",
+	[Key.friendsApplySiteInfo]: "本站資訊（歡迎提前加入）",
+	[Key.friendsApplyCopy]: "複製資訊",
+	[Key.friendsApplyCopied]: "已複製",
+	[Key.friendsApplyCopyFailed]: "複製失敗，請手動選取文字複製",
+	[Key.friendsApplySend]: "寄送郵件申請",
+	[Key.friendsApplyEmailTip]: "或者直接寄至：{email}",
+	[Key.friendsApplyMailSubject]: "【友鏈申請】{siteTitle} 期待與你交換友鏈",
+	[Key.friendsApplyMailBody]: `你好，我想與「{siteTitle}」交換友鏈。
+
+【我的網站資訊】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【貴站資訊】
+{siteInfo}
+
+期待你的回覆，謝謝！`,
 
 	[Key.moments]: "動態",
 	[Key.momentsNoResults]: "沒有符合條件的動態",

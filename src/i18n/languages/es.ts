@@ -18,6 +18,30 @@ export const es: Translation = {
 		"Se aceptan intercambios de enlaces; consulta la página Acerca de.",
 	[Key.friendsCount]: "amigo",
 	[Key.friendsCounts]: "amigos",
+	[Key.friendsApplyTitle]: "Solicitar enlace de amistad",
+	[Key.friendsApplyDescription]:
+		"¡Encantado de intercambiar enlaces! Copia la información de este sitio para añadirme, o envíame tus datos por correo.",
+	[Key.friendsApplySiteInfo]: "Este sitio (puedes añadirlo ya)",
+	[Key.friendsApplyCopy]: "Copiar información",
+	[Key.friendsApplyCopied]: "Copiado",
+	[Key.friendsApplyCopyFailed]:
+		"No se pudo copiar. Selecciona el texto y cópialo manualmente.",
+	[Key.friendsApplySend]: "Enviar solicitud por correo",
+	[Key.friendsApplyEmailTip]: "O escribe directamente a: {email}",
+	[Key.friendsApplyMailSubject]: "Solicitud de enlace de amistad — {siteTitle}",
+	[Key.friendsApplyMailBody]: `¡Hola! Me gustaría intercambiar enlaces de amistad con {siteTitle}.
+
+【Mi sitio】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【Tu sitio】
+{siteInfo}
+
+Espero tu respuesta. ¡Gracias!`,
 
 	[Key.moments]: "Momentos",
 	[Key.momentsNoResults]: "No hay momentos que coincidan con los filtros",

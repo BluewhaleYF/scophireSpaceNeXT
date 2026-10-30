@@ -1,7 +1,9 @@
 ---
+import FriendApplyCard from "@components/molecules/FriendApplyCard.svelte";
 import FriendSection from "@components/organisms/FriendSection.svelte";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { resolveFriendApply } from "@utils/friend-apply";
 import { resolveI18nText } from "@utils/i18n-utils";
 import { friendsConfig } from "@/config/friendsConfig";
 import { getFriendsList } from "../data/friends";
@@ -15,8 +17,19 @@ const pageDescription = resolveI18nText(
 	friendsConfig.description,
 	I18nKey.friendsBanner,
 );
+// 申请卡片：关闭时返回 null，不输出任何 DOM 与客户端脚本
+const friendApply = resolveFriendApply();
 ---
 
 <MainGridLayout title={pageTitle} description={pageDescription} page="friends">
     <FriendSection friends={getFriendsList()} title={pageTitle} subtitle={pageDescription} client:visible></FriendSection>
+    {friendApply && (
+        <FriendApplyCard
+            snippet={friendApply.snippet}
+            email={friendApply.email}
+            mailto={friendApply.mailto}
+            class="mt-4"
+            client:visible
+        />
+    )}
 </MainGridLayout>

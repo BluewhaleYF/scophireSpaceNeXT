@@ -18,6 +18,29 @@ export const tr: Translation = {
 		"Bağlantı takası yapabilirsiniz — ayrıntılar için Hakkında sayfasına bakın.",
 	[Key.friendsCount]: "arkadaş",
 	[Key.friendsCounts]: "arkadaş",
+	[Key.friendsApplyTitle]: "Bağlantı değişimi başvurusu",
+	[Key.friendsApplyDescription]:
+		"Bağlantı değişimi yapmaktan memnuniyet duyarım! Beni eklemek için aşağıdaki site bilgilerini kopyalayın veya site bilgilerinizi e-posta ile gönderin.",
+	[Key.friendsApplySiteInfo]: "Bu site (önce ekleyebilirsiniz)",
+	[Key.friendsApplyCopy]: "Bilgileri kopyala",
+	[Key.friendsApplyCopied]: "Kopyalandı",
+	[Key.friendsApplyCopyFailed]: "Kopyalanamadı. Metni seçip elle kopyalayın.",
+	[Key.friendsApplySend]: "E-posta ile başvur",
+	[Key.friendsApplyEmailTip]: "Ya da doğrudan gönderin: {email}",
+	[Key.friendsApplyMailSubject]: "Bağlantı başvurusu — {siteTitle}",
+	[Key.friendsApplyMailBody]: `Merhaba! {siteTitle} ile bağlantı değişimi yapmak istiyorum.
+
+【Sitem】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【Sizin siteniz】
+{siteInfo}
+
+Yanıtınızı bekliyorum. Teşekkürler!`,
 
 	[Key.moments]: "Anlar",
 	[Key.momentsNoResults]: "Filtrelerle eşleşen an yok",

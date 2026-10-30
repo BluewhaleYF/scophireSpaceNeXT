@@ -18,6 +18,30 @@ export const en: Translation = {
 		"Link exchange is welcome — see the About page for how to apply.",
 	[Key.friendsCount]: "friend",
 	[Key.friendsCounts]: "friends",
+	[Key.friendsApplyTitle]: "Apply for a friend link",
+	[Key.friendsApplyDescription]:
+		"Happy to exchange links! Copy the site info below to add me, or email me your site details.",
+	[Key.friendsApplySiteInfo]: "This site (feel free to add it first)",
+	[Key.friendsApplyCopy]: "Copy info",
+	[Key.friendsApplyCopied]: "Copied",
+	[Key.friendsApplyCopyFailed]:
+		"Copy failed. Please select the text and copy it manually.",
+	[Key.friendsApplySend]: "Send an email request",
+	[Key.friendsApplyEmailTip]: "Or email directly: {email}",
+	[Key.friendsApplyMailSubject]: "Friend link request — {siteTitle}",
+	[Key.friendsApplyMailBody]: `Hi! I'd like to exchange friend links with {siteTitle}.
+
+[My site]
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+[Your site]
+{siteInfo}
+
+Looking forward to your reply. Thanks!`,
 
 	[Key.moments]: "Moments",
 	[Key.momentsNoResults]: "No moments matched your filters",

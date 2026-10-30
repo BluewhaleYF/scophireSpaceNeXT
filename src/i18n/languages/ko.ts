@@ -18,6 +18,30 @@ export const ko: Translation = {
 		"링크 교환을 환영합니다. 신청 방법은 소개 페이지를 참고하세요.",
 	[Key.friendsCount]: "개의 친구 링크",
 	[Key.friendsCounts]: "개의 친구 링크",
+	[Key.friendsApplyTitle]: "친구 링크 신청",
+	[Key.friendsApplyDescription]:
+		"서로 링크를 교환해요! 아래 사이트 정보를 복사해 추가하시거나, 사이트 정보를 메일로 보내 주세요.",
+	[Key.friendsApplySiteInfo]: "이 사이트 정보 (먼저 추가해 주셔도 좋아요)",
+	[Key.friendsApplyCopy]: "정보 복사",
+	[Key.friendsApplyCopied]: "복사됨",
+	[Key.friendsApplyCopyFailed]:
+		"복사하지 못했습니다. 텍스트를 선택해 직접 복사해 주세요.",
+	[Key.friendsApplySend]: "메일로 신청하기",
+	[Key.friendsApplyEmailTip]: "또는 직접 보내기: {email}",
+	[Key.friendsApplyMailSubject]: "[친구 링크 신청] {siteTitle}",
+	[Key.friendsApplyMailBody]: `안녕하세요. 「{siteTitle}」와 친구 링크를 교환하고 싶습니다.
+
+【제 사이트 정보】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【귀 사이트 정보】
+{siteInfo}
+
+답장 기다리겠습니다. 감사합니다!`,
 
 	[Key.moments]: "모먼트",
 	[Key.momentsNoResults]: "조건에 맞는 모먼트가 없습니다",

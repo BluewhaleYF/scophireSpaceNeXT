@@ -135,6 +135,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 | `animeConfig.ts` | 番剧页与外部追番数据源：数据源选择（本地 / Bangumi 快照 / Bilibili 快照）、失败降级、提供方凭据环境配置与快照生命周期管理（本地番剧维护在 `src/data/anime.ts`） |
 | `llmsConfig.ts` | 大语言模型与 AI 友好内容系统：`/llms.txt`（索引）与 `/llms-full.txt`（全量正文汇编）静态端点生成控制、加密文章过滤、排除标签与自定义章节配置；支持内容仓 `config/llms.yaml` 覆盖（领域键 `llms`） |
 | `seriesConfig.ts` | 系列连载：`/series/` 索引与 `/series/<slug>/` 详情页总开关（默认开启）、索引页 `title`/`description`（`$t:` i18n 引用或字面量，描述留空用动态汇总）、文章内系列块位置 `cardPosition: "top" \| "bottom"`（top = 元信息区下方、正文之前；bottom = 正文之后、版权/分享/延伸阅读之前）；支持内容仓 `config/series.yaml` 覆盖（领域键 `series`）。关闭时系列页 404、导航/侧栏/sitemap 入口裁剪、文章内系列卡消失（系列实体与文章 frontmatter 见 `shirone-writing` 与内容分离文档） |
+| `friendsConfig.ts` | 友链页：页面总开关与标题/副标题，以及列表下方的「申请友链」卡片（`apply.enable` 总开关、`apply.email` 收件邮箱、`apply.siteInfo` 覆盖本站信息模板）；友链条目维护在 `src/data/friends.ts`。关闭申请卡片时零 DOM、零复制逻辑 |
 
 非首页 Banner 的标题、说明和可选日期由各页面通过 `MainGridLayout` 提供，并在 Swup 导航后从被替换的主内容容器同步。该上下文默认显示、不设配置开关；说明为空或与标题相同时自动省略，移动端非首页仍沿用紧凑布局并隐藏 Banner。
 

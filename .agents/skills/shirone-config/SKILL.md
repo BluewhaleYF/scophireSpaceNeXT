@@ -30,6 +30,7 @@ description: Configuring a Shirone blog site - site identity, theme colors, navi
 | `fontConfig.ts` | 字体(构建期 TTF→WOFF2 子集化) |
 | `llmsConfig.ts` | 生成 AI 友好的 `/llms.txt` 与 `/llms-full.txt` |
 | `skillsConfig.ts` 等页面配置 | 技能/项目/时间线/设备/游戏页开关与分类,内容在对应 `src/data/*.ts`；友链、罗盘、番剧和音乐数据也在该目录维护 |
+| `friendsConfig.ts` | 友链页开关与列表下方的申请卡片(`apply.enable` / `apply.email` / `apply.siteInfo` 本站信息模板) |
 | `seriesConfig.ts` | 系列连载（`/series/` 索引与详情页、文章内系列卡位置 `cardPosition`、默认开启，关闭时入口与页面同步隐藏） |
 | `fabConfig.ts` | 右下角悬浮控制流 |
 | `footerConfig.ts` / `FooterConfig.html` | 可选页脚 HTML 注入(默认关闭) |

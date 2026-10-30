@@ -17,6 +17,29 @@ export const zh_CN: Translation = {
 	[Key.friendsBanner]: "通往互联网有趣角落的传送门",
 	[Key.friendsCount]: "个友链",
 	[Key.friendsCounts]: "个友链",
+	[Key.friendsApplyTitle]: "申请友链",
+	[Key.friendsApplyDescription]:
+		"欢迎交换友链！复制下方本站信息添加到我这里，或者发邮件告诉我你的站点信息。",
+	[Key.friendsApplySiteInfo]: "本站信息（欢迎提前添加）",
+	[Key.friendsApplyCopy]: "复制信息",
+	[Key.friendsApplyCopied]: "已复制",
+	[Key.friendsApplyCopyFailed]: "复制失败，请手动选择文本复制",
+	[Key.friendsApplySend]: "发送邮件申请",
+	[Key.friendsApplyEmailTip]: "或者直接发送至：{email}",
+	[Key.friendsApplyMailSubject]: "【友链申请】{siteTitle} 期待与你交换友链",
+	[Key.friendsApplyMailBody]: `你好，我想与「{siteTitle}」交换友链。
+
+【我的网站信息】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【贵站信息】
+{siteInfo}
+
+期待你的回复，谢谢！`,
 
 	[Key.moments]: "动态",
 	[Key.momentsNoResults]: "没有符合条件的动态",

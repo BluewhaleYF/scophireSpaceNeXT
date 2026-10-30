@@ -18,6 +18,30 @@ export const vi: Translation = {
 		"Chào đón trao đổi liên kết — xem trang Giới thiệu để biết cách đăng ký.",
 	[Key.friendsCount]: "liên kết bạn bè",
 	[Key.friendsCounts]: "liên kết bạn bè",
+	[Key.friendsApplyTitle]: "Đăng ký liên kết bạn bè",
+	[Key.friendsApplyDescription]:
+		"Rất vui được trao đổi liên kết! Hãy sao chép thông tin site bên dưới để thêm mình, hoặc gửi email thông tin site của bạn.",
+	[Key.friendsApplySiteInfo]: "Thông tin site này (có thể thêm trước)",
+	[Key.friendsApplyCopy]: "Sao chép thông tin",
+	[Key.friendsApplyCopied]: "Đã sao chép",
+	[Key.friendsApplyCopyFailed]:
+		"Sao chép thất bại. Hãy chọn văn bản và sao chép thủ công.",
+	[Key.friendsApplySend]: "Gửi email đăng ký",
+	[Key.friendsApplyEmailTip]: "Hoặc gửi trực tiếp đến: {email}",
+	[Key.friendsApplyMailSubject]: "[Đăng ký liên kết] {siteTitle}",
+	[Key.friendsApplyMailBody]: `Xin chào! Mình muốn trao đổi liên kết bạn bè với {siteTitle}.
+
+【Site của mình】
+title: ""
+imgurl: ""
+desc: ""
+siteurl: ""
+tags: ["Friend"]
+
+【Site của bạn】
+{siteInfo}
+
+Mong nhận được hồi âm. Cảm ơn bạn!`,
 
 	[Key.moments]: "Khoảnh khắc",
 	[Key.momentsNoResults]: "Không có khoảnh khắc nào khớp bộ lọc",
