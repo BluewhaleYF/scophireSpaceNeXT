@@ -26,7 +26,7 @@ export const ja: Translation = {
 		"あなたのブログを当サイトのリンク集に載せる方法",
 	[Key.friendsApplyRequirementsTitle]: "条件",
 	[Key.friendsApplyRequirementKnown]:
-		"私と面識があり、何らかの接点があること。",
+		"リンク集の品質を保つため、現在は実際に面識のある方、または長期的に交流のある方に限定しています。",
 	[Key.friendsApplyRequirementSite]:
 		"サイトが HTTPS に対応し、過去1年以内に更新があり、中国大陸から正常にアクセスできること。",
 	[Key.friendsApplyRequirementNature]:

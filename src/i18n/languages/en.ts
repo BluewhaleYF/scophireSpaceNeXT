@@ -24,7 +24,8 @@ export const en: Translation = {
 	[Key.friendsApplyAddTitle]: "Add a friend link",
 	[Key.friendsApplyAddDescription]: "How to get your blog listed here",
 	[Key.friendsApplyRequirementsTitle]: "Requirements",
-	[Key.friendsApplyRequirementKnown]: "I know you and we have some overlap.",
+	[Key.friendsApplyRequirementKnown]:
+		"To keep the list high-quality, friend links are currently open only to people I know in real life or have stayed in touch with over time.",
 	[Key.friendsApplyRequirementSite]:
 		"Your site uses HTTPS, has been updated within the past year, and is accessible from mainland China.",
 	[Key.friendsApplyRequirementNature]:

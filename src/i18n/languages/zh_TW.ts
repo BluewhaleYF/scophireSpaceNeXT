@@ -23,7 +23,8 @@ export const zh_TW: Translation = {
 	[Key.friendsApplyAddTitle]: "新增友鏈",
 	[Key.friendsApplyAddDescription]: "如何讓貴站出現在我的友鏈中",
 	[Key.friendsApplyRequirementsTitle]: "要求",
-	[Key.friendsApplyRequirementKnown]: "我認識您，並與您有一些交集。",
+	[Key.friendsApplyRequirementKnown]:
+		"為了保證友鏈品質，目前僅開放給現實中認識或長期交流的朋友。",
 	[Key.friendsApplyRequirementSite]:
 		"貴站已啟用 HTTPS，近一年內有更新，且可在中國大陸正常存取。",
 	[Key.friendsApplyRequirementNature]:

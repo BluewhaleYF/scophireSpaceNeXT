@@ -25,7 +25,7 @@ export const es: Translation = {
 	[Key.friendsApplyAddDescription]: "Cómo aparecer en mis enlaces",
 	[Key.friendsApplyRequirementsTitle]: "Requisitos",
 	[Key.friendsApplyRequirementKnown]:
-		"Te conozco y tenemos algún punto en común.",
+		"Para mantener la calidad de los enlaces, por ahora solo acepto a personas que conozco en la vida real o con quienes mantengo contacto desde hace tiempo.",
 	[Key.friendsApplyRequirementSite]:
 		"Tu sitio usa HTTPS, se ha actualizado en el último año y es accesible desde China continental.",
 	[Key.friendsApplyRequirementNature]:

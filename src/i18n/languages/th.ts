@@ -23,7 +23,8 @@ export const th: Translation = {
 	[Key.friendsApplyAddTitle]: "เพิ่มลิงก์เพื่อน",
 	[Key.friendsApplyAddDescription]: "วิธีทำให้บล็อกของคุณปรากฏในรายการลิงก์ของผม",
 	[Key.friendsApplyRequirementsTitle]: "เงื่อนไข",
-	[Key.friendsApplyRequirementKnown]: "ผมรู้จักคุณและเรามีจุดร่วมบางอย่าง",
+	[Key.friendsApplyRequirementKnown]:
+		"เพื่อรักษาคุณภาพของรายการลิงก์ ปัจจุบันเปิดรับเฉพาะคนที่รู้จักในชีวิตจริงหรือติดต่อกันมาเป็นเวลานาน",
 	[Key.friendsApplyRequirementSite]:
 		"เว็บไซต์ของคุณใช้ HTTPS มีการอัปเดตภายในหนึ่งปีที่ผ่านมา และเข้าถึงได้จากจีนแผ่นดินใหญ่",
 	[Key.friendsApplyRequirementNature]:

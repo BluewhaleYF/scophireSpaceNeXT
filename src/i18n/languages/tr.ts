@@ -26,7 +26,7 @@ export const tr: Translation = {
 		"Blogunuzun buradaki bağlantılarda görünmesi için",
 	[Key.friendsApplyRequirementsTitle]: "Koşullar",
 	[Key.friendsApplyRequirementKnown]:
-		"Sizi tanıyorum ve ortak bir noktamız var.",
+		"Bağlantı kalitesini korumak için şu anda yalnızca gerçek hayattan tanıdığım veya uzun süredir iletişimde olduğum kişilere açığım.",
 	[Key.friendsApplyRequirementSite]:
 		"Siteniz HTTPS kullanıyor, son bir yıl içinde güncellenmiş ve Çin anakarasından erişilebilir.",
 	[Key.friendsApplyRequirementNature]:

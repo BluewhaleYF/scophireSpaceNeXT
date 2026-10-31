@@ -26,7 +26,7 @@ export const ko: Translation = {
 		"내 블로그를 이곳 친구 링크에 추가하는 방법",
 	[Key.friendsApplyRequirementsTitle]: "조건",
 	[Key.friendsApplyRequirementKnown]:
-		"저와 알고 지내며 어느 정도 접점이 있어야 합니다.",
+		"링크 품질을 유지하기 위해 현재는 실제로 아는 분이나 오랫동안 교류해 온 분에게만 개방하고 있습니다.",
 	[Key.friendsApplyRequirementSite]:
 		"사이트가 HTTPS를 사용하고, 최근 1년 이내에 업데이트되었으며, 중국 본토에서 정상적으로 접속할 수 있어야 합니다.",
 	[Key.friendsApplyRequirementNature]:

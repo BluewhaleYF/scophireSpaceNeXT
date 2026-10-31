@@ -23,7 +23,8 @@ export const zh_CN: Translation = {
 	[Key.friendsApplyAddTitle]: "添加友链",
 	[Key.friendsApplyAddDescription]: "如何让贵站出现在我的友链中",
 	[Key.friendsApplyRequirementsTitle]: "要求",
-	[Key.friendsApplyRequirementKnown]: "我认识您，并与您有一定交集。",
+	[Key.friendsApplyRequirementKnown]:
+		"为了保证友链质量，目前仅开放给现实中认识或长期交流的朋友。",
 	[Key.friendsApplyRequirementSite]:
 		"贵站已启用 HTTPS、近一年内有更新，且可以正常在中国大陆访问。",
 	[Key.friendsApplyRequirementNature]:

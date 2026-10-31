@@ -25,7 +25,7 @@ export const id: Translation = {
 	[Key.friendsApplyAddDescription]: "Cara agar blog Anda muncul di tautan saya",
 	[Key.friendsApplyRequirementsTitle]: "Persyaratan",
 	[Key.friendsApplyRequirementKnown]:
-		"Saya mengenal Anda dan kita memiliki keterhubungan.",
+		"Demi menjaga kualitas daftar tautan, saat ini saya hanya menerima orang yang saya kenal di dunia nyata atau sudah berinteraksi lama.",
 	[Key.friendsApplyRequirementSite]:
 		"Situs Anda menggunakan HTTPS, diperbarui dalam setahun terakhir, dan dapat diakses dari Tiongkok daratan.",
 	[Key.friendsApplyRequirementNature]:

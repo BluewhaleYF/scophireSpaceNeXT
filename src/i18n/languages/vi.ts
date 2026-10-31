@@ -26,7 +26,7 @@ export const vi: Translation = {
 		"Cách để blog của bạn xuất hiện trong danh sách liên kết của mình",
 	[Key.friendsApplyRequirementsTitle]: "Yêu cầu",
 	[Key.friendsApplyRequirementKnown]:
-		"Mình biết bạn và chúng ta có điểm chung nào đó.",
+		"Để đảm bảo chất lượng danh sách, hiện mình chỉ mở cho những người quen ngoài đời hoặc đã giao lưu lâu dài.",
 	[Key.friendsApplyRequirementSite]:
 		"Trang của bạn dùng HTTPS, có cập nhật trong vòng một năm qua và truy cập được từ Trung Quốc đại lục.",
 	[Key.friendsApplyRequirementNature]:
