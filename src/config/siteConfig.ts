@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	site: "https://scophire.space/",
 	base: "/",
 	title: "ScophireSpace",
-	subtitle: "Flint Scophire的个人博客",
+	subtitle: "Flint Scophire 的个人博客",
 	// 站点开始运行日期（YYYY-MM-DD），侧栏“运行天数”由此起算；省略时回退为最早文章发布日期。
 	startDate: "2026-10-18",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
