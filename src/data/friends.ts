@@ -62,7 +62,7 @@ export const friendsData: FriendItem[] = [
 		imgurl: "assets/friends/mky-an20.webp",
 		desc: "MKY-AN20的主页",
 		siteurl: "https://3w.mky-an20.os.kg/",
-		tags: ["Friend", "Blog"],
+		tags: ["Friend"],
 	},
 ];
 
