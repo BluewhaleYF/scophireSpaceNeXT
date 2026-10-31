@@ -54,6 +54,12 @@ export const compassData: CompassShelf[] = [
 				note: "中华羊国网络信息办公室备案",
 				image: "assets/compass/roy-icp.webp",
 			},
+			{
+				label: "WanJie Studio",
+				href: "https://wanjie.qght.cn/",
+				note: "做自己想做的，到此为止，或不止于此。",
+				image: "assets/compass/wanjie-studio.webp",
+			},
 		],
 	},
 	{
