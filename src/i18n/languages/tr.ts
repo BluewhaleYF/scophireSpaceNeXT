@@ -18,10 +18,24 @@ export const tr: Translation = {
 		"Bağlantı takası yapabilirsiniz — ayrıntılar için Hakkında sayfasına bakın.",
 	[Key.friendsCount]: "arkadaş",
 	[Key.friendsCounts]: "arkadaş",
-	[Key.friendsApplyTitle]: "Bağlantı değişimi başvurusu",
-	[Key.friendsApplyDescription]:
-		"Bağlantı değişimi yapmaktan memnuniyet duyarım! Beni eklemek için aşağıdaki site bilgilerini kopyalayın veya site bilgilerinizi e-posta ile gönderin.",
-	[Key.friendsApplySiteInfo]: "Bu site (önce ekleyebilirsiniz)",
+	[Key.friendsApplySiteTitle]: "Bu site",
+	[Key.friendsApplySiteDescription]: "Bu siteyi blogunuza nasıl eklersiniz",
+	[Key.friendsApplySnippetLabel]: "Site bilgileri",
+	[Key.friendsApplyAddTitle]: "Bağlantı ekle",
+	[Key.friendsApplyAddDescription]:
+		"Blogunuzun buradaki bağlantılarda görünmesi için",
+	[Key.friendsApplyRequirementsTitle]: "Koşullar",
+	[Key.friendsApplyRequirementKnown]:
+		"Sizi tanıyorum ve ortak bir noktamız var.",
+	[Key.friendsApplyRequirementSite]:
+		"Siteniz HTTPS kullanıyor, son bir yıl içinde güncellenmiş ve Çin anakarasından erişilebilir.",
+	[Key.friendsApplyRequirementNature]:
+		"Siteniz kişisel ve kâr amacı gütmeyen bir blog veya sayfa: ağırlıklı olarak özgün içerik, aşırı reklam yok; zararlı, yasa dışı, spam veya pornografik içerik yok.",
+	[Key.friendsApplyTermsTitle]: "Beni eklerseniz",
+	[Key.friendsApplyTermsNotify]:
+		"Sağladığım bilgilerle bu siteyi özgürce ekleyebilirsiniz, ancak e-posta ile bana bildirmelisiniz.",
+	[Key.friendsApplyTermsRemoval]:
+		"Sitemin bağlantısını istediğiniz zaman sitenizden kaldırmanızı talep etme hakkımı saklı tutarım.",
 	[Key.friendsApplyCopy]: "Bilgileri kopyala",
 	[Key.friendsApplyCopied]: "Kopyalandı",
 	[Key.friendsApplyCopyFailed]: "Kopyalanamadı. Metni seçip elle kopyalayın.",

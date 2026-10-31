@@ -18,11 +18,24 @@ export const ja: Translation = {
 		"リンクの交換を歓迎します。申請方法は About ページをご覧ください。",
 	[Key.friendsCount]: "件の友達リンク",
 	[Key.friendsCounts]: "件の友達リンク",
-	[Key.friendsApplyTitle]: "友達リンクを申請",
-	[Key.friendsApplyDescription]:
-		"相互リンク募集中です！下のサイト情報をコピーして追加するか、あなたのサイト情報をメールでお送りください。",
-	[Key.friendsApplySiteInfo]:
-		"当サイトの情報（先に追加していただけると嬉しいです）",
+	[Key.friendsApplySiteTitle]: "当サイトについて",
+	[Key.friendsApplySiteDescription]: "当サイトをあなたのブログに追加する方法",
+	[Key.friendsApplySnippetLabel]: "サイト情報",
+	[Key.friendsApplyAddTitle]: "相互リンクを追加",
+	[Key.friendsApplyAddDescription]:
+		"あなたのブログを当サイトのリンク集に載せる方法",
+	[Key.friendsApplyRequirementsTitle]: "条件",
+	[Key.friendsApplyRequirementKnown]:
+		"私と面識があり、何らかの接点があること。",
+	[Key.friendsApplyRequirementSite]:
+		"サイトが HTTPS に対応し、過去1年以内に更新があり、中国大陸から正常にアクセスできること。",
+	[Key.friendsApplyRequirementNature]:
+		"個人運営の非営利ブログまたはページであること：オリジナルコンテンツが中心で、過度な広告や、有害・違法・スパム・ポルノコンテンツを含まないこと。",
+	[Key.friendsApplyTermsTitle]: "当サイトを追加する場合",
+	[Key.friendsApplyTermsNotify]:
+		"提示した情報をもとに自由に追加していただけますが、メールでのご連絡が必要です。",
+	[Key.friendsApplyTermsRemoval]:
+		"いつでもあなたのサイトから当サイトのリンクを削除するよう求められる権利を留保します。",
 	[Key.friendsApplyCopy]: "情報をコピー",
 	[Key.friendsApplyCopied]: "コピーしました",
 	[Key.friendsApplyCopyFailed]:

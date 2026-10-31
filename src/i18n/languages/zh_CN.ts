@@ -17,17 +17,28 @@ export const zh_CN: Translation = {
 	[Key.friendsBanner]: "通往互联网有趣角落的传送门",
 	[Key.friendsCount]: "个友链",
 	[Key.friendsCounts]: "个友链",
-	[Key.friendsApplyTitle]: "申请友链",
-	[Key.friendsApplyDescription]:
-		"欢迎交换友链！复制下方本站信息添加到我这里，或者发邮件告诉我你的站点信息。",
-	[Key.friendsApplySiteInfo]: "本站信息（欢迎提前添加）",
-	[Key.friendsApplyCopy]: "复制信息",
+	[Key.friendsApplySiteTitle]: "本站信息",
+	[Key.friendsApplySiteDescription]: "如何将本站添加到贵站",
+	[Key.friendsApplySnippetLabel]: "友链信息",
+	[Key.friendsApplyAddTitle]: "添加友链",
+	[Key.friendsApplyAddDescription]: "如何让贵站出现在我的友链中",
+	[Key.friendsApplyRequirementsTitle]: "要求",
+	[Key.friendsApplyRequirementKnown]: "我认识您，并与您有一定交集。",
+	[Key.friendsApplyRequirementSite]:
+		"贵站已启用 HTTPS、近一年内有更新，且可以正常在中国大陆访问。",
+	[Key.friendsApplyRequirementNature]:
+		"贵站为个人性质的非营利性博客或页面：以原创内容为主，不过度投放广告，不包含有害、违法违规、垃圾或色情内容。",
+	[Key.friendsApplyTermsTitle]: "添加我的要求",
+	[Key.friendsApplyTermsNotify]:
+		"您可以根据我提供的信息自由添加本站，但请以邮件形式通知我。",
+	[Key.friendsApplyTermsRemoval]: "我保留随时要求贵站下架我的链接的权利。",
+	[Key.friendsApplyCopy]: "复制",
 	[Key.friendsApplyCopied]: "已复制",
 	[Key.friendsApplyCopyFailed]: "复制失败，请手动选择文本复制",
 	[Key.friendsApplySend]: "发送邮件申请",
 	[Key.friendsApplyEmailTip]: "或者直接发送至：{email}",
-	[Key.friendsApplyMailSubject]: "【友链申请】{siteTitle} 期待与你交换友链",
-	[Key.friendsApplyMailBody]: `你好，我想与「{siteTitle}」交换友链。
+	[Key.friendsApplyMailSubject]: "【友链申请】{siteTitle} 期待与您交换友链",
+	[Key.friendsApplyMailBody]: `您好，我想与「{siteTitle}」交换友链。
 
 【我的网站信息】
 title: ""
@@ -39,7 +50,7 @@ tags: ["Friend"]
 【贵站信息】
 {siteInfo}
 
-期待你的回复，谢谢！`,
+期待您的回复，非常感谢！`,
 
 	[Key.moments]: "动态",
 	[Key.momentsNoResults]: "没有符合条件的动态",

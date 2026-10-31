@@ -17,17 +17,28 @@ export const zh_TW: Translation = {
 	[Key.friendsBanner]: "歡迎交換友鏈，申請方式請見「關於」頁。",
 	[Key.friendsCount]: "個友鏈",
 	[Key.friendsCounts]: "個友鏈",
-	[Key.friendsApplyTitle]: "申請友鏈",
-	[Key.friendsApplyDescription]:
-		"歡迎交換友鏈！複製下方本站資訊加入到我這裡，或寄信告訴我你的網站資訊。",
-	[Key.friendsApplySiteInfo]: "本站資訊（歡迎提前加入）",
+	[Key.friendsApplySiteTitle]: "本站資訊",
+	[Key.friendsApplySiteDescription]: "如何將本站加入貴站",
+	[Key.friendsApplySnippetLabel]: "友鏈資訊",
+	[Key.friendsApplyAddTitle]: "新增友鏈",
+	[Key.friendsApplyAddDescription]: "如何讓貴站出現在我的友鏈中",
+	[Key.friendsApplyRequirementsTitle]: "要求",
+	[Key.friendsApplyRequirementKnown]: "我認識您，並與您有一些交集。",
+	[Key.friendsApplyRequirementSite]:
+		"貴站已啟用 HTTPS，近一年內有更新，且可在中國大陸正常存取。",
+	[Key.friendsApplyRequirementNature]:
+		"貴站應為個人性質的非營利部落格或頁面：以原創內容為主，不過度投放廣告，且不得包含有害、違法違規、垃圾或色情內容。",
+	[Key.friendsApplyTermsTitle]: "加入我的要求",
+	[Key.friendsApplyTermsNotify]:
+		"您可以依照我提供的資訊自由加入本站，但請以電子郵件通知我。",
+	[Key.friendsApplyTermsRemoval]: "我保留隨時要求貴站移除我的連結的權利。",
 	[Key.friendsApplyCopy]: "複製資訊",
 	[Key.friendsApplyCopied]: "已複製",
 	[Key.friendsApplyCopyFailed]: "複製失敗，請手動選取文字複製",
 	[Key.friendsApplySend]: "寄送郵件申請",
 	[Key.friendsApplyEmailTip]: "或者直接寄至：{email}",
-	[Key.friendsApplyMailSubject]: "【友鏈申請】{siteTitle} 期待與你交換友鏈",
-	[Key.friendsApplyMailBody]: `你好，我想與「{siteTitle}」交換友鏈。
+	[Key.friendsApplyMailSubject]: "【友鏈申請】{siteTitle} 期待與您交換友鏈",
+	[Key.friendsApplyMailBody]: `您好，我想與「{siteTitle}」交換友鏈。
 
 【我的網站資訊】
 title: ""
@@ -39,7 +50,7 @@ tags: ["Friend"]
 【貴站資訊】
 {siteInfo}
 
-期待你的回覆，謝謝！`,
+期待您的回覆，非常感謝！`,
 
 	[Key.moments]: "動態",
 	[Key.momentsNoResults]: "沒有符合條件的動態",

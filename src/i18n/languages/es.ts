@@ -18,10 +18,23 @@ export const es: Translation = {
 		"Se aceptan intercambios de enlaces; consulta la página Acerca de.",
 	[Key.friendsCount]: "amigo",
 	[Key.friendsCounts]: "amigos",
-	[Key.friendsApplyTitle]: "Solicitar enlace de amistad",
-	[Key.friendsApplyDescription]:
-		"¡Encantado de intercambiar enlaces! Copia la información de este sitio para añadirme, o envíame tus datos por correo.",
-	[Key.friendsApplySiteInfo]: "Este sitio (puedes añadirlo ya)",
+	[Key.friendsApplySiteTitle]: "Este sitio",
+	[Key.friendsApplySiteDescription]: "Cómo añadir este sitio a tu blog",
+	[Key.friendsApplySnippetLabel]: "Información del sitio",
+	[Key.friendsApplyAddTitle]: "Añadir un enlace de amistad",
+	[Key.friendsApplyAddDescription]: "Cómo aparecer en mis enlaces",
+	[Key.friendsApplyRequirementsTitle]: "Requisitos",
+	[Key.friendsApplyRequirementKnown]:
+		"Te conozco y tenemos algún punto en común.",
+	[Key.friendsApplyRequirementSite]:
+		"Tu sitio usa HTTPS, se ha actualizado en el último año y es accesible desde China continental.",
+	[Key.friendsApplyRequirementNature]:
+		"Tu sitio es un blog o página personal y sin ánimo de lucro: contenido mayoritariamente original, sin publicidad excesiva ni material dañino, ilegal, spam o pornográfico.",
+	[Key.friendsApplyTermsTitle]: "Si me añades",
+	[Key.friendsApplyTermsNotify]:
+		"Puedes añadir este sitio libremente con la información que facilito, pero debes avisarme por correo electrónico.",
+	[Key.friendsApplyTermsRemoval]:
+		"Me reservo el derecho de pedirte que retires mi enlace de tu sitio en cualquier momento.",
 	[Key.friendsApplyCopy]: "Copiar información",
 	[Key.friendsApplyCopied]: "Copiado",
 	[Key.friendsApplyCopyFailed]:

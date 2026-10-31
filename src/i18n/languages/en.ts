@@ -18,10 +18,22 @@ export const en: Translation = {
 		"Link exchange is welcome — see the About page for how to apply.",
 	[Key.friendsCount]: "friend",
 	[Key.friendsCounts]: "friends",
-	[Key.friendsApplyTitle]: "Apply for a friend link",
-	[Key.friendsApplyDescription]:
-		"Happy to exchange links! Copy the site info below to add me, or email me your site details.",
-	[Key.friendsApplySiteInfo]: "This site (feel free to add it first)",
+	[Key.friendsApplySiteTitle]: "This site",
+	[Key.friendsApplySiteDescription]: "How to add this site to your blog",
+	[Key.friendsApplySnippetLabel]: "Site info",
+	[Key.friendsApplyAddTitle]: "Add a friend link",
+	[Key.friendsApplyAddDescription]: "How to get your blog listed here",
+	[Key.friendsApplyRequirementsTitle]: "Requirements",
+	[Key.friendsApplyRequirementKnown]: "I know you and we have some overlap.",
+	[Key.friendsApplyRequirementSite]:
+		"Your site uses HTTPS, has been updated within the past year, and is accessible from mainland China.",
+	[Key.friendsApplyRequirementNature]:
+		"Your site is a personal, non-commercial blog or page: mostly original content, no excessive advertising, and no harmful, illegal, spam, or pornographic material.",
+	[Key.friendsApplyTermsTitle]: "If you add me",
+	[Key.friendsApplyTermsNotify]:
+		"You may add this site freely using the info I provide, but you must notify me by email.",
+	[Key.friendsApplyTermsRemoval]:
+		"I reserve the right to ask you to remove my link from your site at any time.",
 	[Key.friendsApplyCopy]: "Copy info",
 	[Key.friendsApplyCopied]: "Copied",
 	[Key.friendsApplyCopyFailed]:

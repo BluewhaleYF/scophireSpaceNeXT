@@ -18,10 +18,24 @@ export const ko: Translation = {
 		"링크 교환을 환영합니다. 신청 방법은 소개 페이지를 참고하세요.",
 	[Key.friendsCount]: "개의 친구 링크",
 	[Key.friendsCounts]: "개의 친구 링크",
-	[Key.friendsApplyTitle]: "친구 링크 신청",
-	[Key.friendsApplyDescription]:
-		"서로 링크를 교환해요! 아래 사이트 정보를 복사해 추가하시거나, 사이트 정보를 메일로 보내 주세요.",
-	[Key.friendsApplySiteInfo]: "이 사이트 정보 (먼저 추가해 주셔도 좋아요)",
+	[Key.friendsApplySiteTitle]: "이 사이트 정보",
+	[Key.friendsApplySiteDescription]: "이 사이트를 블로그에 추가하는 방법",
+	[Key.friendsApplySnippetLabel]: "사이트 정보",
+	[Key.friendsApplyAddTitle]: "친구 링크 추가",
+	[Key.friendsApplyAddDescription]:
+		"내 블로그를 이곳 친구 링크에 추가하는 방법",
+	[Key.friendsApplyRequirementsTitle]: "조건",
+	[Key.friendsApplyRequirementKnown]:
+		"저와 알고 지내며 어느 정도 접점이 있어야 합니다.",
+	[Key.friendsApplyRequirementSite]:
+		"사이트가 HTTPS를 사용하고, 최근 1년 이내에 업데이트되었으며, 중국 본토에서 정상적으로 접속할 수 있어야 합니다.",
+	[Key.friendsApplyRequirementNature]:
+		"개인이 운영하는 비영리 블로그 또는 페이지여야 합니다: 창작 콘텐츠 중심이며, 과도한 광고나 유해·불법·스팸·음란 콘텐츠가 없어야 합니다.",
+	[Key.friendsApplyTermsTitle]: "이 사이트를 추가할 경우",
+	[Key.friendsApplyTermsNotify]:
+		"안내된 정보로 자유롭게 추가할 수 있지만, 이메일로 알려 주셔야 합니다.",
+	[Key.friendsApplyTermsRemoval]:
+		"언제든지 귀하의 사이트에서 이 사이트 링크를 내리도록 요청할 권리를 보유합니다.",
 	[Key.friendsApplyCopy]: "정보 복사",
 	[Key.friendsApplyCopied]: "복사됨",
 	[Key.friendsApplyCopyFailed]:

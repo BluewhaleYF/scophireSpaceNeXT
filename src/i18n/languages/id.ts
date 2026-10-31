@@ -18,10 +18,23 @@ export const id: Translation = {
 		"Tukar tautan dipersilakan — lihat halaman Tentang untuk cara mendaftar.",
 	[Key.friendsCount]: "teman",
 	[Key.friendsCounts]: "teman",
-	[Key.friendsApplyTitle]: "Ajukan tautan teman",
-	[Key.friendsApplyDescription]:
-		"Senang bertukar tautan! Salin info situs di bawah untuk menambahkan saya, atau kirim info situs Anda lewat email.",
-	[Key.friendsApplySiteInfo]: "Info situs ini (silakan tambahkan lebih dulu)",
+	[Key.friendsApplySiteTitle]: "Situs ini",
+	[Key.friendsApplySiteDescription]: "Cara menambahkan situs ini ke blog Anda",
+	[Key.friendsApplySnippetLabel]: "Info situs",
+	[Key.friendsApplyAddTitle]: "Tambahkan tautan teman",
+	[Key.friendsApplyAddDescription]: "Cara agar blog Anda muncul di tautan saya",
+	[Key.friendsApplyRequirementsTitle]: "Persyaratan",
+	[Key.friendsApplyRequirementKnown]:
+		"Saya mengenal Anda dan kita memiliki keterhubungan.",
+	[Key.friendsApplyRequirementSite]:
+		"Situs Anda menggunakan HTTPS, diperbarui dalam setahun terakhir, dan dapat diakses dari Tiongkok daratan.",
+	[Key.friendsApplyRequirementNature]:
+		"Situs Anda adalah blog atau halaman pribadi nonkomersial: sebagian besar konten orisinal, tanpa iklan berlebihan, serta tanpa konten berbahaya, ilegal, spam, atau pornografi.",
+	[Key.friendsApplyTermsTitle]: "Jika Anda menambahkan saya",
+	[Key.friendsApplyTermsNotify]:
+		"Anda bebas menambahkan situs ini dengan info yang saya berikan, tetapi wajib memberi tahu saya lewat email.",
+	[Key.friendsApplyTermsRemoval]:
+		"Saya berhak meminta Anda menghapus tautan saya dari situs Anda kapan saja.",
 	[Key.friendsApplyCopy]: "Salin info",
 	[Key.friendsApplyCopied]: "Tersalin",
 	[Key.friendsApplyCopyFailed]:

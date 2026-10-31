@@ -18,10 +18,24 @@ export const vi: Translation = {
 		"Chào đón trao đổi liên kết — xem trang Giới thiệu để biết cách đăng ký.",
 	[Key.friendsCount]: "liên kết bạn bè",
 	[Key.friendsCounts]: "liên kết bạn bè",
-	[Key.friendsApplyTitle]: "Đăng ký liên kết bạn bè",
-	[Key.friendsApplyDescription]:
-		"Rất vui được trao đổi liên kết! Hãy sao chép thông tin site bên dưới để thêm mình, hoặc gửi email thông tin site của bạn.",
-	[Key.friendsApplySiteInfo]: "Thông tin site này (có thể thêm trước)",
+	[Key.friendsApplySiteTitle]: "Trang này",
+	[Key.friendsApplySiteDescription]: "Cách thêm trang này vào blog của bạn",
+	[Key.friendsApplySnippetLabel]: "Thông tin trang",
+	[Key.friendsApplyAddTitle]: "Thêm liên kết bạn bè",
+	[Key.friendsApplyAddDescription]:
+		"Cách để blog của bạn xuất hiện trong danh sách liên kết của mình",
+	[Key.friendsApplyRequirementsTitle]: "Yêu cầu",
+	[Key.friendsApplyRequirementKnown]:
+		"Mình biết bạn và chúng ta có điểm chung nào đó.",
+	[Key.friendsApplyRequirementSite]:
+		"Trang của bạn dùng HTTPS, có cập nhật trong vòng một năm qua và truy cập được từ Trung Quốc đại lục.",
+	[Key.friendsApplyRequirementNature]:
+		"Trang của bạn là blog hoặc trang cá nhân, phi lợi nhuận: chủ yếu là nội dung gốc, không quảng cáo quá mức và không có nội dung độc hại, vi phạm pháp luật, spam hoặc khiêu dâm.",
+	[Key.friendsApplyTermsTitle]: "Nếu bạn thêm mình",
+	[Key.friendsApplyTermsNotify]:
+		"Bạn có thể tự do thêm trang này bằng thông tin mình cung cấp, nhưng phải thông báo cho mình qua email.",
+	[Key.friendsApplyTermsRemoval]:
+		"Mình giữ quyền yêu cầu bạn gỡ liên kết của mình khỏi trang của bạn bất cứ lúc nào.",
 	[Key.friendsApplyCopy]: "Sao chép thông tin",
 	[Key.friendsApplyCopied]: "Đã sao chép",
 	[Key.friendsApplyCopyFailed]:

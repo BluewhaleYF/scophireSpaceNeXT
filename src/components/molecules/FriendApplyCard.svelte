@@ -58,67 +58,106 @@ onDestroy(() => {
 	class={`friend-apply-card p-5 sm:p-8 ${className}`}
 >
 	<div class="friend-apply-card__inner">
-		<header class="friend-apply-card__header">
-			<h2 class="friend-apply-card__title">
-				<span class="friend-apply-card__icon" aria-hidden="true">
-					<Icon icon="material-symbols:add-link-rounded" />
-				</span>
-				{i18n(I18nKey.friendsApplyTitle)}
-			</h2>
-			<p class="friend-apply-card__subtitle">
-				{i18n(I18nKey.friendsApplyDescription)}
-			</p>
-		</header>
+		<section class="friend-apply-card__section">
+			<header class="friend-apply-card__header">
+				<h2 class="friend-apply-card__title">
+					<span class="friend-apply-card__icon" aria-hidden="true">
+						<Icon icon="material-symbols:badge-outline-rounded" />
+					</span>
+					{i18n(I18nKey.friendsApplySiteTitle)}
+				</h2>
+				<p class="friend-apply-card__subtitle">
+					{i18n(I18nKey.friendsApplySiteDescription)}
+				</p>
+			</header>
 
-		<div class="friend-apply-card__snippet">
-			<div class="friend-apply-card__snippet-header">
-				<span class="friend-apply-card__snippet-label">
-					<Icon
-						icon="material-symbols:badge-outline-rounded"
-						aria-hidden="true"
-					/>
-					{i18n(I18nKey.friendsApplySiteInfo)}
-				</span>
-				<button
-					type="button"
-					class="friend-apply-card__copy m3-state-layer"
-					onclick={copySiteInfo}
-					aria-label={i18n(
-						copied ? I18nKey.friendsApplyCopied : I18nKey.friendsApplyCopy,
-					)}
-				>
-					<Icon
-						icon={copied
-							? "material-symbols:check-rounded"
-							: "material-symbols:content-copy-outline-rounded"}
-						aria-hidden="true"
-					/>
-					<span aria-live="polite">
-						{i18n(
+			<div class="friend-apply-card__snippet">
+				<div class="friend-apply-card__snippet-header">
+					<span class="friend-apply-card__snippet-label">
+						<Icon
+							icon="material-symbols:description-outline-rounded"
+							aria-hidden="true"
+						/>
+						{i18n(I18nKey.friendsApplySnippetLabel)}
+					</span>
+					<button
+						type="button"
+						class="friend-apply-card__copy m3-state-layer"
+						onclick={copySiteInfo}
+						aria-label={i18n(
 							copied ? I18nKey.friendsApplyCopied : I18nKey.friendsApplyCopy,
 						)}
-					</span>
-				</button>
+					>
+						<Icon
+							icon={copied
+								? "material-symbols:check-rounded"
+								: "material-symbols:content-copy-outline-rounded"}
+							aria-hidden="true"
+						/>
+						<span aria-live="polite">
+							{i18n(
+								copied ? I18nKey.friendsApplyCopied : I18nKey.friendsApplyCopy,
+							)}
+						</span>
+					</button>
+				</div>
+				<pre class="friend-apply-card__code"><code>{snippet}</code></pre>
 			</div>
-			<pre class="friend-apply-card__code"><code>{snippet}</code></pre>
-		</div>
+		</section>
 
-		{#if mailto}
-			<div class="friend-apply-card__actions">
-				<Button
-					variant="filled"
-					size="small"
-					icon="material-symbols:mail-rounded"
-					label={i18n(I18nKey.friendsApplySend)}
-					href={mailto}
-				/>
-				<span class="friend-apply-card__email-tip">
-					{#each i18n(I18nKey.friendsApplyEmailTip).split(/(\{email\})/g) as part, index (index)}
-						{#if part === "{email}"}<code>{email}</code>{:else}{part}{/if}
-					{/each}
-				</span>
+		<section
+			class="friend-apply-card__section friend-apply-card__section--divided"
+		>
+			<header class="friend-apply-card__header">
+				<h2 class="friend-apply-card__title">
+					<span class="friend-apply-card__icon" aria-hidden="true">
+						<Icon icon="material-symbols:person-add-outline-rounded" />
+					</span>
+					{i18n(I18nKey.friendsApplyAddTitle)}
+				</h2>
+				<p class="friend-apply-card__subtitle">
+					{i18n(I18nKey.friendsApplyAddDescription)}
+				</p>
+			</header>
+
+			<div class="friend-apply-card__block">
+				<h3 class="friend-apply-card__block-title">
+					{i18n(I18nKey.friendsApplyRequirementsTitle)}
+				</h3>
+				<ol class="friend-apply-card__list friend-apply-card__list--ordered">
+					<li>{i18n(I18nKey.friendsApplyRequirementKnown)}</li>
+					<li>{i18n(I18nKey.friendsApplyRequirementSite)}</li>
+					<li>{i18n(I18nKey.friendsApplyRequirementNature)}</li>
+				</ol>
 			</div>
-		{/if}
+
+			<div class="friend-apply-card__block">
+				<h3 class="friend-apply-card__block-title">
+					{i18n(I18nKey.friendsApplyTermsTitle)}
+				</h3>
+				<ul class="friend-apply-card__list">
+					<li>{i18n(I18nKey.friendsApplyTermsNotify)}</li>
+					<li>{i18n(I18nKey.friendsApplyTermsRemoval)}</li>
+				</ul>
+			</div>
+
+			{#if mailto}
+				<div class="friend-apply-card__actions">
+					<Button
+						variant="filled"
+						size="small"
+						icon="material-symbols:mail-rounded"
+						label={i18n(I18nKey.friendsApplySend)}
+						href={mailto}
+					/>
+					<span class="friend-apply-card__email-tip">
+						{#each i18n(I18nKey.friendsApplyEmailTip).split(/(\{email\})/g) as part, index (index)}
+							{#if part === "{email}"}<code>{email}</code>{:else}{part}{/if}
+						{/each}
+					</span>
+				</div>
+			{/if}
+		</section>
 	</div>
 </Card>
 
@@ -129,7 +168,45 @@ onDestroy(() => {
 	&__inner
 		display: flex
 		flex-direction: column
+		gap: var(--m3e-space-5)
+
+	&__section
+		display: flex
+		flex-direction: column
 		gap: var(--m3e-space-4)
+
+	&__section--divided
+		padding-top: var(--m3e-space-5)
+		border-top: 1px solid var(--outline-variant)
+
+	&__block
+		display: flex
+		flex-direction: column
+		gap: var(--m3e-space-2)
+
+	&__block-title
+		margin: 0
+		color: var(--on-surface)
+		font: var(--m3e-type-title-medium)
+		font-weight: 600
+
+	&__list
+		margin: 0
+		padding-inline-start: 1.25rem
+		list-style: disc
+		color: var(--on-surface-variant)
+		font: var(--m3e-type-body-medium)
+		line-height: 1.6
+		> li
+			padding-inline-start: 0.125rem
+			& + li
+				margin-top: 0.375rem
+			&::marker
+				color: var(--primary)
+				font-weight: 600
+
+	&__list--ordered
+		list-style: decimal
 
 	&__header
 		display: flex
@@ -142,7 +219,7 @@ onDestroy(() => {
 		gap: var(--m3e-space-3)
 		margin: 0
 		color: var(--on-surface)
-		font: var(--m3e-type-title-medium)
+		font: var(--m3e-type-title-large)
 		font-weight: 600
 
 	&__icon
@@ -151,13 +228,13 @@ onDestroy(() => {
 		justify-content: center
 		color: var(--primary)
 		> :global(svg)
-			width: 1.5rem
-			height: 1.5rem
+			width: 1.75rem
+			height: 1.75rem
 
 	&__subtitle
 		margin: 0
 		color: var(--on-surface-variant)
-		font: var(--m3e-type-body-medium)
+		font: var(--m3e-type-body-large)
 		line-height: 1.6
 
 	&__snippet
@@ -181,11 +258,11 @@ onDestroy(() => {
 		gap: 0.375rem
 		min-width: 0
 		color: var(--on-surface-variant)
-		font: var(--m3e-type-label-medium)
+		font: var(--m3e-type-label-large)
 		font-weight: 600
 		> :global(svg)
-			width: 1rem
-			height: 1rem
+			width: 1.125rem
+			height: 1.125rem
 			flex-shrink: 0
 			color: var(--primary)
 
@@ -199,7 +276,7 @@ onDestroy(() => {
 		border-radius: var(--shape-corner-full)
 		background: var(--surface-container-highest)
 		color: var(--on-surface)
-		font: var(--m3e-type-label-small)
+		font: var(--m3e-type-label-medium)
 		font-weight: 600
 		cursor: pointer
 		transition:
@@ -217,7 +294,7 @@ onDestroy(() => {
 		overflow-x: auto
 		color: var(--on-surface)
 		font-family: var(--m3e-font-mono-family)
-		font-size: 0.875rem
+		font-size: 0.9375rem
 		line-height: 1.6
 		tab-size: 2
 		white-space: pre
@@ -230,7 +307,7 @@ onDestroy(() => {
 
 	&__email-tip
 		color: var(--on-surface-variant)
-		font: var(--m3e-type-body-small)
+		font: var(--m3e-type-body-medium)
 		> code
 			padding: 0.125rem 0.375rem
 			border-radius: var(--shape-corner-xs)

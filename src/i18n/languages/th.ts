@@ -17,10 +17,22 @@ export const th: Translation = {
 	[Key.friendsBanner]: "ยินดีแลกลิงก์ ดูวิธีสมัครได้ที่หน้าเกี่ยวกับ",
 	[Key.friendsCount]: "ลิงก์",
 	[Key.friendsCounts]: "ลิงก์",
-	[Key.friendsApplyTitle]: "ขอแลกลิงก์",
-	[Key.friendsApplyDescription]:
-		"ยินดีแลกลิงก์กันครับ! คัดลอกข้อมูลเว็บไซต์ด้านล่างไปเพิ่ม หรือส่งข้อมูลเว็บไซต์ของคุณมาทางอีเมล",
-	[Key.friendsApplySiteInfo]: "ข้อมูลเว็บไซต์นี้ (เพิ่มก่อนได้เลย)",
+	[Key.friendsApplySiteTitle]: "เกี่ยวกับเว็บไซต์นี้",
+	[Key.friendsApplySiteDescription]: "วิธีเพิ่มเว็บไซต์นี้ลงในบล็อกของคุณ",
+	[Key.friendsApplySnippetLabel]: "ข้อมูลเว็บไซต์",
+	[Key.friendsApplyAddTitle]: "เพิ่มลิงก์เพื่อน",
+	[Key.friendsApplyAddDescription]: "วิธีทำให้บล็อกของคุณปรากฏในรายการลิงก์ของผม",
+	[Key.friendsApplyRequirementsTitle]: "เงื่อนไข",
+	[Key.friendsApplyRequirementKnown]: "ผมรู้จักคุณและเรามีจุดร่วมบางอย่าง",
+	[Key.friendsApplyRequirementSite]:
+		"เว็บไซต์ของคุณใช้ HTTPS มีการอัปเดตภายในหนึ่งปีที่ผ่านมา และเข้าถึงได้จากจีนแผ่นดินใหญ่",
+	[Key.friendsApplyRequirementNature]:
+		"เว็บไซต์ของคุณเป็นบล็อกหรือหน้าเว็บส่วนบุคคลที่ไม่แสวงหาผลกำไร: เน้นเนื้อหาที่สร้างสรรค์เอง ไม่มีโฆษณามากเกินไป และไม่มีเนื้อหาที่เป็นอันตราย ผิดกฎหมาย สแปม หรือลามก",
+	[Key.friendsApplyTermsTitle]: "หากคุณเพิ่มเว็บไซต์นี้",
+	[Key.friendsApplyTermsNotify]:
+		"คุณสามารถเพิ่มเว็บไซต์นี้ได้อย่างอิสระโดยใช้ข้อมูลที่ผมให้ไว้ แต่ต้องแจ้งให้ผมทราบทางอีเมล",
+	[Key.friendsApplyTermsRemoval]:
+		"ผมขอสงวนสิทธิ์ในการขอให้คุณนำลิงก์ของผมออกจากเว็บไซต์ของคุณได้ทุกเมื่อ",
 	[Key.friendsApplyCopy]: "คัดลอกข้อมูล",
 	[Key.friendsApplyCopied]: "คัดลอกแล้ว",
 	[Key.friendsApplyCopyFailed]: "คัดลอกไม่สำเร็จ กรุณาเลือกข้อความแล้วคัดลอกด้วยตนเอง",
