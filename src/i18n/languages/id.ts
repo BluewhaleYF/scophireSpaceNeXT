@@ -35,6 +35,8 @@ export const id: Translation = {
 		"Anda bebas menambahkan situs ini dengan info yang saya berikan, tetapi wajib memberi tahu saya lewat email.",
 	[Key.friendsApplyTermsRemoval]:
 		"Saya berhak meminta Anda menghapus tautan saya dari situs Anda kapan saja.",
+	[Key.friendsApplyResponseNote]:
+		"Waktu respons: Saya siswa SMA, jadi saya hanya dapat memproses permintaan pada akhir pekan dan hari libur. Biasanya waktu tunggu tidak lebih dari 10 hari.",
 	[Key.friendsApplyCopy]: "Salin info",
 	[Key.friendsApplyCopied]: "Tersalin",
 	[Key.friendsApplyCopyFailed]:

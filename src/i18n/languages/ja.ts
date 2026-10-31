@@ -36,6 +36,8 @@ export const ja: Translation = {
 		"提示した情報をもとに自由に追加していただけますが、メールでのご連絡が必要です。",
 	[Key.friendsApplyTermsRemoval]:
 		"いつでもあなたのサイトから当サイトのリンクを削除するよう求められる権利を留保します。",
+	[Key.friendsApplyResponseNote]:
+		"返信について：私は高校生のため、週末と祝日のみ申請を確認できます。通常、お待たせする時間は10日以内です。",
 	[Key.friendsApplyCopy]: "情報をコピー",
 	[Key.friendsApplyCopied]: "コピーしました",
 	[Key.friendsApplyCopyFailed]:

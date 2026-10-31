@@ -36,6 +36,8 @@ export const vi: Translation = {
 		"Bạn có thể tự do thêm trang này bằng thông tin mình cung cấp, nhưng phải thông báo cho mình qua email.",
 	[Key.friendsApplyTermsRemoval]:
 		"Mình giữ quyền yêu cầu bạn gỡ liên kết của mình khỏi trang của bạn bất cứ lúc nào.",
+	[Key.friendsApplyResponseNote]:
+		"Thời gian phản hồi: mình là học sinh cấp 3 nên chỉ có thể xử lý yêu cầu vào cuối tuần và ngày lễ. Thời gian chờ thường không quá 10 ngày.",
 	[Key.friendsApplyCopy]: "Sao chép thông tin",
 	[Key.friendsApplyCopied]: "Đã sao chép",
 	[Key.friendsApplyCopyFailed]:

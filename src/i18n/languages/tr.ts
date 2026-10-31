@@ -36,6 +36,8 @@ export const tr: Translation = {
 		"Sağladığım bilgilerle bu siteyi özgürce ekleyebilirsiniz, ancak e-posta ile bana bildirmelisiniz.",
 	[Key.friendsApplyTermsRemoval]:
 		"Sitemin bağlantısını istediğiniz zaman sitenizden kaldırmanızı talep etme hakkımı saklı tutarım.",
+	[Key.friendsApplyResponseNote]:
+		"Yanıt süresi: Lise öğrencisi olduğum için talepleri yalnızca hafta sonları ve tatillerde işleyebiliyorum. Bekleme süresi genellikle 10 günü geçmez.",
 	[Key.friendsApplyCopy]: "Bilgileri kopyala",
 	[Key.friendsApplyCopied]: "Kopyalandı",
 	[Key.friendsApplyCopyFailed]: "Kopyalanamadı. Metni seçip elle kopyalayın.",

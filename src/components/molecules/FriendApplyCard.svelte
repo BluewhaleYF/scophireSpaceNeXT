@@ -157,6 +157,11 @@ onDestroy(() => {
 					</span>
 				</div>
 			{/if}
+
+			<p class="friend-apply-card__note">
+				<Icon icon="material-symbols:schedule-rounded" aria-hidden="true" />
+				<span>{i18n(I18nKey.friendsApplyResponseNote)}</span>
+			</p>
 		</section>
 	</div>
 </Card>
@@ -314,6 +319,21 @@ onDestroy(() => {
 			background: var(--surface-container-high)
 			color: var(--primary)
 			font-family: var(--m3e-font-mono-family)
+
+	&__note
+		display: flex
+		align-items: flex-start
+		gap: var(--m3e-space-2)
+		margin: 0
+		color: var(--on-surface-variant)
+		font: var(--m3e-type-body-medium)
+		line-height: 1.6
+		> :global(svg)
+			width: 1.125rem
+			height: 1.125rem
+			flex-shrink: 0
+			margin-top: 0.125rem
+			color: var(--primary)
 
 	@media (max-width: bp-sm - 1px)
 		&__code

@@ -35,6 +35,8 @@ export const es: Translation = {
 		"Puedes añadir este sitio libremente con la información que facilito, pero debes avisarme por correo electrónico.",
 	[Key.friendsApplyTermsRemoval]:
 		"Me reservo el derecho de pedirte que retires mi enlace de tu sitio en cualquier momento.",
+	[Key.friendsApplyResponseNote]:
+		"Tiempo de respuesta: soy estudiante de secundaria, así que solo puedo atender solicitudes los fines de semana y festivos. Normalmente la espera no supera los 10 días.",
 	[Key.friendsApplyCopy]: "Copiar información",
 	[Key.friendsApplyCopied]: "Copiado",
 	[Key.friendsApplyCopyFailed]:

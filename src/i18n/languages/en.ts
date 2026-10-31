@@ -34,6 +34,8 @@ export const en: Translation = {
 		"You may add this site freely using the info I provide, but you must notify me by email.",
 	[Key.friendsApplyTermsRemoval]:
 		"I reserve the right to ask you to remove my link from your site at any time.",
+	[Key.friendsApplyResponseNote]:
+		"Response time: I'm a high school student, so I can only handle requests on weekends and holidays. The wait is usually no longer than 10 days.",
 	[Key.friendsApplyCopy]: "Copy info",
 	[Key.friendsApplyCopied]: "Copied",
 	[Key.friendsApplyCopyFailed]:

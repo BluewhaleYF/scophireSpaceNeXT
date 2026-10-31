@@ -32,6 +32,8 @@ export const zh_TW: Translation = {
 	[Key.friendsApplyTermsNotify]:
 		"您可以依照我提供的資訊自由加入本站，但請以電子郵件通知我。",
 	[Key.friendsApplyTermsRemoval]: "我保留隨時要求貴站移除我的連結的權利。",
+	[Key.friendsApplyResponseNote]:
+		"回覆時間：由於我目前是高中生，只能在週末與國定假日處理申請，一般等待時間不超過 10 天。",
 	[Key.friendsApplyCopy]: "複製資訊",
 	[Key.friendsApplyCopied]: "已複製",
 	[Key.friendsApplyCopyFailed]: "複製失敗，請手動選取文字複製",

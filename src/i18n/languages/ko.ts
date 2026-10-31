@@ -36,6 +36,8 @@ export const ko: Translation = {
 		"안내된 정보로 자유롭게 추가할 수 있지만, 이메일로 알려 주셔야 합니다.",
 	[Key.friendsApplyTermsRemoval]:
 		"언제든지 귀하의 사이트에서 이 사이트 링크를 내리도록 요청할 권리를 보유합니다.",
+	[Key.friendsApplyResponseNote]:
+		"답변 시간: 저는 고등학생이라 주말과 공휴일에만 신청을 처리할 수 있습니다. 보통 10일 이내에 답변드립니다.",
 	[Key.friendsApplyCopy]: "정보 복사",
 	[Key.friendsApplyCopied]: "복사됨",
 	[Key.friendsApplyCopyFailed]:

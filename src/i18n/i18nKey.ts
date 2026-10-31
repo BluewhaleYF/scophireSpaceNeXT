@@ -30,6 +30,7 @@ enum I18nKey {
 	friendsApplyTermsTitle = "friendsApplyTermsTitle",
 	friendsApplyTermsNotify = "friendsApplyTermsNotify",
 	friendsApplyTermsRemoval = "friendsApplyTermsRemoval",
+	friendsApplyResponseNote = "friendsApplyResponseNote",
 	friendsApplyCopy = "friendsApplyCopy",
 	friendsApplyCopied = "friendsApplyCopied",
 	friendsApplyCopyFailed = "friendsApplyCopyFailed",
