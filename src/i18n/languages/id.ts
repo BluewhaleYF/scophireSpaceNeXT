@@ -4,6 +4,10 @@ import type { Translation } from "../translation.ts";
 export const id: Translation = {
 	[Key.home]: "Beranda",
 	[Key.about]: "Tentang",
+	[Key.aboutOccupation]: "Pekerjaan",
+	[Key.aboutBirthday]: "Ulang tahun",
+	[Key.aboutLocation]: "Lokasi",
+	[Key.aboutTimezone]: "Zona waktu",
 	[Key.archive]: "Arsip",
 	[Key.archiveGroup]: "Kelompokkan arsip",
 	[Key.archiveGroupYear]: "Berdasarkan tahun",

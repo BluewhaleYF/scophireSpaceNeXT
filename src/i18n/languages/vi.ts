@@ -4,6 +4,10 @@ import type { Translation } from "../translation.ts";
 export const vi: Translation = {
 	[Key.home]: "Trang chủ",
 	[Key.about]: "Giới thiệu",
+	[Key.aboutOccupation]: "Nghề nghiệp",
+	[Key.aboutBirthday]: "Sinh nhật",
+	[Key.aboutLocation]: "Nơi ở",
+	[Key.aboutTimezone]: "Múi giờ",
 	[Key.archive]: "Kho bài",
 	[Key.archiveGroup]: "Nhóm kho bài",
 	[Key.archiveGroupYear]: "Theo năm",

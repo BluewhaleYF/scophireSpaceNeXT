@@ -4,6 +4,10 @@ import type { Translation } from "../translation.ts";
 export const ko: Translation = {
 	[Key.home]: "홈",
 	[Key.about]: "소개",
+	[Key.aboutOccupation]: "직업",
+	[Key.aboutBirthday]: "생일",
+	[Key.aboutLocation]: "거주지",
+	[Key.aboutTimezone]: "시간대",
 	[Key.archive]: "아카이브",
 	[Key.archiveGroup]: "아카이브 그룹 기준",
 	[Key.archiveGroupYear]: "연도별",

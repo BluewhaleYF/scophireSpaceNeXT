@@ -4,6 +4,10 @@ import type { Translation } from "../translation.ts";
 export const ja: Translation = {
 	[Key.home]: "Home",
 	[Key.about]: "About",
+	[Key.aboutOccupation]: "職業",
+	[Key.aboutBirthday]: "誕生日",
+	[Key.aboutLocation]: "居住地",
+	[Key.aboutTimezone]: "タイムゾーン",
 	[Key.archive]: "Archive",
 	[Key.archiveGroup]: "アーカイブのグループ化",
 	[Key.archiveGroupYear]: "年別",

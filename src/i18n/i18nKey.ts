@@ -4,6 +4,11 @@ enum I18nKey {
 	notFoundTitle = "notFoundTitle",
 	notFoundDescription = "notFoundDescription",
 	about = "about",
+	/** 关于页个人简介信息块标签 */
+	aboutOccupation = "aboutOccupation",
+	aboutBirthday = "aboutBirthday",
+	aboutLocation = "aboutLocation",
+	aboutTimezone = "aboutTimezone",
 	archive = "archive",
 	/** 归档分组切换（Tabs）：tablist 无障碍名称 */
 	archiveGroup = "archiveGroup",

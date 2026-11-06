@@ -4,6 +4,10 @@ import type { Translation } from "../translation.ts";
 export const tr: Translation = {
 	[Key.home]: "Anasayfa",
 	[Key.about]: "Hakkında",
+	[Key.aboutOccupation]: "Meslek",
+	[Key.aboutBirthday]: "Doğum günü",
+	[Key.aboutLocation]: "Konum",
+	[Key.aboutTimezone]: "Saat dilimi",
 	[Key.archive]: "Arşiv",
 	[Key.archiveGroup]: "Arşivi grupla",
 	[Key.archiveGroupYear]: "Yıla göre",

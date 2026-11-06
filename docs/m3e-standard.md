@@ -326,6 +326,7 @@ variables.styl  --mc-* → 语义令牌（--primary、--surface-container-low…
 | `src/components/atoms/*` | 63 个原子组件（清单单一真源见 `manifest.json`） |
 | `src/components/atoms/manifest.json` | 原子清单单一真源（tier / source / landed），由 `pnpm check:manifest` 校验 |
 | `src/components/organisms/DisplaySettings.svelte` | 色相/风格/规范控制面板 |
+| `src/components/organisms/AboutIntro.astro` | 关于页正文上方的个人简介区块：复用 `profileConfig` 头像与名称，按 `aboutConfig.intro` 渲染两列信息块；禁用时零 DOM |
 | `src/components/molecules/PageHeader.svelte` | 页面级标题（图标 + 标题 + 副标题），见 `docs/common-components.md` |
 | `src/components/molecules/SectionTitle.svelte` | 区块级标题（可选图标 + 标题 + 副标题），见 `docs/common-components.md` |
 | `src/components/molecules/MomentCard.svelte` | 动态卡片（正文 + 画廊挂载点），见 `docs/common-components.md` |
