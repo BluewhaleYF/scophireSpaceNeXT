@@ -188,6 +188,7 @@ const hasVisibleWidgets = hasVisibleTop || hasVisibleSticky;
 	import type { SidebarPage } from "@/types/sidebarConfig";
 	import {
 		fadeOutThenHide,
+		flipFromRect,
 		prefersReducedMotion,
 		revealIn,
 	} from "@utils/motion";
@@ -229,7 +230,7 @@ const hasVisibleWidgets = hasVisibleTop || hasVisibleSticky;
 
 	/**
 	 * 整列收起：某栏全部 widget 隐藏时隐藏 <aside> 本身，
-	 * 配合网格的 minmax(0, var(--sidebar-width)) 轨道让该列宽度归零，
+	 * 配合网格的 auto 侧栏轨道让该列宽度归零，
 	 * 主内容自动占用腾出的空间（桌面端隐藏主栏、保留副栏）。
 	 */
 	function updateSidebarRoots(): void {
@@ -265,6 +266,13 @@ const hasVisibleWidgets = hasVisibleTop || hasVisibleSticky;
 		const enterers = wrappers.filter(
 			(widget) => widget.classList.contains("hidden") && willShow(widget),
 		);
+		// 留存组件：退场让出空间后会整体位移，先记录旧位置，DOM 更新后 FLIP
+		const persistings = visibleBefore.filter(
+			(widget) => !exiters.includes(widget),
+		);
+		const beforeRects = new Map(
+			persistings.map((widget) => [widget, widget.getBoundingClientRect()]),
+		);
 
 		if (exiters.length === 0 && enterers.length === 0) {
 			collapseEmptyGroups();
@@ -292,6 +300,12 @@ const hasVisibleWidgets = hasVisibleTop || hasVisibleSticky;
 		});
 		collapseEmptyGroups();
 		updateSidebarRoots();
+
+		// 留存组件从旧位置平滑滑到新位置，避免退场/入场造成的瞬间跳动
+		persistings.forEach((widget) => {
+			const rect = beforeRects.get(widget);
+			if (rect && rect.width > 0) flipFromRect(widget, rect);
+		});
 
 		// 留存组件：从旧位置 FLIP 到新位置（退场让出的位移被平滑吸收）
 		// 入场组件：淡入上移，多个时 50ms 阶梯
