@@ -86,7 +86,7 @@ widget 的专属配置（如分类的折叠阈值 `collapseAfter`）只存在于
 
 默认清单集中在 `src/config/sidebarConfig.ts`：分类 / 系列 / 标签三个 widget 共用
 `CONTENT_WIDGET_PAGES`（内容页 + 聚合入口页，含 `series`），统计卡用
-`STATS_WIDGET_PAGES`（仅索引页：`home` / `archive` / `categories` / `tags` / `series`）。
+`STATS_WIDGET_PAGES`（`home` / `archive` / `categories` / `tags` / `series` / `about`）。
 新增页面标识符时改这一处即可，三个上下文 widget 自动跟随。
 
 **实现机制（含 Swup 站内导航）**：

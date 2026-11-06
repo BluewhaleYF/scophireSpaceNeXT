@@ -50,13 +50,14 @@ const CONTENT_WIDGET_PAGES: SidebarPage[] = [
 	"series",
 ];
 
-/** 统计卡只在聚合索引页出现（文章等内容页不显示） */
+/** 统计卡出现在站点概览类页面（含关于页），文章等内容页不显示 */
 const STATS_WIDGET_PAGES: SidebarPage[] = [
 	"home",
 	"archive",
 	"categories",
 	"tags",
 	"series",
+	"about",
 ];
 
 export const sidebarConfig: SidebarConfig = withUserConfig("sidebar", {

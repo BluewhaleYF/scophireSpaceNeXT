@@ -83,6 +83,7 @@ test("关于页保留左侧栏但隐藏作者卡", async ({ page }) => {
 	await expect(profileWidget).toHaveClass(/hidden/);
 	await expect(page.locator("#categories")).toBeVisible();
 	await expect(page.locator("#tags")).toBeVisible();
+	await expect(page.locator("#site-stats")).toBeVisible();
 
 	// 返回首页后作者卡恢复
 	await page.evaluate(() => window.swup?.navigate("/"));
