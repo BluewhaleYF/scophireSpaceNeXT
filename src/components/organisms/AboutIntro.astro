@@ -61,15 +61,17 @@ const factMeta: Record<AboutIntroFactKey, { label: I18nKey; icon: string }> = {
 						/>
 					</div>
 					<div class="about-intro__body">
-					<p class="about-intro__name">{profileConfig.name}</p>
-					<span
-						class="about-intro__accent"
-						aria-hidden="true"
-					/>
-					{intro?.tagline && (
-						<p class="about-intro__tagline">{intro.tagline}</p>
-					)}
-					<ul class="about-intro__facts">
+						<div class="about-intro__identity">
+							<p class="about-intro__name">{profileConfig.name}</p>
+							<span
+								class="about-intro__accent"
+								aria-hidden="true"
+							/>
+							{intro?.tagline && (
+								<p class="about-intro__tagline">{intro.tagline}</p>
+							)}
+						</div>
+						<ul class="about-intro__facts">
 						{facts.map((fact) => {
 							const meta = factMeta[fact.key];
 							return (
@@ -110,11 +112,15 @@ const factMeta: Record<AboutIntroFactKey, { label: I18nKey; icon: string }> = {
 	&__layout
 		display: grid
 		grid-template-columns: 9.45rem minmax(0, 1fr)
-		align-items: stretch
-		gap: var(--m3e-space-3)
-		padding: var(--m3e-space-3)
+		grid-template-areas: "portrait identity" "facts facts"
+		align-items: start
+		column-gap: var(--m3e-space-3)
+		row-gap: var(--m3e-space-4)
+		padding: var(--m3e-space-4)
 		@media (min-width: 640px)
-			grid-template-columns: 10.5rem minmax(0, 1fr)
+			grid-template-columns: calc(var(--m3e-space-6) * 9) minmax(0, 1fr)
+			grid-template-areas: none
+			align-items: stretch
 			gap: var(--m3e-space-6)
 			padding: var(--m3e-space-6)
 		@media (min-width: 1024px)
@@ -122,20 +128,30 @@ const factMeta: Record<AboutIntroFactKey, { label: I18nKey; icon: string }> = {
 
 	&__portrait
 		position: relative
+		grid-area: portrait
 		align-self: start
-		aspect-ratio: 7 / 10
+		aspect-ratio: 1
 		min-width: 0
 		min-height: 0
 		overflow: hidden
 		border-radius: var(--shape-corner-m)
-		@media (min-width: 1024px)
+		@media (min-width: 640px)
+			grid-area: auto
 			aspect-ratio: 1
 
 	&__body
-		display: flex
-		flex-direction: column
-		height: 100%
+		display: contents
+		@media (min-width: 640px)
+			display: flex
+			flex-direction: column
+			height: 100%
+			min-width: 0
+
+	&__identity
+		grid-area: identity
 		min-width: 0
+		@media (min-width: 640px)
+			grid-area: auto
 
 	&__name
 		margin: 0
@@ -162,25 +178,26 @@ const factMeta: Record<AboutIntroFactKey, { label: I18nKey; icon: string }> = {
 			font: var(--m3e-type-body-large)
 
 	&__facts
+		grid-area: facts
 		display: grid
 		grid-template-columns: repeat(2, minmax(0, 1fr))
 		gap: var(--m3e-space-2)
-		margin: var(--m3e-space-2) 0 0
+		margin: 0
 		padding: 0
 		list-style: none
 		@media (min-width: 640px)
+			grid-area: auto
 			gap: var(--m3e-space-4)
+			margin-top: var(--m3e-space-2)
 
 	&__fact
 		display: flex
 		align-items: center
 		gap: var(--m3e-space-2)
 		min-width: 0
-		padding: var(--m3e-space-2) var(--m3e-space-1)
+		padding: var(--m3e-space-2) var(--m3e-space-3)
 		border-radius: var(--shape-corner-m)
 		background: var(--surface-container)
-		@media (min-width: 640px)
-			padding: var(--m3e-space-2) var(--m3e-space-3)
 
 	&__fact-icon
 		display: inline-flex
@@ -199,49 +216,15 @@ const factMeta: Record<AboutIntroFactKey, { label: I18nKey; icon: string }> = {
 
 	&__fact-label
 		display: block
-		font: var(--m3e-type-label-small)
+		font: var(--m3e-type-label-large)
 		color: var(--on-surface-variant)
 		@media (min-width: 640px)
 			font: var(--m3e-type-label-medium)
 
 	&__fact-value
 		display: block
-		font: var(--m3e-type-body-small)
+		font: var(--m3e-type-body-large)
 		font-weight: 500
 		color: var(--on-surface)
 		overflow-wrap: break-word
-		@media (min-width: 640px)
-			font: var(--m3e-type-body-large)
-			font-weight: 500
-
-	@media (max-width: 639.98px)
-		&__accent
-			margin-bottom: var(--m3e-space-1)
-
-		&__tagline
-			margin-bottom: var(--m3e-space-1)
-
-		&__facts
-			margin-top: var(--m3e-space-1)
-
-		&__fact
-			display: grid
-			grid-template-columns: auto minmax(0, 1fr)
-			grid-template-areas: "icon label" "value value"
-			column-gap: var(--m3e-space-2)
-			row-gap: 0
-
-		&__fact-icon
-			grid-area: icon
-			align-self: center
-
-		&__fact-text
-			display: contents
-
-		&__fact-label
-			grid-area: label
-			align-self: center
-
-		&__fact-value
-			grid-area: value
 </style>
