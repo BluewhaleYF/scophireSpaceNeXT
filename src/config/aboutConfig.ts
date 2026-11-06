@@ -9,7 +9,7 @@ export const aboutConfig: AboutConfig = withUserConfig("about", {
 	// 下列信息块按顺序两列排列（每行 2 个）。省略 intro 或 enable: false 时整块不渲染。
 	intro: {
 		enable: true,
-		tagline: "Better code, bigger world",
+		tagline: "当有一天你不再纠结于答案，当我们又重逢于天涯或沧海",
 		facts: [
 			{ key: "occupation", value: "学生" },
 			{ key: "birthday", value: "1月9日" },
