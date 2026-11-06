@@ -38,4 +38,4 @@ Reproduce the failed step locally with the same Node major version and command. 
 
 - Review `git diff` and confirm locale files contain only required import or formatting changes.
 - Stage paths explicitly. Never use `git add -A`, which can include `Shirone-Content/`, temporary fixtures, or build output.
-- Use a conventional commit such as `fix(markdown): support direct Node markdown tests`.
+- Use a conventional commit with a leading gitmoji, such as `🐛 fix(markdown): support direct Node markdown tests`.

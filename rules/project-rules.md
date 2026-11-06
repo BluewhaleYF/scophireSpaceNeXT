@@ -63,7 +63,7 @@ content/（Markdown 正文，仅 pages 引用）
 
 ## 5. 提交约定
 
-- **提交信息风格**：`fix(scope):` / `feat(scope):` / `test(scope):` / `docs(scope):` / `refactor(scope):`，subject 与 body 用**中文**（`type` 与 `scope` 保留英文，如 `fix(theme):`），不带专项字母（如 E/F）；多条改动用 `-` 列表分行。
+- **提交信息风格**：`<gitmoji> type(scope): subject`。所有提交必须在 `type(scope):` 前加一个与改动类型匹配的 gitmoji（如 `✨ feat(...):`、`🐛 fix(...):`、`📝 docs:`、`♻️ refactor(...):`、`✅ test(...):`、`⚡️ perf(...):`、`🔧 chore:`）。subject 与 body 用**中文**（`type` 与 `scope` 保留英文，如 `🐛 fix(theme):`），不带专项字母（如 E/F）；多条改动用 `-` 列表分行。
 - **绝不提交演示页**：`src/components/atoms/*Demo.svelte`、`src/pages/atoms-*-test.astro`、`BlogDemo/DisplayDemo` 仅本地验证用。
 - **提交命令**：`git add -u`（只暂存已跟踪文件）+ 显式 `git add <新原子文件>`，绝不 `git add -A`（会把演示页/临时文件带进去）。
 - **提交前确认**：提交前先向用户确认，不擅自提交。
