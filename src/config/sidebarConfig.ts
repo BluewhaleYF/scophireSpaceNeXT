@@ -45,6 +45,7 @@ const CONTENT_WIDGET_PAGES: SidebarPage[] = [
 	"games",
 	"timeline",
 	"albums",
+	"about",
 	"post",
 	"series",
 ];
@@ -64,7 +65,7 @@ export const sidebarConfig: SidebarConfig = withUserConfig("sidebar", {
 	side: "left",
 	components: [
 		{ type: "profile", enable: true, slot: "top", excludePages: ["about"] },
-		{ type: "music", enable: true, slot: "top", excludePages: ["about"] },
+		{ type: "music", enable: true, slot: "top" },
 		{ type: "announcement", enable: true, slot: "top", pages: ["home"] },
 		{
 			type: "categories",

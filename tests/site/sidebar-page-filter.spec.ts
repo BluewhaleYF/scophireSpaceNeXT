@@ -62,11 +62,15 @@ test("Swup 导航进系列页后侧栏重新过滤而不是整块消失", async 
 	}
 });
 
-test("关于页隐藏主侧栏并收起其网格列宽", async ({ page }) => {
+test("关于页保留左侧栏但隐藏作者卡", async ({ page }) => {
 	const primary = page.locator("#sidebar");
+	const profileWidget = page.locator(
+		"#sidebar .sidebar-widget:has(.m3-profile)",
+	);
+
 	await page.goto("/", { waitUntil: "domcontentloaded" });
 	await page.waitForFunction(() => Boolean(window.swup?.hooks));
-	await expect(primary).not.toHaveAttribute("data-page-hidden", "");
+	await expect(profileWidget).not.toHaveClass(/hidden/);
 
 	await page.evaluate(() => window.swup?.navigate("/about/"));
 	await page.waitForURL("**/about/");
@@ -74,22 +78,18 @@ test("关于页隐藏主侧栏并收起其网格列宽", async ({ page }) => {
 		"data-current-page",
 		"about",
 	);
-	await expect(primary).toHaveAttribute("data-page-hidden", "");
-	await expect(primary).toBeHidden();
-	await expect
-		.poll(() =>
-			page
-				.locator("#main-grid")
-				.evaluate((el) => getComputedStyle(el).gridTemplateColumns),
-		)
-		.toMatch(/^0px /);
+	await expect(primary).toBeVisible();
+	await expect(primary).not.toHaveAttribute("data-page-hidden", "");
+	await expect(profileWidget).toHaveClass(/hidden/);
+	await expect(page.locator("#categories")).toBeVisible();
+	await expect(page.locator("#tags")).toBeVisible();
 
-	// Swup 在外层持久 shell 上同步切换，返回首页后主栏恢复
+	// 返回首页后作者卡恢复
 	await page.evaluate(() => window.swup?.navigate("/"));
 	await page.waitForURL((url) => url.pathname === "/");
 	await expect(page.locator("#swup-container")).toHaveAttribute(
 		"data-current-page",
 		"home",
 	);
-	await expect(primary).not.toHaveAttribute("data-page-hidden", "");
+	await expect(profileWidget).not.toHaveClass(/hidden/);
 });
