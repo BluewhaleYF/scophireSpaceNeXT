@@ -1,0 +1,44 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+(CC BY-NC-SA 4.0)
+
+Copyright (c) 2026 Flint Scophire <https://scophire.space/>
+
+本文件说明本仓库中**原创内容**的授权范围。源代码、配置、构建脚本与仓库文档
+不适用本许可，仍按根目录 [LICENSE](./LICENSE) 的 MIT License 授权。
+
+协议正文（Legal Code）：
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+协议摘要（Deed）：
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+## 适用范围
+
+以下由 Flint Scophire 原创的内容按 CC BY-NC-SA 4.0 授权：
+
+- `src/content/**` 下的文章、动态、系列说明、片段与其他原创文字；
+- 由作者本人创作并随站点内容发布的原创图片、插画或摄影作品；
+- 文章页面通过 `src/config/licenseConfig.ts` 声明为 CC BY-NC-SA 4.0 的内容。
+
+## 不在本许可范围内
+
+- 本仓库的全部源代码、配置、模板、脚本与仓库文档（适用 MIT License，见
+  [LICENSE](./LICENSE)）；
+- 第三方资源，包括但不限于字体、图标、动漫壁纸/插画、封面素材、依赖包，
+  以及任何标注了其他作者或来源的文件；
+- 转载内容：转载文章的版权归原作者所有，具体以文章内标注的来源与许可为准。
+
+如某个文件或页面另有单独声明，以该声明为准。
+
+## 署名与使用
+
+在分享或改编上述原创内容时，请遵守 CC BY-NC-SA 4.0，并至少做到：
+
+1. **署名**：注明作者「Flint Scophire」并附上原文链接；
+2. **非商业**：不得将内容用于商业目的；商业使用需另行获得作者授权；
+3. **相同方式共享**：改编后的作品须以 CC BY-NC-SA 4.0 或兼容许可发布；
+4. **注明修改**：如对原文进行了修改、删减或重组，请明确说明。
+
+推荐署名格式：
+
+> © 2026 Flint Scophire，原文链接：<原文 URL>，许可：CC BY-NC-SA 4.0

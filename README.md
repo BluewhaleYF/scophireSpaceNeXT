@@ -13,6 +13,7 @@
 ![Tailwind CSS 4](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Node.js >= 22.12](https://img.shields.io/badge/Node.js-%3E%3D22.12-5FA04E?logo=nodedotjs&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
+[![Content: CC BY-NC-SA 4.0](https://img.shields.io/badge/Content-CC%20BY--NC--SA%204.0-EF9421.svg)](./LICENSE-CONTENT)
 
 </div>
 
@@ -214,4 +215,15 @@ git remote set-url --push upstream DISABLED
 
 ## License
 
-基于 [MIT License](./LICENSE) 发布。作为 Shirone 的衍生项目，本仓库保留上游要求的原始版权声明。
+本仓库采用**代码与内容分离的双许可**：
+
+| 范围 | 许可 |
+| --- | --- |
+| 源代码、配置、模板、脚本与仓库文档 | [MIT License](./LICENSE) |
+| 原创文章、动态与原创图片等内容 | [CC BY-NC-SA 4.0](./LICENSE-CONTENT) |
+
+- **代码**：基于 [MIT License](./LICENSE) 发布。作为 Shirone 的衍生项目，本仓库保留上游 `saicaca` / `matsuzaka-yuki` 的原始版权声明。
+- **内容**：`src/content/**` 下的原创文字与作者原创图片按 [CC BY-NC-SA 4.0](./LICENSE-CONTENT) 授权；文章页展示的版权声明由 [`src/config/licenseConfig.ts`](./src/config/licenseConfig.ts) 统一配置。
+- **第三方资源**：字体、图标、动漫壁纸/插画、封面素材、依赖包等不在上述授权范围内，遵循其各自的许可与署名要求；如个别文件另有说明，以该说明为准。
+
+转载原创文章请保留署名、注明是否修改，并以相同方式共享；商业用途需另行获得授权。
