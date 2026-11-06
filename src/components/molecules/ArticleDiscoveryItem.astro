@@ -11,12 +11,11 @@ interface Props {
 }
 
 const { href, title, published, category, lane } = Astro.props;
-const accent = lane === "related" ? "var(--primary)" : "var(--tertiary)";
 ---
 
 <li class={`article-discovery-item article-discovery-item--${lane}`}>
 	<a href={href} class="article-discovery-item__link m3-state-layer">
-		<AccentBar size="small" color={accent} />
+		<AccentBar size="small" color="var(--primary)" />
 		<span class="article-discovery-item__content">
 			<span class="article-discovery-item__title">{title}</span>
 			<span class="article-discovery-item__meta">
@@ -47,10 +46,6 @@ const accent = lane === "related" ? "var(--primary)" : "var(--tertiary)";
 		text-decoration: none
 		--m3e-state-color: var(--primary)
 		--m3e-focus-outline: var(--primary)
-
-	&--random &__link
-		--m3e-state-color: var(--tertiary)
-		--m3e-focus-outline: var(--tertiary)
 
 	&__content
 		display: flex
@@ -93,10 +88,6 @@ const accent = lane === "related" ? "var(--primary)" : "var(--tertiary)";
 	&__link:hover &__title,
 	&__link:hover &__arrow
 		color: var(--primary)
-
-	&--random &__link:hover &__title,
-	&--random &__link:hover &__arrow
-		color: var(--tertiary)
 
 	&__link:hover &__arrow
 		transform: translateX(var(--m3e-space-1))
