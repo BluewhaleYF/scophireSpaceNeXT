@@ -7,13 +7,18 @@ import type { SidebarPage } from "@/types/sidebarConfig";
 
 /**
  * widget 是否在当前页面可见：
+ * - excludePages 命中当前页面 → 强制隐藏（优先于 pages）；
  * - 未配置 pages（或空数组）→ 所有页面可见；
  * - 配置了 pages → 仅当当前页面在列表中可见。
  */
 export function isWidgetVisibleOnPage(
 	pages: SidebarPage[] | undefined,
 	currentPage: SidebarPage | undefined,
+	excludePages?: SidebarPage[],
 ): boolean {
+	if (currentPage !== undefined && excludePages?.includes(currentPage)) {
+		return false;
+	}
 	if (!pages || pages.length === 0) return true;
 	return currentPage !== undefined && pages.includes(currentPage);
 }

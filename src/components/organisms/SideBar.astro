@@ -102,12 +102,19 @@ const animationDelay = (index: number) =>
 
 // 首屏可见性：与客户端脚本共用 utils/sidebar-page 的判定，避免漂移
 const isVisible = (widget: SidebarWidget) =>
-	isWidgetVisibleOnPage(widget.pages, currentPage);
+	isWidgetVisibleOnPage(widget.pages, currentPage, widget.excludePages);
 const hasVisibleTop = topWidgets.some(isVisible);
 const hasVisibleSticky = stickyWidgets.some(isVisible);
+const hasVisibleWidgets = hasVisibleTop || hasVisibleSticky;
 ---
 
-<aside id={id} aria-label={ariaLabel} class:list={[className, "w-full lg:h-full"]}>
+<aside
+	id={id}
+	aria-label={ariaLabel}
+	data-sidebar-root
+	data-page-hidden={hasVisibleWidgets ? undefined : ""}
+	class:list={[className, "w-full lg:h-full"]}
+>
 	{topWidgets.length > 0 && (
 		<div
 			data-sidebar-group
@@ -118,6 +125,7 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 				return (
 					<div
 						data-sidebar-pages={pagesToAttribute(widget.pages)}
+						data-sidebar-exclude-pages={pagesToAttribute(widget.excludePages)}
 						class:list={["sidebar-widget", { hidden: !isVisible(widget) }]}
 					>
 						<Component
@@ -145,6 +153,7 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 				return (
 					<div
 						data-sidebar-pages={pagesToAttribute(widget.pages)}
+						data-sidebar-exclude-pages={pagesToAttribute(widget.excludePages)}
 						class:list={["sidebar-widget", { hidden: !isVisible(widget) }]}
 					>
 						<Component
@@ -162,6 +171,11 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 </aside>
 
 <style lang="stylus">
+	/* 页面级整列隐藏：不覆盖副栏的 hidden xl:block 响应式基线，
+	   只在该页无任何可见 widget 时让 <aside> 退出网格轨道 */
+	aside[data-page-hidden]
+		display: none
+
 	/* 包装层修正：widget 根元素原本直接作为 flex item 被 blockified；
 	   包进 .sidebar-widget 后自定义元素（widget-layout）恢复 inline，
 	   需显式拉满宽度 */
@@ -213,6 +227,22 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 			});
 	}
 
+	/**
+	 * 整列收起：某栏全部 widget 隐藏时隐藏 <aside> 本身，
+	 * 配合网格的 minmax(0, var(--sidebar-width)) 轨道让该列宽度归零，
+	 * 主内容自动占用腾出的空间（桌面端隐藏主栏、保留副栏）。
+	 */
+	function updateSidebarRoots(): void {
+		document
+			.querySelectorAll<HTMLElement>("[data-sidebar-root]")
+			.forEach((root) => {
+				const hasVisible = root.querySelector(
+					"[data-sidebar-pages]:not(.hidden)",
+				);
+				root.toggleAttribute("data-page-hidden", hasVisible === null);
+			});
+	}
+
 	// 代际计数：退场淡出 await 期间若又发生导航（sync 再次被调用），
 	// 旧回调在恢复点作废，由最新一次接管终态
 	let generation = 0;
@@ -224,6 +254,7 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 			isWidgetVisibleOnPage(
 				attributeToPages(widget.dataset.sidebarPages),
 				currentPage,
+				attributeToPages(widget.dataset.sidebarExcludePages),
 			);
 
 		const wrappers = collectWrappers();
@@ -237,6 +268,7 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 
 		if (exiters.length === 0 && enterers.length === 0) {
 			collapseEmptyGroups();
+			updateSidebarRoots();
 			return;
 		}
 
@@ -244,6 +276,7 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 			exiters.forEach((widget) => widget.classList.add("hidden"));
 			enterers.forEach((widget) => widget.classList.remove("hidden"));
 			collapseEmptyGroups();
+			updateSidebarRoots();
 			return;
 		}
 
@@ -251,8 +284,14 @@ const hasVisibleSticky = stickyWidgets.some(isVisible);
 		await Promise.all(exiters.map((widget) => fadeOutThenHide(widget)));
 		if (my !== generation) return;
 
-		enterers.forEach((widget) => widget.classList.remove("hidden"));
+		enterers.forEach((widget) => {
+			widget
+				.closest<HTMLElement>("[data-sidebar-root]")
+				?.removeAttribute("data-page-hidden");
+			widget.classList.remove("hidden");
+		});
 		collapseEmptyGroups();
+		updateSidebarRoots();
 
 		// 留存组件：从旧位置 FLIP 到新位置（退场让出的位移被平滑吸收）
 		// 入场组件：淡入上移，多个时 50ms 阶梯

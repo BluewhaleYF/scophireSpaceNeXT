@@ -56,6 +56,8 @@ export interface ProfileWidget {
 	column?: SidebarColumn;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 /** 分类列表（最多显示 collapseAfter 项，超出后链接到完整索引页） */
@@ -68,6 +70,8 @@ export interface CategoriesWidget {
 	collapseAfter?: number;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 /** 标签云（最多显示 collapseAfter 项，超出后链接到完整索引页） */
@@ -80,6 +84,8 @@ export interface TagsWidget {
 	collapseAfter?: number;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 /** 系列列表（最多显示 collapseAfter 项，超出后链接到完整索引页） */
@@ -92,6 +98,8 @@ export interface SeriesWidget {
 	collapseAfter?: number;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 /** 公告（内容来自 announcementConfig，text 为空时不渲染） */
@@ -102,6 +110,8 @@ export interface AnnouncementWidget {
 	column?: SidebarColumn;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 /** 站点统计（数据自动汇总：文章/动态/分类/标签/总字数/运行天数） */
@@ -112,6 +122,8 @@ export interface StatsWidget {
 	column?: SidebarColumn;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 /** 月度文章历（有文日填色标记，点击日期展开当日文章） */
@@ -122,6 +134,8 @@ export interface CalendarWidget {
 	column?: SidebarColumn;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 	/** 周起始日，默认 mon（周一） */
 	startOfWeek?: "mon" | "sun";
 }
@@ -133,6 +147,7 @@ export interface TocWidget {
 	slot: SidebarWidgetSlot;
 	column?: SidebarColumn;
 	pages?: SidebarPage[];
+	excludePages?: SidebarPage[];
 }
 
 /** 持久音乐播放器（内容来自 musicConfig） */
@@ -143,6 +158,8 @@ export interface MusicWidget {
 	column?: SidebarColumn;
 	/** 限定显示的页面，省略或空数组表示所有页面 */
 	pages?: SidebarPage[];
+	/** 在这些页面强制隐藏（优先于 pages） */
+	excludePages?: SidebarPage[];
 }
 
 export type SidebarWidget =

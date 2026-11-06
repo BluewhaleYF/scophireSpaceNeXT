@@ -49,12 +49,12 @@ export function generateGridClasses(config: ResponsiveSidebarConfig): string {
 	}
 	if (isDualColumn(config)) {
 		return config.side === "left"
-			? "grid-cols-1 lg:grid-cols-[var(--sidebar-width)_1fr] xl:grid-cols-[var(--sidebar-width)_1fr_var(--sidebar-width)]"
-			: "grid-cols-1 lg:grid-cols-[1fr_var(--sidebar-width)] xl:grid-cols-[var(--sidebar-width)_1fr_var(--sidebar-width)]";
+			? "grid-cols-1 lg:grid-cols-[auto_1fr] xl:grid-cols-[auto_1fr_auto]"
+			: "grid-cols-1 lg:grid-cols-[1fr_auto] xl:grid-cols-[auto_1fr_auto]";
 	}
 	return config.side === "left"
-		? "grid-cols-1 lg:grid-cols-[var(--sidebar-width)_1fr]"
-		: "grid-cols-1 lg:grid-cols-[1fr_var(--sidebar-width)]";
+		? "grid-cols-1 lg:grid-cols-[auto_1fr]"
+		: "grid-cols-1 lg:grid-cols-[1fr_auto]";
 }
 
 /**
@@ -72,6 +72,7 @@ export function generatePrimarySidebarClasses(
 		"lg:row-start-1",
 		"lg:row-end-2",
 		"lg:col-span-1",
+		"lg:w-[var(--sidebar-width)]",
 		"lg:max-w-[var(--sidebar-width)]",
 		"onload-animation",
 	];
@@ -98,6 +99,7 @@ export function generateSecondarySidebarClasses(
 		"xl:row-start-1",
 		"xl:row-end-2",
 		"xl:col-span-1",
+		"xl:w-[var(--sidebar-width)]",
 		"xl:max-w-[var(--sidebar-width)]",
 		"onload-animation",
 	];

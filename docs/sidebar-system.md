@@ -44,15 +44,20 @@ widget 的专属配置（如分类的折叠阈值 `collapseAfter`）只存在于
 
 ### 2.4 页面级过滤（pages 标签）
 
-每个 widget 可选 `pages?: SidebarPage[]` 字段，控制只在哪些页面显示：
+每个 widget 可选 `pages?: SidebarPage[]` 字段，控制只在哪些页面显示；也可用
+`excludePages?: SidebarPage[]` 在这些页面强制隐藏（优先于 `pages`）：
 
 ```ts
 { type: "stats", enable: true, slot: "top", column: "secondary", pages: ["home", "archive"] }
 // 只在首页和归档页显示统计，文章页不显示
+
+{ type: "profile", enable: true, slot: "top", excludePages: ["about"] }
+// 除关于页外，其他页面都显示作者卡
 ```
 
 - **省略或空数组**：在所有页面显示（向后兼容，无需改动现有配置）；
-- **有值**：仅在指定页面显示，其他页面自动隐藏。
+- **有值**：仅在指定页面显示，其他页面自动隐藏；
+- `excludePages` 命中时优先隐藏，适合“全站显示、个别页面移除”的场景。
 
 可用页面标识符（`SidebarPage`）：
 
@@ -208,8 +213,10 @@ export const sidebarConfig: SidebarConfig = {
 没有任何 widget 标 `column: "secondary"`（且 `enable: true`），副栏就不会渲染——这是设计行为，不是 bug。
 
 **想在某页不显示侧栏？**
-给相关 widget 配置 `pages` 白名单；省略或留空表示所有页面。若要整列在某个页面消失，需确保该栏
-的全部已启用 widget 都不匹配该页面，SideBar 会在 SSR 与 Swup 导航后同步收起空组。
+给相关 widget 配置 `pages` 白名单或 `excludePages` 黑名单；省略或留空表示所有页面。
+当某一栏的全部已启用 widget 都不匹配当前页面时，`SideBar` 会在 SSR 与 Swup
+导航后隐藏整个 `<aside>`；主网格的侧栏轨道使用 `auto` 宽度，隐藏后的列自动
+归零，内容会占用腾出的空间（例如关于页隐藏主栏、仍保留右侧副栏）。
 
 **副栏放什么合适？**
 建议放轻量信息型 widget（stats、tags），把交互密集或重要的（profile、categories）留在主栏；副栏 sticky 堆叠不要超过 2–3 个，避免占满视口。

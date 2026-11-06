@@ -15,6 +15,7 @@
  *    - slot："top"（固定在顶部）| "sticky"（页面滚动时吸顶跟随）；
  *    - column："primary"（主栏，默认）| "secondary"（副栏，仅在 arrangement: "dual" 时生效）；
  *    - pages：仅在指定页面展示（如 ["home", "post"]，省略时默认全页面展示）；
+ *    - excludePages：在这些页面强制隐藏（优先于 pages，如 ["about"]）；
  *    - collapseAfter：折叠阈值（适用于 categories/tags/series，超出条数显示展开按钮）。
  *
  * 类型定义见 src/types/sidebarConfig.ts。
@@ -44,7 +45,6 @@ const CONTENT_WIDGET_PAGES: SidebarPage[] = [
 	"games",
 	"timeline",
 	"albums",
-	"about",
 	"post",
 	"series",
 ];
@@ -63,8 +63,8 @@ export const sidebarConfig: SidebarConfig = withUserConfig("sidebar", {
 	arrangement: "dual",
 	side: "left",
 	components: [
-		{ type: "profile", enable: true, slot: "top" },
-		{ type: "music", enable: true, slot: "top" },
+		{ type: "profile", enable: true, slot: "top", excludePages: ["about"] },
+		{ type: "music", enable: true, slot: "top", excludePages: ["about"] },
 		{ type: "announcement", enable: true, slot: "top", pages: ["home"] },
 		{
 			type: "categories",

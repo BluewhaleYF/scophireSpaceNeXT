@@ -61,3 +61,35 @@ test("Swup 导航进系列页后侧栏重新过滤而不是整块消失", async 
 		await expectContextWidgetsVisible(page);
 	}
 });
+
+test("关于页隐藏主侧栏并收起其网格列宽", async ({ page }) => {
+	const primary = page.locator("#sidebar");
+	await page.goto("/", { waitUntil: "domcontentloaded" });
+	await page.waitForFunction(() => Boolean(window.swup?.hooks));
+	await expect(primary).not.toHaveAttribute("data-page-hidden", "");
+
+	await page.evaluate(() => window.swup?.navigate("/about/"));
+	await page.waitForURL("**/about/");
+	await expect(page.locator("#swup-container")).toHaveAttribute(
+		"data-current-page",
+		"about",
+	);
+	await expect(primary).toHaveAttribute("data-page-hidden", "");
+	await expect(primary).toBeHidden();
+	await expect
+		.poll(() =>
+			page
+				.locator("#main-grid")
+				.evaluate((el) => getComputedStyle(el).gridTemplateColumns),
+		)
+		.toMatch(/^0px /);
+
+	// Swup 在外层持久 shell 上同步切换，返回首页后主栏恢复
+	await page.evaluate(() => window.swup?.navigate("/"));
+	await page.waitForURL((url) => url.pathname === "/");
+	await expect(page.locator("#swup-container")).toHaveAttribute(
+		"data-current-page",
+		"home",
+	);
+	await expect(primary).not.toHaveAttribute("data-page-hidden", "");
+});
