@@ -80,6 +80,7 @@
 | `SidebarTOC` | 文章目录侧栏 widget（WidgetLayout 外壳 + 内嵌 `<table-of-contents>` 自定义元素及 `TocList` 原子） |
 | `Series` | 系列列表侧栏 widget（WidgetLayout + 复用 `CategoryList` 的名称/数量形态，按最近更新排序，受 `seriesConfig.enable` 门控；新增页面标识 `"series"`） |
 | `SeriesCard` | 文章内系列块（系列名 + 第 N/共 M + 组内上一篇/下一篇，位置由 `seriesConfig.cardPosition` 决定）。分节语言与 `ArticleDiscovery` 一致：无容器背景/描边，lane 标题（图标 + 标题 + 横线 + 状态 pill），条目是整行状态层链接 |
+| `LanguageCard` | 语言单项卡（语言名称 + 语言代码 + 掌握程度徽标，静态 SSR 列表项，供关于页语言栏复用） |
 | `FloatingActionButton` | 右下角浮动操作按钮包装器（响应式设备类受控 + 页面范围过滤属性） |
 | `FloatingTOCPanel` | 移动端/平板浮动大纲目录卡片分子（M3 Surface Container High 风格、平滑滚动定位与隐藏滚动条） |
 

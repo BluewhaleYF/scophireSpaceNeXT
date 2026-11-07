@@ -327,6 +327,8 @@ variables.styl  --mc-* → 语义令牌（--primary、--surface-container-low…
 | `src/components/atoms/manifest.json` | 原子清单单一真源（tier / source / landed），由 `pnpm check:manifest` 校验 |
 | `src/components/organisms/DisplaySettings.svelte` | 色相/风格/规范控制面板 |
 | `src/components/organisms/AboutIntro.astro` | 关于页正文上方的个人简介区块：复用 `profileConfig` 头像与名称，按 `aboutConfig.intro` 渲染两列信息块；禁用时零 DOM |
+| `src/components/organisms/AboutLanguages.astro` | 关于页简介与正文之间的语言栏：按 `aboutConfig.languages` 渲染标题、描述与语言卡片网格（桌面横屏一行四列）；禁用时零 DOM |
+| `src/components/molecules/LanguageCard.astro` | 语言单项卡：语言名称、代码与掌握程度徽标，静态 SSR 列表项 |
 | `src/components/molecules/PageHeader.svelte` | 页面级标题（图标 + 标题 + 副标题），见 `docs/common-components.md` |
 | `src/components/molecules/SectionTitle.svelte` | 区块级标题（可选图标 + 标题 + 副标题），见 `docs/common-components.md` |
 | `src/components/molecules/MomentCard.svelte` | 动态卡片（正文 + 画廊挂载点），见 `docs/common-components.md` |

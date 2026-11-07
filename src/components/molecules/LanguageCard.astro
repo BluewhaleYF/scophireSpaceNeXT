@@ -1,0 +1,76 @@
+---
+/** 语言单项卡（分子）：语言名称、代码与掌握程度，静态 SSR、无交互。 */
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import type { AboutLanguageItem } from "@/types/aboutConfig";
+
+interface Props {
+	language: AboutLanguageItem;
+}
+
+const { language } = Astro.props;
+---
+
+<li class="language-card">
+	<div class="language-card__header">
+		<h3 class="language-card__name">{language.name}</h3>
+		<span class="language-card__level">
+			<span class="sr-only">{i18n(I18nKey.aboutLanguagesLevel)}: </span>
+			{language.level}
+		</span>
+	</div>
+	<p class="language-card__code">
+		<span class="sr-only">{i18n(I18nKey.aboutLanguagesCode)}: </span>
+		<code>{language.code}</code>
+	</p>
+</li>
+
+<style lang="stylus">
+.language-card
+	display: flex
+	flex-direction: column
+	gap: var(--m3e-space-2)
+	min-width: 0
+	padding: var(--m3e-space-3) var(--m3e-space-4)
+	background: var(--surface-container)
+	border: 1px solid var(--outline-variant)
+	border-radius: var(--shape-corner-m)
+
+	&__header
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: var(--m3e-space-2)
+		min-width: 0
+
+	&__name
+		margin: 0
+		min-width: 0
+		color: var(--on-surface)
+		font: var(--m3e-type-title-medium)
+		font-weight: 600
+		overflow-wrap: anywhere
+
+	&__level
+		flex-shrink: 0
+		padding: 0.125rem 0.625rem
+		border-radius: var(--shape-corner-full)
+		background: var(--secondary-container)
+		color: var(--on-secondary-container)
+		font: var(--m3e-type-label-small)
+		white-space: nowrap
+
+	&__code
+		margin: 0
+		min-width: 0
+		overflow-wrap: anywhere
+
+	&__code code
+		display: inline-block
+		padding: 0.0625rem 0.375rem
+		border-radius: var(--shape-corner-xs)
+		background: var(--surface-container-highest)
+		color: var(--on-surface-variant)
+		font: var(--m3e-type-code)
+		font-size: 0.75rem
+</style>

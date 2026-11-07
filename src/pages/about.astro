@@ -3,6 +3,7 @@ import { getEntry, render } from "astro:content";
 import Card from "@components/atoms/display/Card.svelte";
 import Markdown from "@components/content/Markdown.astro";
 import AboutIntro from "@components/organisms/AboutIntro.astro";
+import AboutLanguages from "@components/organisms/AboutLanguages.astro";
 import I18nKey from "@i18n/i18nKey";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { resolveI18nText } from "@utils/i18n-utils";
@@ -30,6 +31,7 @@ const markdownStylesheetAssets = await getMarkdownStylesheetAssets(
 <MainGridLayout title={pageTitle} description={pageDescription} page="about">
     {markdownStylesheetAssets.map(({ pack, css }) => <style is:inline slot="head" data-swup-optional={pack} set:html={css}></style>)}
     <AboutIntro />
+    <AboutLanguages />
     <div class="flex w-full rounded-[var(--shape-corner-l)] overflow-hidden relative min-h-32">
         <Card color="var(--card-bg)" radius="l" class="z-10 p-6 lg:p-8 relative w-full">
             <Markdown class="mt-2">

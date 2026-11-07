@@ -9,6 +9,14 @@ enum I18nKey {
 	aboutBirthday = "aboutBirthday",
 	aboutLocation = "aboutLocation",
 	aboutTimezone = "aboutTimezone",
+	/** 关于页语言栏标题 */
+	aboutLanguages = "aboutLanguages",
+	/** 关于页语言栏描述 */
+	aboutLanguagesDescription = "aboutLanguagesDescription",
+	/** 关于页语言卡：语言代码的无障碍标签 */
+	aboutLanguagesCode = "aboutLanguagesCode",
+	/** 关于页语言卡：掌握程度的无障碍标签 */
+	aboutLanguagesLevel = "aboutLanguagesLevel",
 	archive = "archive",
 	/** 归档分组切换（Tabs）：tablist 无障碍名称 */
 	archiveGroup = "archiveGroup",

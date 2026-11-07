@@ -1,0 +1,68 @@
+---
+/** 关于页语言栏（有机体）：标题、描述与语言卡片网格；禁用时零 DOM。 */
+import Card from "@components/atoms/display/Card.svelte";
+import LanguageCard from "@components/molecules/LanguageCard.astro";
+import SectionTitle from "@components/molecules/SectionTitle.svelte";
+import I18nKey from "@i18n/i18nKey";
+import { resolveI18nText } from "@utils/i18n-utils";
+import { aboutConfig } from "@/config";
+
+const languages = aboutConfig.languages;
+const items = languages?.enable ? (languages.items ?? []) : [];
+const show = items.length > 0;
+
+const title = resolveI18nText(languages?.title, I18nKey.aboutLanguages);
+const description = resolveI18nText(
+	languages?.description,
+	I18nKey.aboutLanguagesDescription,
+);
+---
+
+{
+	show && (
+		<section class="about-languages">
+			<Card
+				color="var(--card-bg)"
+				radius="l"
+			>
+				<div class="about-languages__inner">
+					<SectionTitle
+						icon="material-symbols:translate-rounded"
+						title={title}
+						subtitle={description}
+					/>
+					<ul
+						class="about-languages__grid"
+						role="list"
+					>
+						{items.map((language) => (
+							<LanguageCard {language} />
+						))}
+					</ul>
+				</div>
+			</Card>
+		</section>
+	)
+}
+
+<style lang="stylus">
+.about-languages
+	/* 与简介区块保持一致：卡片之间只保留一个间距，禁止时无占位 */
+	margin-bottom: var(--m3e-space-4)
+
+	&__inner
+		padding: var(--m3e-space-4)
+		@media (min-width: 640px)
+			padding: var(--m3e-space-6)
+
+	&__grid
+		display: grid
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr))
+		gap: var(--m3e-space-3)
+		margin: 0
+		padding: 0
+		list-style: none
+		@media (min-width: 1024px)
+			/* 桌面横屏：每个语言一张卡片，固定并排成一行 */
+			grid-template-columns: repeat(4, minmax(0, 1fr))
+</style>

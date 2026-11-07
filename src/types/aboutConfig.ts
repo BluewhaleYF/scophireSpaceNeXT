@@ -28,7 +28,31 @@ export interface AboutIntroConfig {
 	facts: AboutIntroFact[];
 }
 
+/** 关于页语言栏中的单个语言。 */
+export interface AboutLanguageItem {
+	/** 语言名称（站主内容，按原样渲染，例如 "中文"、"English"） */
+	name: string;
+	/** 语言代码（站主内容，例如 "zh_CN, zh_TW"、"en_US"） */
+	code: string;
+	/** 掌握程度（站主内容，例如 "母语"、"CEFR B2"、"N5"） */
+	level: string;
+}
+
+/** 关于页语言栏：标题 + 描述 + 语言卡片列表。 */
+export interface AboutLanguagesConfig {
+	/** 是否显示该栏目；false 时不输出任何 DOM 与间距 */
+	enable: boolean;
+	/** 栏目标题：字面量，或 "$t:<i18nKey>"（默认走内置词条） */
+	title?: string;
+	/** 栏目描述：字面量，或 "$t:<i18nKey>"（默认走内置词条） */
+	description?: string;
+	/** 语言列表；桌面横屏下每个语言一张卡片并排成一行，为空时不渲染栏目 */
+	items: AboutLanguageItem[];
+}
+
 export interface AboutConfig extends PageMeta {
 	/** 正文上方的个人简介区块；省略时整块不渲染 */
 	intro?: AboutIntroConfig;
+	/** 简介与正文之间的语言栏；省略时整块不渲染 */
+	languages?: AboutLanguagesConfig;
 }

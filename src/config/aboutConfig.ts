@@ -17,4 +17,17 @@ export const aboutConfig: AboutConfig = withUserConfig("about", {
 			{ key: "timezone", value: "Asia/Shanghai" },
 		],
 	},
+	// 正文上方的语言栏：每个语言一张卡片，列出名称、代码与掌握程度。
+	// 桌面横屏（≥1024px）下四张卡片并排成一行；省略 languages 或 enable: false 时整块不渲染。
+	languages: {
+		enable: true,
+		title: "$t:aboutLanguages",
+		description: "$t:aboutLanguagesDescription",
+		items: [
+			{ name: "中文", code: "zh_CN, zh_TW", level: "母语" },
+			{ name: "闽南语", code: "zh_nan", level: "母语" },
+			{ name: "English", code: "en_US", level: "CEFR B2" },
+			{ name: "日本語", code: "ja_JP", level: "N5" },
+		],
+	},
 });
