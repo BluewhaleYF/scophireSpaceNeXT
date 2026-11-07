@@ -38,7 +38,7 @@
 包含权威规则、架构、配置契约和项目说明，例如 `AGENTS.md`、`rules/**`、`docs/**`、根 README。确认文档中的路径、命令和默认值与源码一致后提交：
 
 ```text
-docs(project): document <feature>
+📝 docs(project): 记录 <功能>
 ```
 
 ### 提交二：AI skills
@@ -46,7 +46,7 @@ docs(project): document <feature>
 包含 `.agents/skills/**` 以及 skills 专用的校验/打包工具变更。确认技能只引用已存在的项目路径后提交：
 
 ```text
-docs(skills): add or update <skill>
+📝 docs(skills): 新增或更新 <技能>
 ```
 
 使用 `git add` 显式指定文件，避免把临时演示页、ZIP、截图或其他未相关文件带入提交。两个提交都要有实际内容；如果某次变更只影响一层，就只提交对应的一份。

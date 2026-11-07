@@ -36,8 +36,8 @@
 
 当一次功能变更同时影响 skills 和项目文档时，拆成两份有内容的提交：
 
-1. **skills 提交**：只包含 `.agents/skills/**` 以及直接服务于 skills 的发现、校验、打包工具（如 `scripts/check-skills.mjs`、`scripts/package-skills.mjs`、对应 package script 和 CI 校验）。提交信息使用 `docs(skills): ...`。
-2. **项目文档提交**：包含 `AGENTS.md`、`rules/**`、`docs/**`、项目 README 或功能说明文档。提交信息使用 `docs(project): ...`。
+1. **skills 提交**：只包含 `.agents/skills/**` 以及直接服务于 skills 的发现、校验、打包工具（如 `scripts/check-skills.mjs`、`scripts/package-skills.mjs`、对应 package script 和 CI 校验）。提交信息使用 `📝 docs(skills): <中文说明>`。
+2. **项目文档提交**：包含 `AGENTS.md`、`rules/**`、`docs/**`、项目 README 或功能说明文档。提交信息使用 `📝 docs(project): <中文说明>`。
 
 新增技能引用的新权威文档时，先提交项目文档，再提交 skills；否则 skills 提交会引用不存在的路径。两个提交都必须有实际改动，不创建空提交。
 
