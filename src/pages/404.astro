@@ -51,12 +51,16 @@ import { url } from "@utils/url-utils";
 </MainGridLayout>
 
 <style lang="stylus">
-.not-found-card
+:global(.not-found-card)
 	position: relative
 	min-height: clamp(22rem, 50vh, 36rem)
 	display: flex
 	align-items: center
 	justify-content: center
+
+	/* PageHeader 的标题行是 flex 容器，text-center 不会移动其子项 */
+	:global(.page-header__title-row)
+		justify-content: center
 
 .not-found-watermark
 	position: absolute

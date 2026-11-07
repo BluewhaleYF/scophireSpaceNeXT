@@ -5,9 +5,7 @@ async function expectNotFoundShell(page: import("@playwright/test").Page) {
 		"data-current-page",
 		"notFound",
 	);
-	await expect(page.locator("#swup-container h1")).toHaveText(
-		"This page wandered off",
-	);
+	await expect(page.locator("#swup-container h1")).toHaveText("无何有之乡");
 	// The sidebar renders outside the Swup container, so on client-side
 	// navigation its `hidden` markers are applied by a pass bound to Swup's
 	// hooks. That binding used to race `window.swup` becoming available and
