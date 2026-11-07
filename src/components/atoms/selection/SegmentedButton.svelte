@@ -3,7 +3,8 @@
  * M3E SegmentedButton — M3 分段按钮（单选 / 多选，官方 SegmentedButton +
  * MultiChoiceSegmentedButton）。
  * 容器 --surface-container，选中段 --secondary-container。
- * 选中段显示 check 图标（官方 fadeIn + scaleIn，origin 底部左角）。
+ * 单选高亮块在等宽槽位间平滑滑动（M3 高亮方框），不再额外显示对勾；
+ * 多选没有滑动块，选中段用底色 + check 图标（官方 fadeIn + scaleIn，origin 底部左角）。
  * 单选：<SegmentedButton options={[{value,label}]} bind:value={spec} />
  * 多选：<SegmentedButton multiple options={...} bind:checkedValues={[]} />
  */
@@ -27,9 +28,23 @@ let {
 	/** true = 多选（官方 MultiChoiceSegmentedButton） */
 	multiple?: boolean;
 } = $props();
+
+/** 单选高亮块的槽位：多选或未命中任何选项时为 -1（不渲染滑块） */
+const selectedIndex = $derived(
+	multiple ? -1 : options.findIndex((opt) => opt.value === value),
+);
 </script>
 
-<div class="m3-segmented" role="group" aria-label={label}>
+<div
+    class="m3-segmented"
+    class:m3-segmented--sliding={!multiple}
+    style={`--m3-segmented-index: ${Math.max(selectedIndex, 0)}; --m3-segmented-count: ${options.length}`}
+    role="group"
+    aria-label={label}
+>
+    {#if selectedIndex >= 0}
+        <span class="m3-segmented__indicator" aria-hidden="true"></span>
+    {/if}
     {#each options as opt (opt.value)}
         <label
             class="m3-segmented__segment"
@@ -53,9 +68,11 @@ let {
                     class="m3-segmented__input"
                 />
             {/if}
-            <span class="m3-segmented__check" aria-hidden="true">
-                <Icon icon="material-symbols:check"></Icon>
-            </span>
+            {#if multiple}
+                <span class="m3-segmented__check" aria-hidden="true">
+                    <Icon icon="material-symbols:check"></Icon>
+                </span>
+            {/if}
             <span>{opt.label}</span>
         </label>
     {/each}
@@ -63,11 +80,29 @@ let {
 
 <style lang="stylus">
 .m3-segmented
+    position: relative
     display: flex
     gap: 2px
     padding: 2px
     border-radius: var(--shape-corner-m)
     background: var(--surface-container)
+
+    /* 单选高亮块：槽位宽由 --m3-segmented-count 均分，translateX 平滑滑动 */
+    &__indicator
+        position: absolute
+        z-index: 0
+        top: 2px
+        bottom: 2px
+        left: 2px
+        width: calc((100% - 4px - (var(--m3-segmented-count) - 1) * 2px) / var(--m3-segmented-count))
+        border-radius: var(--shape-corner-s)
+        background: var(--secondary-container)
+        box-shadow: var(--m3e-elevation-1)
+        pointer-events: none
+        transform: translateX(calc(var(--m3-segmented-index) * (100% + 2px)))
+        transition:
+            transform var(--m3e-duration-medium) var(--m3e-easing-emphasized-decelerate),
+            width var(--m3e-duration-medium) var(--m3e-easing-emphasized-decelerate)
 
     /* 隐藏原生 input（保留可聚焦与键盘支持，display:none 会移出焦点序） */
     &__input
@@ -81,6 +116,8 @@ let {
         clip-path: inset(50%)
 
     &__segment
+        position: relative
+        z-index: 1
         flex: 1
         display: flex
         align-items: center
@@ -108,6 +145,14 @@ let {
         &:has(input:focus-visible)
             outline: 2px solid var(--primary)
             outline-offset: 1px
+
+    /* 单选模式：高亮交给滑动块，段自身只保留文字色与状态层 */
+    &--sliding .m3-segmented__segment.selected
+        background: transparent
+        box-shadow: none
+
+    &--sliding .m3-segmented__segment.selected:hover
+        background: transparent
 
     /* 选中 check 图标：scaleIn + fade（官方 TransformOrigin(0,1) 底部左角 + FastSpatial） */
     &__check
