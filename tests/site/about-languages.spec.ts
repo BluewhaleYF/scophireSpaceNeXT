@@ -19,10 +19,10 @@ test.describe("关于页语言栏", () => {
 		).toHaveText("我所掌握和正在学习的语言");
 
 		const expected = [
-			{ name: "中文", code: "zh_CN, zh_TW", level: "母语" },
-			{ name: "闽南语", code: "zh_nan", level: "母语" },
-			{ name: "English", code: "en_US", level: "CEFR B2" },
-			{ name: "日本語", code: "ja_JP", level: "N5" },
+			{ name: "中文", code: "zh-CN, zh-TW", level: "母语" },
+			{ name: "闽南语", code: "nan-CN", level: "母语" },
+			{ name: "English", code: "en-US", level: "CEFR B2" },
+			{ name: "日本語", code: "ja-JP", level: "N5" },
 		];
 
 		for (const [index, item] of expected.entries()) {

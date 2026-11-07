@@ -24,10 +24,10 @@ export const aboutConfig: AboutConfig = withUserConfig("about", {
 		title: "$t:aboutLanguages",
 		description: "$t:aboutLanguagesDescription",
 		items: [
-			{ name: "中文", code: "zh_CN, zh_TW", level: "母语" },
-			{ name: "闽南语", code: "zh_nan", level: "母语" },
-			{ name: "English", code: "en_US", level: "CEFR B2" },
-			{ name: "日本語", code: "ja_JP", level: "N5" },
+			{ name: "中文", code: "zh-CN, zh-TW", level: "母语" },
+			{ name: "闽南语", code: "nan-CN", level: "母语" },
+			{ name: "English", code: "en-US", level: "CEFR B2" },
+			{ name: "日本語", code: "ja-JP", level: "N5" },
 		],
 	},
 });
