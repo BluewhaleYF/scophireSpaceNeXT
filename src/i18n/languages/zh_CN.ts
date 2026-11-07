@@ -32,11 +32,10 @@ export const zh_CN: Translation = {
 	[Key.friendsApplyAddDescription]: "如何让贵站出现在我的友链中",
 	[Key.friendsApplyRequirementsTitle]: "要求",
 	[Key.friendsApplyRequirementKnown]:
-		"为了保证友链质量，目前仅开放给现实中认识或长期交流的朋友。",
-	[Key.friendsApplyRequirementSite]:
-		"贵站已启用 HTTPS、近一年内有更新，且可以正常在中国大陆访问。",
+		"为保证质量，友链申请开放对象为与我有所交集、比较熟悉的朋友，谢绝陌生人申请，请见谅。",
 	[Key.friendsApplyRequirementNature]:
 		"贵站为个人性质的非营利性博客或页面：以原创内容为主，不过度投放广告，不包含有害、违法违规、垃圾或色情内容。",
+	[Key.friendsApplyRequirementProactive]: "我会主动添加我喜欢网站的友链。",
 	[Key.friendsApplyTermsTitle]: "添加我的要求",
 	[Key.friendsApplyTermsNotify]:
 		"您可以根据我提供的信息自由添加本站，但请以邮件形式通知我。",

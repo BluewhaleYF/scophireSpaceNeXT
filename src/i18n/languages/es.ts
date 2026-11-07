@@ -33,11 +33,11 @@ export const es: Translation = {
 	[Key.friendsApplyAddDescription]: "Cómo aparecer en mis enlaces",
 	[Key.friendsApplyRequirementsTitle]: "Requisitos",
 	[Key.friendsApplyRequirementKnown]:
-		"Para mantener la calidad de los enlaces, por ahora solo acepto a personas que conozco en la vida real o con quienes mantengo contacto desde hace tiempo.",
-	[Key.friendsApplyRequirementSite]:
-		"Tu sitio usa HTTPS, se ha actualizado en el último año y es accesible desde China continental.",
+		"Para mantener la calidad, los enlaces de amistad están abiertos solo a personas que conozco bastante y con quienes he tenido algún contacto; las solicitudes de desconocidos se rechazarán. Gracias por entenderlo.",
 	[Key.friendsApplyRequirementNature]:
 		"Tu sitio es un blog o página personal y sin ánimo de lucro: contenido mayoritariamente original, sin publicidad excesiva ni material dañino, ilegal, spam o pornográfico.",
+	[Key.friendsApplyRequirementProactive]:
+		"También añado por iniciativa propia enlaces de amistad de sitios que me gustan.",
 	[Key.friendsApplyTermsTitle]: "Si me añades",
 	[Key.friendsApplyTermsNotify]:
 		"Puedes añadir este sitio libremente con la información que facilito, pero debes avisarme por correo electrónico.",

@@ -38,8 +38,9 @@ enum I18nKey {
 	friendsApplyAddDescription = "friendsApplyAddDescription",
 	friendsApplyRequirementsTitle = "friendsApplyRequirementsTitle",
 	friendsApplyRequirementKnown = "friendsApplyRequirementKnown",
-	friendsApplyRequirementSite = "friendsApplyRequirementSite",
 	friendsApplyRequirementNature = "friendsApplyRequirementNature",
+	/** 友链申请说明：我会主动添加喜欢网站的友链 */
+	friendsApplyRequirementProactive = "friendsApplyRequirementProactive",
 	friendsApplyTermsTitle = "friendsApplyTermsTitle",
 	friendsApplyTermsNotify = "friendsApplyTermsNotify",
 	friendsApplyTermsRemoval = "friendsApplyTermsRemoval",

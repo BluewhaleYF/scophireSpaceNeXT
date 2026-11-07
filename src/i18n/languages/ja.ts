@@ -34,11 +34,11 @@ export const ja: Translation = {
 		"あなたのブログを当サイトのリンク集に載せる方法",
 	[Key.friendsApplyRequirementsTitle]: "条件",
 	[Key.friendsApplyRequirementKnown]:
-		"リンク集の品質を保つため、現在は実際に面識のある方、または長期的に交流のある方に限定しています。",
-	[Key.friendsApplyRequirementSite]:
-		"サイトが HTTPS に対応し、過去1年以内に更新があり、中国大陸から正常にアクセスできること。",
+		"品質を保つため、相互リンクはある程度面識があり、交流のある方に限定しています。初対面の方からの申請はお断りします。ご了承ください。",
 	[Key.friendsApplyRequirementNature]:
 		"個人運営の非営利ブログまたはページであること：オリジナルコンテンツが中心で、過度な広告や、有害・違法・スパム・ポルノコンテンツを含まないこと。",
+	[Key.friendsApplyRequirementProactive]:
+		"好きなサイトには、こちらからも積極的に相互リンクを追加します。",
 	[Key.friendsApplyTermsTitle]: "当サイトを追加する場合",
 	[Key.friendsApplyTermsNotify]:
 		"提示した情報をもとに自由に追加していただけますが、メールでのご連絡が必要です。",

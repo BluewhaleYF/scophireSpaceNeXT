@@ -126,8 +126,8 @@ onDestroy(() => {
 				</h3>
 				<ol class="friend-apply-card__list friend-apply-card__list--ordered">
 					<li>{i18n(I18nKey.friendsApplyRequirementKnown)}</li>
-					<li>{i18n(I18nKey.friendsApplyRequirementSite)}</li>
 					<li>{i18n(I18nKey.friendsApplyRequirementNature)}</li>
+					<li>{i18n(I18nKey.friendsApplyRequirementProactive)}</li>
 				</ol>
 			</div>
 

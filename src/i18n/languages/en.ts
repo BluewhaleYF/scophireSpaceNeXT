@@ -33,11 +33,11 @@ export const en: Translation = {
 	[Key.friendsApplyAddDescription]: "How to get your blog listed here",
 	[Key.friendsApplyRequirementsTitle]: "Requirements",
 	[Key.friendsApplyRequirementKnown]:
-		"To keep the list high-quality, friend links are currently open only to people I know in real life or have stayed in touch with over time.",
-	[Key.friendsApplyRequirementSite]:
-		"Your site uses HTTPS, has been updated within the past year, and is accessible from mainland China.",
+		"To keep the list high-quality, applications are open only to friends I'm fairly familiar with and have crossed paths with. Strangers will be politely declined — thank you for understanding.",
 	[Key.friendsApplyRequirementNature]:
 		"Your site is a personal, non-commercial blog or page: mostly original content, no excessive advertising, and no harmful, illegal, spam, or pornographic material.",
+	[Key.friendsApplyRequirementProactive]:
+		"I also proactively add friend links for sites I like.",
 	[Key.friendsApplyTermsTitle]: "If you add me",
 	[Key.friendsApplyTermsNotify]:
 		"You may add this site freely using the info I provide, but you must notify me by email.",

@@ -34,11 +34,11 @@ export const ko: Translation = {
 		"내 블로그를 이곳 친구 링크에 추가하는 방법",
 	[Key.friendsApplyRequirementsTitle]: "조건",
 	[Key.friendsApplyRequirementKnown]:
-		"링크 품질을 유지하기 위해 현재는 실제로 아는 분이나 오랫동안 교류해 온 분에게만 개방하고 있습니다.",
-	[Key.friendsApplyRequirementSite]:
-		"사이트가 HTTPS를 사용하고, 최근 1년 이내에 업데이트되었으며, 중국 본토에서 정상적으로 접속할 수 있어야 합니다.",
+		"품질을 유지하기 위해 친구 링크는 어느 정도 잘 알고 교류가 있는 분에게만 개방하며, 처음 보는 분의 신청은 정중히 거절합니다. 양해 부탁드립니다.",
 	[Key.friendsApplyRequirementNature]:
 		"개인이 운영하는 비영리 블로그 또는 페이지여야 합니다: 창작 콘텐츠 중심이며, 과도한 광고나 유해·불법·스팸·음란 콘텐츠가 없어야 합니다.",
+	[Key.friendsApplyRequirementProactive]:
+		"마음에 드는 사이트는 제가 먼저 친구 링크를 추가하기도 합니다.",
 	[Key.friendsApplyTermsTitle]: "이 사이트를 추가할 경우",
 	[Key.friendsApplyTermsNotify]:
 		"안내된 정보로 자유롭게 추가할 수 있지만, 이메일로 알려 주셔야 합니다.",

@@ -32,11 +32,10 @@ export const zh_TW: Translation = {
 	[Key.friendsApplyAddDescription]: "如何讓貴站出現在我的友鏈中",
 	[Key.friendsApplyRequirementsTitle]: "要求",
 	[Key.friendsApplyRequirementKnown]:
-		"為了保證友鏈品質，目前僅開放給現實中認識或長期交流的朋友。",
-	[Key.friendsApplyRequirementSite]:
-		"貴站已啟用 HTTPS，近一年內有更新，且可在中國大陸正常存取。",
+		"為保證品質，友鏈申請開放對象為與我有所交集、比較熟悉的朋友，謝絕陌生人申請，請見諒。",
 	[Key.friendsApplyRequirementNature]:
 		"貴站應為個人性質的非營利部落格或頁面：以原創內容為主，不過度投放廣告，且不得包含有害、違法違規、垃圾或色情內容。",
+	[Key.friendsApplyRequirementProactive]: "我會主動新增我喜歡網站的友鏈。",
 	[Key.friendsApplyTermsTitle]: "加入我的要求",
 	[Key.friendsApplyTermsNotify]:
 		"您可以依照我提供的資訊自由加入本站，但請以電子郵件通知我。",

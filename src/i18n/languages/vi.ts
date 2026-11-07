@@ -34,11 +34,11 @@ export const vi: Translation = {
 		"Cách để blog của bạn xuất hiện trong danh sách liên kết của mình",
 	[Key.friendsApplyRequirementsTitle]: "Yêu cầu",
 	[Key.friendsApplyRequirementKnown]:
-		"Để đảm bảo chất lượng danh sách, hiện mình chỉ mở cho những người quen ngoài đời hoặc đã giao lưu lâu dài.",
-	[Key.friendsApplyRequirementSite]:
-		"Trang của bạn dùng HTTPS, có cập nhật trong vòng một năm qua và truy cập được từ Trung Quốc đại lục.",
+		"Để đảm bảo chất lượng, liên kết bạn bè chỉ mở cho những người mình khá quen biết và đã từng giao lưu; mình sẽ từ chối lời mời từ người lạ. Mong bạn thông cảm.",
 	[Key.friendsApplyRequirementNature]:
 		"Trang của bạn là blog hoặc trang cá nhân, phi lợi nhuận: chủ yếu là nội dung gốc, không quảng cáo quá mức và không có nội dung độc hại, vi phạm pháp luật, spam hoặc khiêu dâm.",
+	[Key.friendsApplyRequirementProactive]:
+		"Mình cũng sẽ chủ động thêm liên kết bạn bè cho những trang mình thích.",
 	[Key.friendsApplyTermsTitle]: "Nếu bạn thêm mình",
 	[Key.friendsApplyTermsNotify]:
 		"Bạn có thể tự do thêm trang này bằng thông tin mình cung cấp, nhưng phải thông báo cho mình qua email.",

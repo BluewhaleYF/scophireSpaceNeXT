@@ -34,11 +34,11 @@ export const tr: Translation = {
 		"Blogunuzun buradaki bağlantılarda görünmesi için",
 	[Key.friendsApplyRequirementsTitle]: "Koşullar",
 	[Key.friendsApplyRequirementKnown]:
-		"Bağlantı kalitesini korumak için şu anda yalnızca gerçek hayattan tanıdığım veya uzun süredir iletişimde olduğum kişilere açığım.",
-	[Key.friendsApplyRequirementSite]:
-		"Siteniz HTTPS kullanıyor, son bir yıl içinde güncellenmiş ve Çin anakarasından erişilebilir.",
+		"Kaliteyi korumak için bağlantılar yalnızca oldukça iyi tanıdığım ve bir şekilde etkileşimde bulunduğum kişilere açıktır; yabancılardan gelen başvurular kabul edilmez. Anlayışınız için teşekkürler.",
 	[Key.friendsApplyRequirementNature]:
 		"Siteniz kişisel ve kâr amacı gütmeyen bir blog veya sayfa: ağırlıklı olarak özgün içerik, aşırı reklam yok; zararlı, yasa dışı, spam veya pornografik içerik yok.",
+	[Key.friendsApplyRequirementProactive]:
+		"Sevdiğim sitelerin bağlantılarını da kendiliğimden eklerim.",
 	[Key.friendsApplyTermsTitle]: "Beni eklerseniz",
 	[Key.friendsApplyTermsNotify]:
 		"Sağladığım bilgilerle bu siteyi özgürce ekleyebilirsiniz, ancak e-posta ile bana bildirmelisiniz.",

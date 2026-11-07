@@ -34,11 +34,11 @@ export const id: Translation = {
 	[Key.friendsApplyAddDescription]: "Cara agar blog Anda muncul di tautan saya",
 	[Key.friendsApplyRequirementsTitle]: "Persyaratan",
 	[Key.friendsApplyRequirementKnown]:
-		"Demi menjaga kualitas daftar tautan, saat ini saya hanya menerima orang yang saya kenal di dunia nyata atau sudah berinteraksi lama.",
-	[Key.friendsApplyRequirementSite]:
-		"Situs Anda menggunakan HTTPS, diperbarui dalam setahun terakhir, dan dapat diakses dari Tiongkok daratan.",
+		"Demi menjaga kualitas, tautan teman hanya terbuka untuk orang yang cukup saya kenal dan pernah berinteraksi dengan saya; permintaan dari orang asing akan ditolak. Terima kasih atas pengertiannya.",
 	[Key.friendsApplyRequirementNature]:
 		"Situs Anda adalah blog atau halaman pribadi nonkomersial: sebagian besar konten orisinal, tanpa iklan berlebihan, serta tanpa konten berbahaya, ilegal, spam, atau pornografi.",
+	[Key.friendsApplyRequirementProactive]:
+		"Saya juga secara aktif menambahkan tautan teman untuk situs yang saya sukai.",
 	[Key.friendsApplyTermsTitle]: "Jika Anda menambahkan saya",
 	[Key.friendsApplyTermsNotify]:
 		"Anda bebas menambahkan situs ini dengan info yang saya berikan, tetapi wajib memberi tahu saya lewat email.",
