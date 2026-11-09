@@ -6,6 +6,18 @@ import type { DeviceItem } from "@/types/devicesConfig";
 
 export const devicesData: DeviceItem[] = [
 	{
+		id: "macbook-pro",
+		name: "MacBook Pro 14'",
+		brand: "Apple",
+		category: "desktop",
+		status: "active",
+		specs: "PROLED XDR / M5 Pro / 48GB / 1TB",
+		description: "绝对无可挑剔的最强专业级移动工作站。",
+		icon: "material-symbols:laptop-mac-outline-rounded",
+		featured: true,
+		year: "2026",
+	},
+	{
 		id: "iphone-16-pro-max",
 		name: "iPhone 16 Pro Max",
 		brand: "Apple",
@@ -17,19 +29,6 @@ export const devicesData: DeviceItem[] = [
 		icon: "material-symbols:phone-iphone",
 		featured: true,
 		year: "2024",
-	},
-	{
-		id: "matebook-d14",
-		name: "Matebook D 14",
-		brand: "HUAWEI",
-		category: "desk",
-		status: "active",
-		specs: "Core i7-1360P / 16GB / 1TB / Ubuntu & Windows",
-		description:
-			"性能孱弱，图形任务力不从心。接口较少，创作扩展举步维艰。屏幕欠佳，视觉效果不堪入目。做工粗糙，结构松散，耐用性差，性价比低。处处将就，绝不推荐。",
-		icon: "material-symbols:laptop-windows-outline-rounded",
-		featured: false,
-		year: "2023",
 	},
 	{
 		id: "airpods-pro",
@@ -71,7 +70,7 @@ export const devicesData: DeviceItem[] = [
 		id: "hp-pavilion-f1503",
 		name: "HP Pavilion f1503",
 		brand: "HP",
-		category: "desk",
+		category: "desktop",
 		status: "active",
 		specs: "15' / 1024 × 768 @ 75 Hz / VGA",
 		description: "除了经过时间考验过的耐用性，其余不能期望太多。",
