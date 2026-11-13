@@ -71,7 +71,7 @@ export const devicesData: DeviceItem[] = [
 		name: "HP Pavilion f1503",
 		brand: "HP",
 		category: "desk",
-		status: "active",
+		status: "backup",
 		specs: "15' / 1024 × 768 @ 75 Hz / VGA",
 		description: "除了经过时间考验过的耐用性，其余不能期望太多。",
 		icon: "material-symbols:monitor",
