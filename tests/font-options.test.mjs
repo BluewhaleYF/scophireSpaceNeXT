@@ -113,7 +113,7 @@ describe("Font Configuration & Resolver Tests", () => {
 		assert.match(style, /--m3e-font-mono-family:\s*"JetBrains Mono";/);
 	});
 
-	it("resolves active configuration (Outfit for body + Yozai for cjk + JetBrains Mono for mono)", () => {
+	it("resolves active configuration (Outfit for body + LXGW WenKai for cjk + JetBrains Mono for mono)", () => {
 		const activeConfig = {
 			mode: "custom",
 			fontFamilies: [
@@ -144,14 +144,14 @@ describe("Font Configuration & Resolver Tests", () => {
 					preload: false,
 				},
 				{
-					id: "yozai-cjk",
-					family: "Yozai Medium",
+					id: "lxgw-wenkai-cjk",
+					family: "LXGW WenKai",
 					role: "cjk",
 					source: "local",
 					variants: [
 						{
-							file: "src/assets/fonts/Yozai-Medium.ttf",
-							weight: 500,
+							file: "src/assets/fonts/LXGWWenKai-Regular.woff2",
+							weight: 400,
 							style: "normal",
 						},
 					],
@@ -197,7 +197,7 @@ describe("Font Configuration & Resolver Tests", () => {
 
 		const style = createFontRoleStyle(resolved);
 		assert.match(style, /--font-body:\s*"Outfit";/);
-		assert.match(style, /--font-cjk:\s*"Yozai Medium";/);
+		assert.match(style, /--font-cjk:\s*"LXGW WenKai";/);
 		assert.match(style, /--m3e-font-mono-family:\s*"JetBrains Mono";/);
 		assert.doesNotMatch(style, /--m3e-font-mono-stack/);
 	});

@@ -18,9 +18,9 @@ Shirone aims to combine the warmth of expressive anime aesthetics with the rigor
 - **Framework**: [Astro 7](https://astro.build/) & [Svelte 5](https://svelte.dev/) (Runes-driven islands)
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Stylus](https://stylus-lang.com/)
 - **Design Standard**: [Material 3 Expressive](https://m3.material.io/)
-- **Typography**: Outfit & Yozai (悠哉圆体) with automated build-time subsetting
+- **Typography**: Outfit & LXGW WenKai (霞鹜文楷) with automated build-time subsetting
 - **Search Engine**: [Pagefind](https://pagefind.app/) offline full-text search
 
 ## ✦ Credits
 
-- **Font**: [Yozai Font (悠哉字体)](https://github.com/lxgw/yozai-font) by [lxgw](https://github.com/lxgw)
+- **Font**: [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) by [lxgw](https://github.com/lxgw)
