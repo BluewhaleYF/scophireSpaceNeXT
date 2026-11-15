@@ -27,3 +27,19 @@
 .markdown-content code {
   font-weight: inherit;
 }
+
+/*
+ * Tailwind Typography wraps the first and last paragraph of a blockquote in
+ * typographic quotation marks. Shirone already marks the quote with a primary
+ * accent bar, so the extra quotes read as stray punctuation. Typography emits
+ * them in the utilities layer; they must be cancelled there as well, because a
+ * components-layer rule loses to utilities regardless of specificity.
+ */
+.markdown-content
+  blockquote
+  > p:first-of-type:not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.markdown-content
+  blockquote
+  > p:last-of-type:not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+  content: none;
+}
