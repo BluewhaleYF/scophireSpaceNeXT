@@ -1,26 +1,72 @@
-# About Shirone
+*[MAU]: Monthly Active Users，月活跃用户数
+*[CSA]: Computer Science A，AP 考试科目
+*[BSOD]: Blue Screen of Death，蓝屏死机
 
-Welcome to the demo site of **Shirone** (白音) — an expressive, anime-inspired blog theme built on the **Material 3 Expressive (M3E)** design system.
+# ScophireSpace
+
+2025 年 10 月，我在阿里云上买下了这个域名 `scophire.space`，当时只道是好玩，便留着闲置几月。2026 年年初，我在 Solar Network 偶然翻到了[ NecoArc-Chaos 的博客 ](https://www.nachaos.xyz/)，顺着其中的链接，找到了[ Mizuki ](https://github.com/LyraVoid/Mizuki)这个博客主题。
+
+多年以来，我一直想拥有一个真正属于我自己的网站，2022 年左右，我在 WordPress 上曾经建过一个极其粗糙的原型，不过由于观感不佳和免费版自由度过低，很久以前就被我废弃并关停了。这一次突然看到了这样一个界面优秀，自由度高，成本低的博客主题，二话不说便自己 Fork 过来搭建了一个。 2026 年 3 月 8 日，一个阴天的下午，ScophireSpace 的一周目在一台 HUAWEI Matebook 的构建环境中诞生了。
+
+当时的我连 git 都用得磕磕绊绊，vibe coding 也不会，一切都是纯手工的胡来。加之 Mizuki 自身的架构中配置文件松散，冗余内容过多（甚至还有看板娘和樱花飘落效果），我也受限于能力也没法修改，搭出的成果自然效果一般。
+
+不过随着 LyraVoid 大佬决定重构 Mizuki 并冠以 Shirone（白音）的全新名称，这就又重新引起我的注意力与热情了。
 
 ::github{repo="LyraVoid/Shirone"}
 
-## ✦ Design & Philosophy
+仔细观察了项目，全新的架构使得配置文件全部整齐收敛，精简过的功能和重做的 UI 都相比原版更上一层楼。我毫不犹豫决定重构 ScophireSpace，将底层迁移到 Shirone 模板。与此同时，在 Mizuki 的折腾过程中慢慢长进的技术，也让我的重构计划比以往更有条理，更优雅。尤其是对于 vibe coding 的掌握，使我能够更加自由地建设我的博客。于是，这就成为了你现在眼前的这个全新的网站。我不敢说它多好，但它至少是我练过之后、带着够用的能力回来交的第二次作业。
 
-Shirone aims to combine the warmth of expressive anime aesthetics with the rigor of modern web engineering:
+既然这是一个关于页面，我肯定是要介绍这个博客，顺带讲讲我是什么样的人。不过在介绍之前，我必须先说一个地方，没有了它，ScophireSpace 绝不会存在。
 
-- **Dynamic Chromatic Spell**: Full dynamic HCT palette generation responding seamlessly to light/dark modes and user preferences with zero layout shifts.
-- **Seamless Shell Navigation**: Persistent application shell driven by Swup for continuous music playback, smooth page transitions, and preserved state.
-- **Rich Story Grimoire**: Markdown and MDX authoring with KaTeX math, Mermaid diagrams, interactive admonitions, expressive code blocks, and adaptive image galleries.
-- **Zero Extra Burden**: Optional integrations (comments, analytics, music widgets) load dynamically on demand — zero DOM footprint and zero bundle overhead when disabled.
+## Solar Network
 
-## ✦ Tech Stack
+2025 年 3 月 29 日，走在路上，我偶然在哔哩哔哩上刷到了一个看似不起眼的视频：
 
-- **Framework**: [Astro 7](https://astro.build/) & [Svelte 5](https://svelte.dev/) (Runes-driven islands)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Stylus](https://stylus-lang.com/)
-- **Design Standard**: [Material 3 Expressive](https://m3.material.io/)
-- **Typography**: Outfit & LXGW WenKai (霞鹜文楷) with automated build-time subsetting
-- **Search Engine**: [Pagefind](https://pagefind.app/) offline full-text search
+[《自由！个性！？我全都要！开源社交网络 Solar Network 正式公开｜官方宣传片》](https://www.bilibili.com/video/BV1WGK5eXEoZ)
 
-## ✦ Credits
+我至今觉得险：那个视频是 2 月初发的，按我知道的那点推流规则，到我这里已经是极尾部的推流了，但凡数据库差一个小数点，我可能就永远看不到它。虽然 B 站的推流经常被说是“良作无人问，聚众吃大份”，但是那一天，也许是缘分吧，我看到了这期视频。
 
-- **Font**: [LXGW WenKai (霞鹜文楷)](https://github.com/lxgw/LxgwWenKai) by [lxgw](https://github.com/lxgw)
+起初其实没什么感觉，就觉得这挺有意思，也许是宣传片中所展示的 Material Design 设计吸引了我（我一直是个 Material Design 爱好者，甚至这个博客主题也是我这一喜好的体现），抑或只是觉得运势签到挺有意思的，我下载并加入 Solar Network。
+
+Solar Network 社区里的朋友们极大地震撼和鼓励了我。不是因为他们说了什么了不起的话，是因为他们都在做我想做但不知道怎么做的事。加入之后，跟突然解锁了什么一样，我开始自己接触正经的技术栈。从研究 C 到 Dart。为了学习，我的操作系统从 Windows 换成了 Unix 系的 Linux 和 macOS。我开始给开源项目提东西，GitHub 上灰色的贡献墙也慢慢出现了越来越密集的绿块。今年高一的我也主动课外选修了 CSA，为的就是补齐我在编程上的硬短板。
+
+慢慢地，我的电脑使用时间最长的软件，从 Steam 换成了 VS Code。最常访问的网站，也从 Bilibili 换成了 GitHub。
+
+ScophireSpace 的诞生充满了偶然，而“偶然”不止于此。
+
+## 来时路
+
+### 折腾
+
+八岁那年，懵懂中随意乱翻的我突然看到了一个 Windows 7 BSOD 的鬼畜视频，当时的我什么也不懂，只是出于好玩，每天都要洗脑几遍。
+
+只是兴趣使然，我开始自己研究。
+
+后来的几年之间，我在从父亲那里要来的 Surface Pro 4 上面装 StartAllBack 和魔改的主题包，等待两天时间只为下到百度网盘上的一个奇葩资源，好不容易下载成功，却又被压缩包密码挡在门外失望好久。我又翻出一台被宣判“已死”的 MacBook Pro A1278，把它拆了装，装了拆，二十余次，多出来一颗螺丝和好几个塑料片。硬件拆腻了就折腾着找 macOS X 的安装镜像，把它烧录进 U 盘，插上电脑，电脑竟奇迹般成功启动。复活一台电脑的兴奋是无与伦比的。
+
+接着又是玩起了 VMware，下载几十个操作系统的 iso 镜像一个个装上，Windows 11 OOBE 跳过联网命令，Windows 95 激活密钥我记得滚瓜烂熟。
+
+### 机器人工作室
+
+四年级的时候，上学期间我意外收到了一张神秘的传单，那是学校机器人工作室的加入申请表。我对计算机已经积累了相当充分的爱好，自然是很快就报名了。
+
+加入工作室的考试很难，依稀记得是一些物理题，对于一个四年级的小学生实在是有点勉强。不过我出乎意料地过了。一年基础班，又一年提高班。六年级，我以不错的成绩成功升到了竞赛班，准备面对比赛的真正考验了。
+
+我真的全身心喜欢工作室，喜欢机器人，喜欢比赛。
+
+在竞赛班，我训练的很刻苦，有一次全球总决赛前的一整个月，我几乎都是最早来，最晚走。赛前的一次模拟，我力克校内最强的队伍，拿到了最高分。那一晚训练完之后，我和队友吃了顿肯德基庆祝。
+
+遗憾总是来的突然，几天后由于我的疏忽，最重要的驱动电机居然烧坏了。要知道精准的走线都是很依靠电机体质的，惯用的电机被烧毁，无疑是一记晴天霹雳。尽管我和队友加紧赶工，仍然没有把新电机调试好。最后的比赛，我与领奖台擦身而过。那是我最后一次比赛。
+
+在那之后我很快就因为学业压力离开了，但是那个地方给我的东西，至今还在起作用。我第二次比赛时偶然分配到的一个队友，后来他成为了我最好的朋友，直到现在。
+
+### 哔哩哔哩
+
+2022 年秋，我试着在 B 站发了一些粗糙不堪的视频。其中 iOSZero 和 Meow_Bili 的介绍视频小火了一把，我也因此在社区里被人认出来过一次。
+
+后来我做了一期讲初中语文课文的[视频](https://www.bilibili.com/video/BV1kFpJzeEP9)。我当时纯粹是兴趣使然：我并不喜欢学校教语文的方式，也不喜欢语文考试。可我到底是个披着理科爱好外衣的文科生，语文书里确实有一些我真正喜欢，真正打动了我的篇目。新教材改编之后我心里有些想法，我写了一篇文章表达我对杨绛《老王》的喜爱与被删除的感慨。我把文章给老师看了。老师给了我很足的鼓励。我随即想，也许可以把它做成视频。
+
+全网近 450 万播放，我的粉丝数一夜之间翻了一倍。我坐在家里，看着后台数据中我的获赞量以肉眼可见的速度增长，看着那期视频 3000+ 的同时观看，我被惊得说不出话。
+
+更奇妙的是，它被我未来的高中同学刷到了——发视频时我初三，高中刚开学我一提这事，有个同学直接震惊，因为他看过，早在认识我之前。~~但是他当时刷到之后没有关注，我为此耿耿于怀~~
+
