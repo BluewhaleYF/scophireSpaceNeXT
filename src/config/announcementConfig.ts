@@ -8,8 +8,8 @@ import { withUserConfig } from "../utils/config-overlay.ts";
 export const announcementConfig: AnnouncementConfig = withUserConfig(
 	"announcement",
 	{
-		title: "重构公告", // 公告标题，填空使用 i18n 字符串 Key.announcement
-		content: "ScophireSapce 近期正在以重构的方式从 Mizuki 迁移到 Shirone 主题",
+		title: "", // 公告标题，填空使用 i18n 字符串 Key.announcement
+		content: "ScophireSpace へようこそ！",
 		link: {
 			enable: false, // 启用链接
 			text: "GitHub", // 链接文本
