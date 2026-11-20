@@ -2,7 +2,7 @@
 title: 如何将 Shirone 部署在 Cloudflare Workers 上
 published: 2026-11-20
 publishedAt: 2026-11-20T23:00:00+08:00
-description: 绕开官方警告，把 Shirone 静态站直接部署到 Cloudflare Workers 的记录
+description: 绕开官方警告，把 Shirone 静态站直接部署到 Cloudflare Workers
 tags: [Blog]
 category: 技术
 draft: false
@@ -80,4 +80,4 @@ ScophireSpace 二周目是一个从重构中开始的全新项目，因此我就
 
 通过 `wrangler.jsonc` 声明 `assets.directory`，Wrangler 会跳过框架探测，直接把 `dist/` 当静态文件上传。没有 Worker 入口脚本，adapter 不会被注入，`__dirname` 相关代码自然不会被执行。
 
-这一方案已经被使用到了 ScophireSpace 的构建兼容措施中，具体的 commit 在：
+这一方案已经被使用到了 ScophireSpace 的构建兼容措施中，具体的 commit 在 [GitHub](https://github.com/BluewhaleYF/scophireSpaceNeXT/commit/57e6f74f120a10cdacb974f39665514a5e17a0fe) 上可见。
