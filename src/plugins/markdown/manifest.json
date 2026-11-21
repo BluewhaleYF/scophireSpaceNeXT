@@ -934,7 +934,10 @@
 					"default": null
 				}
 			],
-			"implementation": ["src/plugins/rehype-markdown-images.mjs"],
+			"implementation": [
+				"src/plugins/rehype-markdown-images.mjs",
+				"src/plugins/markdown/core/image-line.mjs"
+			],
 			"registeredIn": "src/utils/markdown-processor.mjs",
 			"styles": ["src/styles/markdown/image-presentations.css"],
 			"runtime": {
@@ -944,7 +947,9 @@
 			},
 			"docs": ["docs/markdown-extensions.md"],
 			"tests": ["tests/plugins/rehype-markdown-images.test.mjs"],
-			"notes": ["非法或越界宽度令牌保留在 alt，不静默改写。"]
+			"notes": [
+				"图片独占一行时可紧邻正文或连续出现；行内混排图片不生成图注。非法或越界宽度令牌保留在 alt，不静默改写。"
+			]
 		},
 		{
 			"id": "include",
@@ -1078,6 +1083,7 @@
 			},
 			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
+				"tests/plugins/markdown/katex-package-mode.test.mjs",
 				"tests/plugins/markdown/katex-version.test.mjs",
 				"tests/site/markdown-smoke.spec.ts"
 			],
@@ -1098,12 +1104,19 @@
 				}
 			],
 			"attributes": [],
-			"implementation": ["src/plugins/remark-mermaid.mjs"],
+			"implementation": [
+				"src/plugins/remark-mermaid.mjs",
+				"src/plugins/rehype-mermaid-fallback.mjs"
+			],
 			"registeredIn": "src/utils/markdown-processor.mjs",
 			"styles": ["src/styles/mermaid.css"],
 			"runtime": {
 				"mode": "client-enhanced",
-				"modules": ["src/utils/mermaid.ts", "src/utils/mermaid-interaction.ts"],
+				"modules": [
+					"src/utils/mermaid.ts",
+					"src/utils/mermaid-config.ts",
+					"src/utils/mermaid-interaction.ts"
+				],
 				"network": []
 			},
 			"docs": ["docs/markdown-extensions.md"],

@@ -69,6 +69,16 @@ tags: ["Friend"]
 	[Key.momentsBanner]: "บันทึกสั้น ๆ — ชีวิต งาน และความสุขเล็ก ๆ",
 	[Key.momentsCount]: "ชิ้น",
 	[Key.momentsCounts]: "ชิ้น",
+	[Key.momentPasswordTitle]: "โมเมนต์ที่ได้รับการป้องกัน",
+	[Key.momentPasswordDescription]:
+		"โมเมนต์นี้ถูกเข้ารหัส โปรดป้อนรหัสผ่านเพื่อปลดล็อกเนื้อหา",
+	[Key.momentPasswordLabel]: "รหัสผ่าน",
+	[Key.momentPasswordShow]: "แสดงรหัสผ่าน",
+	[Key.momentPasswordHide]: "ซ่อนรหัสผ่าน",
+	[Key.momentPasswordRequired]: "กรุณาป้อนรหัสผ่าน",
+	[Key.momentPasswordInvalid]: "รหัสผ่านไม่ถูกต้อง",
+	[Key.momentPasswordUnlock]: "ปลดล็อกโมเมนต์",
+	[Key.momentPasswordUnlocking]: "กำลังถอดรหัส…",
 	[Key.pinned]: "ปักหมุด",
 	[Key.loadMore]: "โหลดเพิ่ม",
 
@@ -311,6 +321,7 @@ tags: ["Friend"]
 	[Key.paginationNext]: "หน้าถัดไป",
 	[Key.paginationPage]: "หน้า {page}",
 	[Key.paginationJump]: "ไปที่หน้า",
+	[Key.paginationLabel]: "การเปลี่ยนหน้า",
 	[Key.tagsViewAll]: "ดูแท็กทั้งหมด",
 
 	[Key.author]: "ผู้เขียน",
@@ -377,4 +388,13 @@ tags: ["Friend"]
 		"เพิ่ม URL ฟีดด้านบนลงในโปรแกรมอ่าน RSS/Atom (เช่น NetNewsWire, Feedly, Inoreader, Follow) เพื่อรับการแจ้งเตือนบทความใหม่",
 	[Key.feedOpenXml]: "ดู XML ต้นฉบับ",
 	[Key.feedRecentPosts]: "บทความล่าสุดในฟีด",
+	[Key.menu]: "เมนู",
+	[Key.mainNavigation]: "การนำทางหลัก",
+	[Key.navigationDrawer]: "แผงนำทาง",
+	[Key.breadcrumb]: "เส้นทางนำทาง",
+	[Key.displaySettings]: "การตั้งค่าการแสดงผล",
+	[Key.searchPanel]: "แผงค้นหา",
+	[Key.lightDarkMode]: "โหมดสว่าง/มืด",
+	[Key.resetToDefault]: "รีเซ็ตเป็นค่าเริ่มต้น",
+	[Key.goToAboutPage]: "ไปยังหน้าเกี่ยวกับ",
 };

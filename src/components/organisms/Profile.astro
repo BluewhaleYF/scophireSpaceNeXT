@@ -6,6 +6,8 @@ import Card from "@components/atoms/display/Card.svelte";
 import Icon from "@components/atoms/display/Icon.svelte";
 import Tooltip from "@components/atoms/overlay/Tooltip.svelte";
 import UmamiStats from "@components/organisms/UmamiStats.astro";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
 import { resolveResponsiveAvatar } from "@utils/avatar-image";
 import { url } from "@utils/url-utils";
 import { profileConfig } from "@/config";
@@ -30,7 +32,7 @@ const avatar = await resolveResponsiveAvatar(config.avatar, {
 ---
 <div class={className} style={style}>
 	<Card color="var(--card-bg)" radius="l" class="m3-profile p-3">
-    <a aria-label="Go to About Page" href={url('/about/')}
+    <a aria-label={i18n(I18nKey.goToAboutPage)} href={url('/about/')}
        class="m3-profile__avatar-link group">
         <div class="m3-profile__avatar-overlay">
             <Icon icon="fa7-solid:address-card"

@@ -6,6 +6,7 @@ import test, { after } from "node:test";
 import { pathToFileURL } from "node:url";
 import {
 	detectThemeRepo,
+	fileSystemPathFromUrl,
 	findPackageRoot,
 	normalisePath,
 	resolvePaths,
@@ -145,6 +146,53 @@ test("the repository comparison ignores the trailing slash config.root carries",
 	assert.equal(detectThemeRepo(siteRoot, themeRoot), false);
 });
 
+test("converts file URLs to filesystem paths on Windows and POSIX", () => {
+	const windowsUrl = new URL("file:///D:/Code/My%20Blog/dist/");
+	assert.equal(
+		fileSystemPathFromUrl(windowsUrl, { windows: true }),
+		"D:\\Code\\My Blog\\dist\\",
+	);
+	assert.equal(
+		fileSystemPathFromUrl(windowsUrl, { windows: false }),
+		"/D:/Code/My Blog/dist/",
+	);
+});
+
+test("normalises Vite filesystem IDs and Windows drive paths", () => {
+	assert.equal(
+		normalisePath("/@fs/D:/Users/Example/site/src/"),
+		"d:/users/example/site/src",
+	);
+	assert.equal(
+		normalisePath("/D:/Users/Example/site/src/"),
+		"d:/users/example/site/src",
+	);
+	assert.equal(
+		normalisePath("D:\\Users\\Example\\site\\src\\"),
+		"d:/users/example/site/src",
+	);
+	assert.equal(normalisePath("/D:/"), "d:");
+	assert.equal(
+		normalisePath("/@fs/home/user/site/src/"),
+		"/home/user/site/src",
+	);
+});
+
+test("normalises relative override keys with Windows case-insensitive semantics", () => {
+	assert.equal(
+		normalisePath("molecules/AnimeCard", { caseInsensitive: true }),
+		"molecules/animecard",
+	);
+	assert.equal(
+		normalisePath("molecules/animecard", { caseInsensitive: true }),
+		"molecules/animecard",
+	);
+	assert.equal(
+		normalisePath("molecules/AnimeCard", { caseInsensitive: false }),
+		"molecules/AnimeCard",
+	);
+});
+
 // ── The gate that used to misfire for a linked install ──────────────────────
 import { prebundleCandidates } from "../src/integration/index.ts";
 
@@ -180,4 +228,46 @@ test("skips the pre-bundle hint for a linked install too", () => {
 		url(join(themeRoot, "src", "integration", "index.ts")),
 	);
 	assert.deepEqual(prebundleCandidates(paths, SPECIFIERS), []);
+});
+
+// ── The exclusion that keeps the overlay out of the dep pre-bundle ──────────
+import { prebundleExclude } from "../src/integration/index.ts";
+import { THEME_ALIASES } from "../src/integration/aliases.ts";
+
+test("excludes the theme aliases from the package-mode pre-bundle", () => {
+	// Vite's dep scanner resolves aliases without running plugins, so a
+	// pre-bundled `@/config/siteConfig` skips `shirones:overlay` and every
+	// hydration reads the package defaults (`lang: "en"`) instead of the
+	// user's config. `@` is the broadest prefix and covers `@/…`.
+	const paths = resolvePaths(
+		{},
+		rootUrl(siteRoot),
+		url(join(installedRoot, "index.js")),
+	);
+	assert.deepEqual(prebundleExclude(paths), [
+		"@components",
+		"@utils",
+		"@layouts",
+		"@i18n",
+		"@constants",
+		"@assets",
+		"@",
+	]);
+});
+
+test("leaves the theme repository's own aliases pre-bundlable", () => {
+	const paths = resolvePaths(
+		{},
+		rootUrl(themeRoot),
+		url(join(themeRoot, "src", "integration", "index.ts")),
+	);
+	assert.deepEqual(prebundleExclude(paths), []);
+});
+
+test("alias sub-directories carry no trailing slash", () => {
+	// The alias table appends its own separator; `src/components//` builds, but
+	// misses Astro's compile-metadata cache and fails the CSS virtual module.
+	for (const [prefix, sub] of THEME_ALIASES) {
+		assert.ok(!sub.endsWith("/"), prefix);
+	}
 });

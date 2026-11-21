@@ -31,7 +31,7 @@ const friends = await Promise.all(
 ---
 
 <MainGridLayout title={pageTitle} description={pageDescription} page="friends">
-    <FriendSection friends={friends} title={pageTitle} subtitle={pageDescription} client:visible></FriendSection>
+    <FriendSection friends={friends} title={pageTitle} subtitle={pageDescription} pageSize={friendsConfig.pageSize} client:visible></FriendSection>
     {friendApply && (
         <FriendApplyCard
             snippet={friendApply.snippet}

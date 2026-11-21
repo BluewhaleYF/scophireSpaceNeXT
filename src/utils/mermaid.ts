@@ -1,3 +1,4 @@
+import { createMermaidConfig } from "./mermaid-config";
 import type { MermaidInteractionController } from "./mermaid-interaction";
 
 const DIAGRAM_SELECTOR = ".markdown-mermaid[data-mermaid]";
@@ -376,13 +377,14 @@ function createThemeVariables(values: Record<string, string>, isDark: boolean) {
 }
 
 function parseSvg(svg: string): SVGElement {
-	const documentNode = new DOMParser().parseFromString(svg, "image/svg+xml");
-	if (documentNode.querySelector("parsererror")) {
-		throw new Error("Mermaid returned invalid SVG markup");
-	}
-
-	const svgElement = documentNode.documentElement;
-	if (svgElement.tagName.toLowerCase() !== "svg") {
+	// Parse as HTML, the way the browser does for inline SVG. Mermaid serializes
+	// HTML labels verbatim, so a label like `A[te<br>st]` reaches us with an
+	// unclosed `<br>` and a strict XML parser rejects the whole diagram. The HTML
+	// parser also restores the SVG tag/attribute casing (`viewBox`,
+	// `linearGradient`) and keeps the `<br>` as a real element inside the label.
+	const documentNode = new DOMParser().parseFromString(svg, "text/html");
+	const svgElement = documentNode.querySelector("svg");
+	if (!svgElement) {
 		throw new Error("Mermaid did not return an SVG element");
 	}
 
@@ -394,7 +396,7 @@ function parseSvg(svg: string): SVGElement {
 	}
 	svgElement.setAttribute("data-mermaid-svg", "");
 
-	return document.importNode(svgElement, true) as unknown as SVGElement;
+	return document.importNode(svgElement, true);
 }
 
 function readDiagramSource(diagram: HTMLElement): string {
@@ -441,13 +443,7 @@ async function renderDiagrams() {
 	try {
 		const { default: mermaid } = await import("mermaid");
 		const themeVariables = createThemeVariables(theme.values, theme.isDark);
-		mermaid.initialize({
-			startOnLoad: false,
-			securityLevel: "strict",
-			suppressErrorRendering: true,
-			theme: "base",
-			themeVariables,
-		});
+		mermaid.initialize(createMermaidConfig(themeVariables));
 
 		for (const diagram of targets) {
 			diagram.style.setProperty(

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import type { Plugin } from "vite";
+import { THEME_ALIASES } from "../aliases.ts";
 import { normalisePath } from "../resolve/paths.ts";
 import {
 	createOverlayTargets,
@@ -17,18 +18,6 @@ export interface OverlayPluginOptions {
 	/** Compiled override registry (mutable; the integration rebuilds it in dev). */
 	registryRef: OverrideRegistryRef;
 }
-
-/** Theme path aliases, mapped to sub-directories of the package `src/`. */
-const ALIAS_MAP: [string, string][] = [
-	["@components/", "components/"],
-	["@utils/", "utils/"],
-	["@layouts/", "layouts/"],
-	["@i18n/", "i18n/"],
-	["@constants/", "constants/"],
-	["@assets/", "assets/"],
-	// `@/` is the broadest pattern and must be tested last.
-	["@/", ""],
-];
 
 /** Split a Vite id into its path and query (`?raw`, `?url`, `?astro&type=…`). */
 function splitQuery(id: string): [string, string] {
@@ -90,7 +79,7 @@ export function shironesOverlay(options: OverlayPluginOptions): Plugin {
 
 	/** Map an alias specifier onto an absolute path inside the package. */
 	function resolveAlias(source: string): string | null {
-		for (const [prefix, sub] of ALIAS_MAP) {
+		for (const [prefix, sub] of THEME_ALIASES) {
 			if (!source.startsWith(prefix)) continue;
 			return join(paths.packageSrc, sub, source.slice(prefix.length));
 		}
@@ -140,9 +129,12 @@ export function shironesOverlay(options: OverlayPluginOptions): Plugin {
 			// ── Case 2: relative import from a file inside the package ────────
 			if (!importer || !sourcePath.startsWith(".")) return null;
 
-			const [importerPath] = splitQuery(importer);
-			const normalisedImporter = normalisePath(importerPath);
-			if (normalisedImporter.startsWith(`${packageSrc}/`)) {
+			// Vite may expose an absolute module as `/@fs/<path>`, and on
+			// Windows that can be `/@fs/D:/...`. Normalize before doing any
+			// path operations, not just for the prefix comparison: resolving a
+			// relative import against `/D:/...` treats the drive as a directory.
+			const importerPath = normalisePath(splitQuery(importer)[0]);
+			if (importerPath.startsWith(`${packageSrc}/`)) {
 				const candidate = resolve(dirname(importerPath), sourcePath);
 				const override = overrideFor(candidate);
 				if (!override) return null;
@@ -156,7 +148,7 @@ export function shironesOverlay(options: OverlayPluginOptions): Plugin {
 			// user's project first; when the user hasn't mirrored them, fall back
 			// to the equivalent file inside the package.
 			const userTarget = targets.find((t) =>
-				normalisedImporter.startsWith(`${normalisePath(t.userDir)}/`),
+				importerPath.startsWith(`${normalisePath(t.userDir)}/`),
 			);
 			if (!userTarget) return null;
 
@@ -185,12 +177,12 @@ export function shironesOverlay(options: OverlayPluginOptions): Plugin {
 			// the package. Rewrite them here — in `load` rather than `transform` —
 			// because vite-plugin-astro compiles `<style lang="stylus">` in its own
 			// pre-transform, which runs before this plugin's transform hook.
-			const [path, query] = splitQuery(id);
+			const [rawPath, query] = splitQuery(id);
 			if (query) return null;
-			const normalised = normalisePath(path);
-			if (!/\.(astro|svelte)$/.test(normalised)) return null;
+			const path = normalisePath(rawPath);
+			if (!/\.(astro|svelte)$/.test(path)) return null;
 			const target = targets.find((t) =>
-				normalised.startsWith(`${normalisePath(t.userDir)}/`),
+				path.startsWith(`${normalisePath(t.userDir)}/`),
 			);
 			if (!target) return null;
 

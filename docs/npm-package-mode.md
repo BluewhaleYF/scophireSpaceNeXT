@@ -46,7 +46,7 @@ building itself? — and derives everything else from the answer:
 ```text
 src/integration/
 ├── index.ts        integration entry — the single config driver for every mode
-├── overlay.ts      override system (Vite resolveId; package mode only)
+├── vite/overlay.ts override system (Vite resolveId; package mode only)
 ├── load-config.ts  Node-side loader for user TypeScript config
 ├── routes.ts       src/pages scan → injectRoute patterns
 ├── fonts.ts        font declarations + subsetting (`.shirones/fonts/` in package mode, `src/assets/fonts/.subset/` in-repo)
@@ -68,14 +68,21 @@ mirroring the package structure in their own project:
 | `src/components/atoms/blog/PostCard.astro` | `src/components/atoms/blog/PostCard.astro` |
 | `src/layouts/Layout.astro` | `src/layouts/Layout.astro` |
 
-`overlay.ts` implements this as a `pre` Vite plugin that reacts to exactly two
-specifier shapes:
+`src/integration/vite/overlay.ts` implements this as a `pre` Vite plugin that
+reacts to exactly two specifier shapes:
 
 1. **Theme aliases** — `@/config/siteConfig`, `@components/...`, `@utils/...`
 2. **Relative imports whose importer lives inside the package** — e.g.
    `../data/music.ts` from `src/config/musicConfig.ts`
 
-Anything else returns `null`, leaving Vite's resolution untouched.
+Anything else returns `null`, leaving Vite's resolution untouched. In dev the
+same overlay must resolve consistently in both the client and SSR module graphs.
+Vite can expose filesystem modules with an `/@fs/` prefix; normalize that ID and
+Windows drive-path forms before comparing paths or resolving relative imports.
+For Node or Pagefind APIs that need a native filesystem path, convert a `file:`
+URL with `fileURLToPath` (the URL's `.pathname` can be `/D:/...` on Windows).
+`tests/overlay.test.mjs`, `tests/paths.test.mjs`, and `tests/pagefind.test.mjs`
+protect these boundaries; those focused tests also run on `windows-latest` in CI.
 
 > **Why not resolve everything and inspect the result?**
 > An earlier version routed every specifier through `this.resolve()` so it could
@@ -113,8 +120,10 @@ cached against a hash of the collected charset, so repeat builds skip the work.
 
 ## Things to keep in sync
 
-- `routes.ts` and the pipeline's `generate-manifest.mjs` both derive route
-  patterns from filenames. Change one, change the other.
+- Route patterns have one implementation: the pipeline bundles and calls
+  `src/integration/routes.ts` when it generates `dist/manifest.json` in
+  `build-package.mjs`. Change `routes.ts`; the manifest follows automatically.
+  `docs/packaging-contract.md` still governs the other source/template contracts.
 - Anything imported by a page must be in `dependencies`, never
   `devDependencies` — the package build fails the release if it finds an
   undeclared bare import. `@iconify-json/simple-icons` was exactly this trap.

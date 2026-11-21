@@ -37,6 +37,7 @@ import { remarkFields } from "../plugins/markdown/remark-fields.mjs";
 import { remarkIncludes } from "../plugins/markdown/remark-includes.mjs";
 import { remarkMarker } from "../plugins/markdown/remark-marker.mjs";
 import { remarkOptionGroups } from "../plugins/markdown/remark-option-groups.mjs";
+import { remarkRestoreBareDirectives } from "../plugins/markdown/remark-restore-bare-directives.mjs";
 import { remarkYouTube } from "../plugins/markdown/remark-youtube.mjs";
 import { AcFunComponent } from "../plugins/rehype-component-acfun.mjs";
 import { AdmonitionComponent } from "../plugins/rehype-component-admonition.mjs";
@@ -49,6 +50,7 @@ import { MarkerComponent } from "../plugins/rehype-component-marker.mjs";
 import { SpoilerComponent } from "../plugins/rehype-component-spoiler.mjs";
 import { YouTubeComponent } from "../plugins/rehype-component-youtube.mjs";
 import { rehypeMarkdownImages } from "../plugins/rehype-markdown-images.mjs";
+import { rehypeMermaidFallback } from "../plugins/rehype-mermaid-fallback.mjs";
 import { rehypeResponsiveTables } from "../plugins/rehype-responsive-tables.mjs";
 import { parseDirectiveNode } from "../plugins/remark-directive-rehype.js";
 import { remarkEscapeNumericColons } from "../plugins/remark-escape-numeric-colons.mjs";
@@ -85,6 +87,7 @@ export const siteRemarkPlugins = [
 	remarkReadingTime,
 	remarkExcerpt,
 	remarkDirective,
+	remarkRestoreBareDirectives,
 	remarkAcFun,
 	remarkAudioReader,
 	remarkArtPlayer,
@@ -174,6 +177,7 @@ export const siteRehypePlugins = [
 		},
 	],
 	rehypeResponsiveTables,
+	rehypeMermaidFallback,
 ];
 
 /**

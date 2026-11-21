@@ -73,6 +73,16 @@ tags: ["Friend"]
 		"ふとした瞬間を気軽に記録 —— 日々、制作、そして小さな幸せ。",
 	[Key.momentsCount]: "件",
 	[Key.momentsCounts]: "件",
+	[Key.momentPasswordTitle]: "保護されたモーメント",
+	[Key.momentPasswordDescription]:
+		"このモーメントは暗号化されています。パスワードを入力して内容を解除してください。",
+	[Key.momentPasswordLabel]: "パスワード",
+	[Key.momentPasswordShow]: "パスワードを表示",
+	[Key.momentPasswordHide]: "パスワードを隠す",
+	[Key.momentPasswordRequired]: "パスワードを入力してください",
+	[Key.momentPasswordInvalid]: "パスワードが正しくありません",
+	[Key.momentPasswordUnlock]: "モーメントを解除",
+	[Key.momentPasswordUnlocking]: "復号中…",
 	[Key.pinned]: "ピン留め",
 	[Key.loadMore]: "もっと見る",
 
@@ -322,6 +332,7 @@ tags: ["Friend"]
 	[Key.paginationNext]: "次のページ",
 	[Key.paginationPage]: "{page} ページ",
 	[Key.paginationJump]: "ページへ移動",
+	[Key.paginationLabel]: "ページ切り替え",
 	[Key.tagsViewAll]: "すべてのタグを見る",
 
 	[Key.author]: "作者",
@@ -391,4 +402,13 @@ tags: ["Friend"]
 		"上記の購読 URL をお好みの RSS/Atom リーダー（NetNewsWire、Feedly、Inoreader、Follow など）に登録すると、最新記事が通知されます。",
 	[Key.feedOpenXml]: "XML を直接表示",
 	[Key.feedRecentPosts]: "最新の配信記事",
+	[Key.menu]: "メニュー",
+	[Key.mainNavigation]: "メインナビゲーション",
+	[Key.navigationDrawer]: "ナビゲーションドロワー",
+	[Key.breadcrumb]: "パンくずリスト",
+	[Key.displaySettings]: "表示設定",
+	[Key.searchPanel]: "検索パネル",
+	[Key.lightDarkMode]: "ライト/ダークモード",
+	[Key.resetToDefault]: "既定に戻す",
+	[Key.goToAboutPage]: "About ページへ",
 };

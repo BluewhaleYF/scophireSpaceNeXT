@@ -77,3 +77,6 @@ artifacts/lighthouse/*
 
 # generated AI skills plugin packages
 artifacts/shirone-ai-*
+
+# pnpm local store (fallback when the global store cannot hard-link)
+.pnpm-store/

@@ -67,6 +67,16 @@ tags: ["Friend"]
 	[Key.momentsBanner]: "随手记录的碎碎念 —— 生活、折腾与一切小确幸。",
 	[Key.momentsCount]: "条动态",
 	[Key.momentsCounts]: "条动态",
+	[Key.momentPasswordTitle]: "受保护的动态",
+	[Key.momentPasswordDescription]:
+		"该动态已被加密保护，请输入访问密码以解锁内容。",
+	[Key.momentPasswordLabel]: "访问密码",
+	[Key.momentPasswordShow]: "显示密码",
+	[Key.momentPasswordHide]: "隐藏密码",
+	[Key.momentPasswordRequired]: "请输入密码",
+	[Key.momentPasswordInvalid]: "密码错误，请重新输入",
+	[Key.momentPasswordUnlock]: "解锁动态",
+	[Key.momentPasswordUnlocking]: "正在解密…",
 	[Key.pinned]: "置顶",
 	[Key.loadMore]: "加载更多",
 
@@ -310,6 +320,7 @@ tags: ["Friend"]
 	[Key.paginationNext]: "下一页",
 	[Key.paginationPage]: "第 {page} 页",
 	[Key.paginationJump]: "跳转到页面",
+	[Key.paginationLabel]: "分页导航",
 	[Key.tagsViewAll]: "查看全部标签",
 
 	[Key.author]: "作者",
@@ -376,4 +387,13 @@ tags: ["Friend"]
 		"将上方订阅地址添加到任意 RSS/Atom 阅读器（如 NetNewsWire、Feedly、Inoreader、Follow 等），即可即时接收新文章推送。",
 	[Key.feedOpenXml]: "查看原始 XML",
 	[Key.feedRecentPosts]: "最新推送文章",
+	[Key.menu]: "菜单",
+	[Key.mainNavigation]: "主导航",
+	[Key.navigationDrawer]: "导航抽屉",
+	[Key.breadcrumb]: "面包屑导航",
+	[Key.displaySettings]: "显示设置",
+	[Key.searchPanel]: "搜索面板",
+	[Key.lightDarkMode]: "浅色/深色模式",
+	[Key.resetToDefault]: "恢复默认",
+	[Key.goToAboutPage]: "前往关于页",
 };

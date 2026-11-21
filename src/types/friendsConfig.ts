@@ -31,4 +31,6 @@ export interface FriendApplyConfig {
 export interface FriendsConfig extends PageMeta {
 	/** 友链申请卡片（默认开启） */
 	apply?: FriendApplyConfig;
+	/** 每页条数；省略或无效值回退 12。 */
+	pageSize?: number;
 }

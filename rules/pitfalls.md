@@ -121,6 +121,16 @@ svelte({
 
 ---
 
+### 1.9 npm 包模式下 dev 的依赖预打包绕过 overlay
+
+**现象**：包模式项目 `astro dev` 的水合文案回落英文（`Search`、`1 friend`），同一页的 SSR 与 `astro build` 却是中文。
+
+**根因**：`@components/…`、`@/config/…` 在包模式解析到 `node_modules`，Vite 依赖扫描器把它们当第三方依赖预打包；预打包不走插件管道，`shirones:overlay` 从未生效，island 读到包内默认配置。`astro build` 不预打包，所以只有 dev 不一致。
+
+**解法**：包模式下把 `ALIAS_NAMESPACES`（由 `src/integration/aliases.ts#THEME_ALIASES` 派生）写进 `optimizeDeps.exclude`；源码模式不需要。回归见 `tests/paths.test.mjs` 的 `prebundleExclude`。
+
+---
+
 ## 2. CSS / Stylus
 
 ### 2.1 Stylus 嵌套同名子元素会拼错类名
@@ -644,9 +654,11 @@ snapshotPathTemplate: "{snapshotDir}/{testFileDir}/{testFileName}-snapshots/{arg
 里写 `const bad: number = "x"`、在 `.astro` 里写
 `<Icon icon={123} notARealProp="x" />`，`astro check` 都仍是 0 errors。
 
-**现状与门禁**：仓库将 `svelte-check@4.7.6` 固定为 devDependency；CI 用
-`pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error`，并以错误阈值
-作为阻塞检查。不要改回未固定的 `pnpm dlx`：那会临时联网解析工具版本，且锁文件无法
+**现状与门禁**：仓库将 `svelte-check` 固定为 devDependency（当前 4.7.7）；CI 用
+`pnpm exec svelte-check --tsconfig ./tsconfig.json`，默认阈值就是 error，只有错误会让
+它非零退出。不要再加 `--threshold error`：4.7.7 搭配 TypeScript 6 时该参数会直接抛
+`Debug Failure. False expression: parameter should have errors when reporting errors`，
+与代码无关。不要改回未固定的 `pnpm dlx`：那会临时联网解析工具版本，且锁文件无法
 复现它。
 
 **判断**：改 `.svelte` 或 `.svelte.d.ts` 时，`astro check` 通过**不构成**类型验证证据；

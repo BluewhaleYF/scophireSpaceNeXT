@@ -48,6 +48,14 @@ emitted chunk's location rather than the source file's.
 `public/images/albums/`, a directory named in their config, generated caches
 under `.shirones/`.
 
+**Convert file URLs before calling filesystem APIs.** Astro hooks can supply a
+`URL` such as the build output directory. Use `fileSystemPathFromUrl()` (which
+wraps Node's `fileURLToPath`) before passing it to Node or native tools such as
+Pagefind. Do not use `.pathname`: on Windows it can be `/D:/...`, which is not a
+valid native drive path. `tests/paths.test.mjs` exercises both Windows and
+POSIX conversion, and `tests/pagefind.test.mjs` verifies the paths sent to both
+Pagefind APIs on any host.
+
 ### Files that exist in both places
 
 Config-adjacent files that ship in the template land in `shirones/config/` in a
@@ -99,7 +107,23 @@ CSS file, so it resolves to the theme's own `src/` in both modes.
   dynamic `import()` outside the bundle) must be a **peer** dependency, because
   pnpm's strict layout hides the theme's own copy from the project root.
 
-### Every relative import used by the copied CLI must be in the package archive
+New overridable components must have distinct path stems, even across source
+extensions. The override registry and explicit component map strip extensions
+so users can replace an Astro component with a Svelte component. Adding
+`Pagination.svelte` beside `Pagination.astro` would therefore merge their
+override keys and redirect the static pager to the interactive one. Use
+`ListPagination.svelte` for the interactive list pager; an explicit `.astro`
+or `.svelte` import alone does not prevent an override-key collision.
+
+**KaTeX is version-coupled.** The theme imports `katex/dist/katex.css` directly,
+while `rehype-katex@7` declares KaTeX `^0.16.0`.
+The workspace override is not published, so package-mode's `loadPackageModule`
+bundler resolves every renderer import from the theme's direct `katex`
+dependency. Keep the stylesheet on that same dependency and retain
+`tests/plugins/markdown/katex-package-mode.test.mjs`; a clean consumer install
+must not split renderer and CSS versions.
+
+### Every import used by the copied CLI must be in the package archive
 
 The package publisher copies the CLI rather than bundling it. A relative import
 that works in the source tree is not automatically present in the published
@@ -110,15 +134,22 @@ payload. A missing sibling is discovered only after a successful install, when
 `src/integration/version-range.mjs` is shared with `verify-peers.ts` so peer
 validation and `init --update` use the same range logic. The integration bundle
 can inline that import; the standalone CLI still needs the sibling at its
-published relative path (or a packaging step that bundles the CLI without
-changing its dependency-free startup contract).
+published relative path. External runtime imports need the same explicit
+packaging contract: `jsonc-parser` is loaded lazily with `import()` only when
+`init` edits an existing JSONC tsconfig, and is shipped through
+`extraDependencies` in `src/integration/package.manifest.json`. The lazy import
+keeps `help` and `info` usable before project setup; `scripts/check-package-manifest.mjs`
+recognizes dynamic imports and must fail if that shipped dependency is removed.
 
 **Release validation must use the actual archive.** The publisher should derive
 or explicitly maintain the CLI sibling list, inspect the `npm pack` tarball,
-install that tarball in a clean temporary project, and invoke the CLI path that
-imports the range engine (including `init --update`). A source-only manifest
-check or a successful import from the repository does not prove that the
-published package contains the file.
+install that tarball in a clean temporary project, and invoke the CLI paths that
+use the range engine and JSONC parser. The pinned pipeline currently runs
+`init`, `init --force` and `info` against a project that has no tsconfig yet, so
+`init --update` against an existing JSONC tsconfig is still a manual release
+step rather than something the pipeline proves. A source-only manifest check or
+a successful import from the repository does not prove that the published
+package contains the runtime files and dependencies.
 
 ### What the range engine does and does not decide
 

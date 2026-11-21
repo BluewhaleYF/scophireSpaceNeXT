@@ -14,6 +14,10 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  # Upstream requires Node >= 26.13.0 (package.json engines).
+  NODE_VERSION: "26.13.0"
+
 jobs:
   quality:
     name: Code quality
@@ -35,7 +39,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
@@ -66,7 +70,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
@@ -79,20 +83,19 @@ jobs:
       - name: Check Svelte diagnostics
         run: pnpm exec svelte-check --tsconfig ./tsconfig.json --threshold error
 
-      - name: Validate atom manifest
+      - name: Validate manifests
         run: pnpm check:manifest
+
+      - name: Check package manifest
+        run: pnpm check:package-manifest
 
       - name: Run unit tests
         run: node --test "tests/**/*.test.mjs"
 
   build:
-    name: Build (Node.js ${{ matrix.node }})
+    name: Build production site
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [22, 24]
+    timeout-minutes: 20
     env:
       CI: true
 
@@ -109,7 +112,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
