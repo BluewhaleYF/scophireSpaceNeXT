@@ -3,14 +3,14 @@
 本仓库是 **ScophireSpace 个人站**，已在 GitHub 上解除 fork 关系，但保留手动合并
 上游主题更新的能力。合并由 agent 执行，人类只做审阅与最终放行。
 
-上游：`LyraVoid/Shirone`（主题作者仓库）。本仓库的 `src/components`、`src/styles`、
-`src/scripts`、`src/integration` 等主题代码来自上游；`src/content`、`src/data`、
-`src/config` 已被个人内容替换；`tests/` 已按"内容无关"原则裁剪。
+上游：<https://github.com/LyraVoid/Shirone>（主题作者仓库）。本仓库的 `src/components`、
+`src/styles`、`src/scripts`、`src/integration` 等主题代码来自上游；`src/content`、
+`src/data`、`src/config` 已被个人内容替换；`tests/` 已按"内容无关"原则裁剪。
 
 ## 0. 一次性配置
 
 ```bash
-git remote add upstream https://github.com/LyraVoid/Shirone.git
+git remote add upstream https://github.com/LyraVoid/Shirone
 git fetch upstream
 ```
 
