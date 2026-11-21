@@ -231,8 +231,8 @@ Mermaid 样式由 `stylesheetPacks.mermaid` 输出为 Swup 管理的可选 style
 ```powershell
 pnpm.cmd check:manifest
 npx.cmd astro check
-npx.cmd playwright test tests/site/markdown-runtime.spec.ts
-npx.cmd playwright test tests/site/<syntax>.spec.ts
+npx.cmd playwright test tests/site/markdown-smoke.spec.ts
+npx.cmd playwright test tests/site/markdown-smoke.spec.ts
 pnpm.cmd build
 ```
 

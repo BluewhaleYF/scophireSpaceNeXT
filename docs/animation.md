@@ -1,7 +1,8 @@
 # 动效库规范（M3E）— Shirone 主题
 
 > 记录站内动效令牌、动画插件与降级约定。新增动效先读本文档，
-> 动画插件放在 `src/utils/motion.ts`，回归测试放在 `tests/site/motion.spec.ts`。
+> 动画插件放在 `src/utils/motion.ts`。本仓库已裁剪上游的 `motion.spec.ts`；
+> reduced-motion 路径由 `tests/site/post-list.spec.ts` 与 `tests/site/music-widget.spec.ts` 覆盖。
 
 ---
 
@@ -78,7 +79,7 @@ enterers.forEach((el, i) => revealIn(el, { delay: i * 50 }));
 
 ## 5. 回归测试
 
-`tests/site/motion.spec.ts` 锁定：
+上游的 `tests/site/motion.spec.ts` 曾锁定（本仓库已裁剪）：
 
 - **归档页折叠动画**（`collapse`）：正常模式展开/收起播放高度过渡（动画期间为中间值）；
   Reduce Motion 直接到位（无中间值）；`aria-expanded` 与折叠内容正确。

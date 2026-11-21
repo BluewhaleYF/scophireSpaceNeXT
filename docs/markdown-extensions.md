@@ -186,7 +186,7 @@ pnpm.cmd astro dev --port 4321
 4. 无障碍：运行最小组件用例及 `tests/site/a11y.spec.ts` 的相关页面。
 5. 构建验证：运行 `npx.cmd astro check` 与 `pnpm.cmd build`，不能只依赖 dev server 热更新结果。
 
-Admonitions、Collapse Panels、Option Groups、Marker、File Tree、Code Tree、Steps 与 Content Annotations 的对应覆盖位于：
+Admonitions、Collapse Panels、Option Groups、Marker、File Tree、Code Tree、Steps 与 Content Annotations 的对应覆盖位于（**本仓库已裁剪这些站点 spec，保留 `tests/site/markdown-smoke.spec.ts` 覆盖核心管线；清单仅作上游参考，见 `docs/upstream-merge.md` §4**）：
 
 - `tests/plugins/markdown/containers/admonitions.test.mjs`
 - `tests/plugins/markdown/inline/abbreviations.test.mjs`

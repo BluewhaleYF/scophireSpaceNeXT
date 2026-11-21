@@ -75,7 +75,7 @@
 pnpm.cmd check:manifest
 node --test tests/plugins/markdown/feature-probes.test.mjs
 npx.cmd astro check
-npx.cmd playwright test tests/site/markdown-runtime.spec.ts
+npx.cmd playwright test tests/site/markdown-smoke.spec.ts
 pnpm.cmd build
 ```
 
