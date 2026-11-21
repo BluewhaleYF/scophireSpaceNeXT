@@ -189,7 +189,7 @@ pnpm.cmd build
 
 > 本仓库已裁剪上游评论套件，仅保留 `tests/site/comments-zero-footprint.spec.ts`
 > （关闭态零 DOM/零请求，含 Swup 导航）。以下 Waline/Twikoo 用例为上游方案，
-> 需要时在临时 worktree 中运行，见 `docs/upstream-merge.md` §8。
+> 需要时在临时 worktree 中运行，见 `docs/upstream-merge.md` §9。
 
 - **零足迹测试**：访问不含该特性的页面（如首页），断言无 `#comments` / 特性容器 DOM、
   无特性 CSS 资产请求；

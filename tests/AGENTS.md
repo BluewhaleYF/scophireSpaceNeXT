@@ -10,5 +10,5 @@
 - Features involving persistent shell elements must cover both direct page load and Swup navigation. Assert the route contract after `content:replace` rather than assuming the shell was rerendered.
 - Keep visual snapshots local and intentional. They are ignored by Git; do not update them to absorb unrelated viewport, font, page-height, or cache drift. Use DOM geometry/state assertions when a screenshot is unavailable or the difference is not attributable to the change.
 - Select the narrowest relevant fragment, then add `tests/site/a11y.spec.ts` for page/component changes. Typography or Markdown-pipeline changes should also run `tests/site/markdown-smoke.spec.ts`.
-- Do not reintroduce specs that depend on demo content or fixed personal data (post slugs, friend counts, category names). Discover routes at runtime or assert structure; see the keep/delete rationale in `docs/upstream-merge.md` §4.
+- Do not reintroduce specs that depend on demo content or fixed personal data (post slugs, friend counts, category names). Discover routes at runtime or assert structure; see the keep/delete rationale in `docs/upstream-merge.md` §5.
 - `pnpm merge:check` is the merge gate: `astro check`, read-only Biome, unit tests, and the Playwright smoke set. Add `--build` for high-risk merges.
