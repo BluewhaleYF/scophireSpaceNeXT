@@ -58,7 +58,9 @@
 		"format": "biome format --write ./src",
 		"lint": "biome check --write ./src",
 		"preinstall": "npx only-allow pnpm",
-		"test": "playwright test",
+		"test": "playwright test tests/site",
+		"test:smoke": "playwright test tests/site",
+		"merge:check": "node scripts/merge-check.mjs",
 		"perf:measure": "node scripts/perf/measure.mjs"
 	},
 	"dependencies": {

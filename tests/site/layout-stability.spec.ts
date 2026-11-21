@@ -165,6 +165,13 @@ test.describe("Layout width stability", () => {
 	test("keeps one layout width whether or not the page scrolls", async ({
 		page,
 	}) => {
+		// macOS uses overlay scrollbars, so `innerWidth - clientWidth` is always
+		// 0 no matter how long the page is; the premise is only observable on
+		// classic-scrollbar platforms (the Linux CI runner).
+		test.skip(
+			process.platform === "darwin",
+			"overlay scrollbars make the scrollbar width delta unobservable",
+		);
 		await openSolidPage(page, SHORT_PAGE);
 		test.skip(
 			!(await fitsViewport(page)),
@@ -179,10 +186,13 @@ test.describe("Layout width stability", () => {
 		).toBe(false);
 
 		await navigateTo(page, LONG_PAGE);
-		test.skip(
-			await fitsViewport(page),
-			`${LONG_PAGE} 现在不比视口高，缺少「长页」这一前提`,
-		);
+		// Content length is data-owned (a personal archive may be shorter than
+		// the viewport), so force the "page can scroll" premise with a probe
+		// instead of assuming /archive/ is tall enough.
+		await page.evaluate(() => {
+			document.documentElement.style.minHeight = "3000px";
+		});
+		await waitForLayoutReady(page);
 		expect(
 			await hasVerticalScrollbar(page),
 			`${LONG_PAGE} 上没有滚动条，缺少「长页有滚动条」这一前提`,

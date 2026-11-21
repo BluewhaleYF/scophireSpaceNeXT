@@ -3,6 +3,7 @@ import {
 	mkdirSync,
 	mkdtempSync,
 	readdirSync,
+	realpathSync,
 	rmSync,
 	writeFileSync,
 } from "node:fs";
@@ -17,9 +18,14 @@ import {
 import { resolvePaths } from "../src/integration/resolve/paths.ts";
 
 const roots = [];
+// On macOS `tmpdir()` returns `/var/...`, a symlink to `/private/var/...`.
+// esbuild reports `resolveDir` under the resolved path while `resolvePaths`
+// keeps the unresolved one, so the override fallback would never match. Use
+// the real path so both sides agree, exactly as they do for a real project.
+const TMP_ROOT = realpathSync(tmpdir());
 const world = () => {
-	const themeRoot = mkdtempSync(join(tmpdir(), "shirones-load-"));
-	const siteRoot = mkdtempSync(join(tmpdir(), "shirones-site-"));
+	const themeRoot = mkdtempSync(join(TMP_ROOT, "shirones-load-"));
+	const siteRoot = mkdtempSync(join(TMP_ROOT, "shirones-site-"));
 	roots.push(themeRoot, siteRoot);
 	mkdirSync(join(themeRoot, "src", "integration"), { recursive: true });
 	mkdirSync(join(themeRoot, "src", "config"), { recursive: true });

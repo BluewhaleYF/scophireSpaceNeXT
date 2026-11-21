@@ -25,39 +25,57 @@ describe("Feature Data & Resolver Tests", () => {
 	});
 
 	it("resolveProjectsData applies disabledKeys correctly", () => {
+		const items = [
+			{ key: "keep-a", title: "A" },
+			{ key: "drop", title: "B" },
+			{ key: "keep-b", title: "C" },
+		];
 		const config = {
 			enable: true,
 			categories: [],
-			disabledKeys: ["folkpatch"],
+			disabledKeys: ["drop"],
 		};
-		const resolved = resolveProjectsData(config);
-		assert.ok(resolved.some((p) => p.key === "shirone"));
-		assert.ok(resolved.some((p) => p.key === "kernelpatch"));
-		assert.ok(!resolved.some((p) => p.key === "folkpatch"));
+		const resolved = resolveProjectsData(config, items);
+		assert.deepEqual(
+			resolved.map((p) => p.key),
+			["keep-a", "keep-b"],
+		);
 	});
 
 	it("resolveSkillsData applies disabledNames correctly", () => {
+		const items = [
+			{ name: "TypeScript", level: "advanced" },
+			{ name: "PHP", level: "beginner" },
+		];
 		const config = {
 			enable: true,
 			categories: [],
 			disabledNames: ["PHP"],
 		};
-		const resolved = resolveSkillsData(config);
-		assert.ok(resolved.some((s) => s.name === "TypeScript"));
-		assert.ok(!resolved.some((s) => s.name === "PHP"));
+		const resolved = resolveSkillsData(config, items);
+		assert.deepEqual(
+			resolved.map((s) => s.name),
+			["TypeScript"],
+		);
 	});
 
 	it("resolveTimelineData applies disabledTitles and order correctly", () => {
+		const items = [
+			{ title: "Older Role", date: "2020.09" },
+			{ title: "Senior Frontend Engineer", date: "2021.01" },
+			{ title: "Newest Role", date: "2024.06" },
+		];
 		const config = {
 			enable: true,
 			categories: [],
 			order: "asc",
 			disabledTitles: ["Senior Frontend Engineer"],
 		};
-		const resolved = resolveTimelineData(config);
-		assert.ok(!resolved.some((t) => t.title === "Senior Frontend Engineer"));
-		// timelineData 中最旧的条目是 2020.09 – 2024.06 (Computer Science & Engineering Degree)
-		assert.equal(resolved[0].title, "Computer Science & Engineering Degree");
+		const resolved = resolveTimelineData(config, items);
+		assert.deepEqual(
+			resolved.map((t) => t.title),
+			["Older Role", "Newest Role"],
+		);
 	});
 
 	it("resolveTimelineData sorts correctly by date in desc and asc order", () => {
@@ -81,13 +99,19 @@ describe("Feature Data & Resolver Tests", () => {
 	});
 
 	it("resolveDevicesData applies disabledIds correctly", () => {
+		const items = [
+			{ id: "keep-a", name: "A", brand: "X" },
+			{ id: "drop", name: "B", brand: "Y" },
+		];
 		const config = {
 			enable: true,
 			categories: [],
-			disabledIds: ["iphone-16-pro"],
+			disabledIds: ["drop"],
 		};
-		const resolved = resolveDevicesData(config);
-		assert.ok(resolved.some((d) => d.id === "macbook-pro-16"));
-		assert.ok(!resolved.some((d) => d.id === "iphone-16-pro"));
+		const resolved = resolveDevicesData(config, items);
+		assert.deepEqual(
+			resolved.map((d) => d.id),
+			["keep-a"],
+		);
 	});
 });

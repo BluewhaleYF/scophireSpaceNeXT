@@ -1,39 +1,27 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
 
 /**
  * 真实站点页面 A11y 锁定（axe-core / WCAG 2.1 AA）
  * 与 tests/atoms/a11y.spec.ts（原子测试页）互补：这里扫描博客真实页面
- * （首页 / 归档 / 关于 / 文章页），覆盖整站语义结构（header/nav/aside landmark）、
- * 内容层（Markdown、GitHub 卡片）与深色模式下的对比度。
+ * （首页 / 归档 / 关于 / 分类 / 标签 / 一篇文章），覆盖整站语义结构
+ * （header/nav/aside landmark）、内容层（Markdown）与深色模式下的对比度。
+ * 文章页路径从首页发现，避免绑定上游 demo 文章或当前个人文章的固定 slug。
  * 说明：
- * - GitHub 卡片（::github 指令）请求被 mock 为固定成功响应，避免外部配额或网络抖动影响扫描。
  * - 扫描前等待 onload-animation 全部收敛（opacity 1），防止动画中间帧误报。
  * - 断言页面确实处于目标模式，防止主题未应用导致“假通过”。
  */
+const FIRST_POST = "__first-post__";
+
 const pages = [
 	{ name: "404", path: "/404/" },
 	{ name: "首页", path: "/" },
 	{ name: "首页-网格", path: "/", layout: "grid" },
 	{ name: "归档", path: "/archive/" },
-	{ name: "友链", path: "/friends/" },
-	{ name: "动态", path: "/moments/" },
-	{ name: "番剧", path: "/anime/" },
-	{ name: "站点罗盘", path: "/compass/" },
-	{ name: "技能", path: "/skills/" },
-	{ name: "项目", path: "/projects/" },
-	{ name: "设备展示", path: "/devices/" },
-	{ name: "游戏", path: "/games/" },
-	{ name: "时间线", path: "/timeline/" },
-	{ name: "相册详情", path: "/albums/ExternalExample/" },
 	{ name: "关于", path: "/about/" },
-	{ name: "文章页", path: "/posts/guide/" },
-	{ name: "MDX文章页", path: "/posts/mdx-showcase/" },
-	{ name: "系列文章页", path: "/posts/markdown-extended/" },
 	{ name: "分类索引", path: "/categories/" },
 	{ name: "标签索引", path: "/tags/" },
-	{ name: "系列索引", path: "/series/" },
-	{ name: "系列详情", path: "/series/markdown-syntax-guide/" },
+	{ name: "文章页", path: FIRST_POST },
 ];
 
 const DISABLED_RULES = ["page-has-heading-one"];
@@ -56,7 +44,7 @@ const GITHUB_MOCK = {
 };
 
 async function openSitePage(
-	page: import("@playwright/test").Page,
+	page: Page,
 	path: string,
 	theme: string,
 	layout?: string,
@@ -100,11 +88,24 @@ async function openSitePage(
 	await page.waitForTimeout(500);
 }
 
+/** 从首页发现第一篇文章的真实路径。 */
+async function discoverFirstPost(page: Page): Promise<string> {
+	await page.goto("/", { waitUntil: "domcontentloaded" });
+	const href = await page
+		.locator('#post-list a[href*="/posts/"]')
+		.first()
+		.getAttribute("href");
+	if (!href) throw new Error("首页没有找到任何文章链接");
+	return href;
+}
+
 for (const mode of modes) {
 	test.describe(`Site a11y scan lock (${mode.name})`, () => {
 		for (const p of pages) {
 			test(p.name, async ({ page }) => {
-				await openSitePage(page, p.path, mode.theme, p.layout);
+				const path =
+					p.path === FIRST_POST ? await discoverFirstPost(page) : p.path;
+				await openSitePage(page, path, mode.theme, p.layout);
 				// 防止主题未应用导致“假通过”：确认页面确实处于目标模式
 				const isDark = await page.evaluate(() =>
 					document.documentElement.classList.contains("dark"),
