@@ -129,8 +129,11 @@ PR 描述里附上：上游 SHA、评估报告、`merge:check` 结果、人工�
   跑不通就改成内容无关（从首页发现文章、按 DOM 动态取数量），或删除。
 - 上游新增的 Node 单测（`tests/**/*.test.mjs`）：优先保留，它们通常不依赖内容。
 
-裁剪记录：原 69 个 spec 中仅保留 15 个并新增 2 个（`a11y`、`post`、`taxonomy`、
-`post-list`、`top-app-bar`、`layout-stability` 已改写为内容无关）。删除清单可由
+裁剪记录：原 69 个 spec 中仅保留 15 个并新增 2 个（`markdown-smoke`、
+`comments-zero-footprint`），合并 v2.0.0 时又保留了上游的 `swup-navigation`，
+当前为 18 个。`a11y`、`post`、`taxonomy`、`post-list`、`top-app-bar`、
+`layout-stability` 已改写为内容无关。上游新增的 `list-pagination`、
+`anime-filters`、`moments-encrypted` 依赖 demo/夹具内容，未合并。删除清单可由
 `git log --diff-filter=D --name-only` 查看。
 
 ## 6. 高风险区域

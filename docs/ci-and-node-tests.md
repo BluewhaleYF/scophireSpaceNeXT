@@ -2,6 +2,9 @@
 
 This project runs unit tests directly with Node. CI uses Node 26.13.0. Astro/Vite supplies TypeScript, aliases, and extension resolution during development, but `node --test` does not; code loaded by tests must work in both environments.
 
+> [!NOTE]
+> 本仓库的 `.github/workflows/ci.yml` 已简化为 **quality / checks / build** 三段，不再包含上游的评论矩阵、样式分片与 `shirones-pipeline-tests` 通道。本文其余部分记录上游 CI 契约与脚本，仅供合并上游时参考；相关脚本未在本仓库的 CI 中运行。
+
 ## Runtime boundaries
 
 - Do not make a pure Node test path import a TypeScript module containing a runtime `enum`. Node's strip-only TypeScript loader does not support `enum`.

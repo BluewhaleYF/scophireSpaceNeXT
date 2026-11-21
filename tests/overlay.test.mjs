@@ -1,5 +1,11 @@
 import assert from "node:assert/strict";
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import {
+	mkdirSync,
+	mkdtempSync,
+	realpathSync,
+	rmSync,
+	writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import test from "node:test";
@@ -23,8 +29,11 @@ const viteFsId = (path) => {
 };
 
 test("package overlays resolve consistently in Vite client and SSR dev environments", async () => {
-	const themeRoot = mkdtempSync(join(tmpdir(), "shirones-overlay-theme-"));
-	const projectRoot = mkdtempSync(join(tmpdir(), "shirones-overlay-project-"));
+	// macOS `/var` is a symlink to `/private/var`; Vite reports resolved paths,
+	// so the fixtures must start from the same real path.
+	const TMP_ROOT = realpathSync(tmpdir());
+	const themeRoot = mkdtempSync(join(TMP_ROOT, "shirones-overlay-theme-"));
+	const projectRoot = mkdtempSync(join(TMP_ROOT, "shirones-overlay-project-"));
 	let server;
 
 	try {

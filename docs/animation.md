@@ -83,8 +83,8 @@ enterers.forEach((el, i) => revealIn(el, { delay: i * 50 }));
 `reveal` 入场；本地筛选与翻页立即更新，不人为延迟或显示全列表 loading。跨路由等待
 继续使用 `RouteProgress`，在成功、取消、失败、超时出口清理。头像和封面复用 `Skeleton`
 提供固定尺寸的局部占位，图片成功后短时淡入，失败后显示原有占位；不阻塞文字和分页。
-系统与站点的 Reduce Motion 均直接到位。分页相关场景在
-`tests/site/list-pagination.spec.ts` 覆盖。
+系统与站点的 Reduce Motion 均直接到位。上游的 `tests/site/list-pagination.spec.ts` 依赖 `pagination-regression` 夹具，
+本仓库未合并；分页组件的动效由保留的冒烟集间接覆盖。
 
 上游的 `tests/site/motion.spec.ts` 属于主题完整契约套件，本仓库已裁剪；
 reduced-motion 路径由 `tests/site/post-list.spec.ts` 与 `tests/site/music-widget.spec.ts` 覆盖。
