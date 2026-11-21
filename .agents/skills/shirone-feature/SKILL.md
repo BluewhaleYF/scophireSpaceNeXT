@@ -36,4 +36,4 @@ Shirone 的可选能力(评论、统计、音乐、追番、页脚注入等)遵�
 
 ## 验证命令
 
-`npx.cmd astro check` → 关闭状态下 `pnpm.cmd build`,按 `docs/on-demand-loading.md` §4 检查页面引用、资源依赖与外部请求 → 开启状态跑对应 Playwright 分片(如 `tests/site/comments.spec.ts`、`tests/site/waline.spec.ts`)+ `tests/site/a11y.spec.ts` → 有页面级影响时运行 `pnpm.cmd perf:measure` 并记录 LCP/CLS；该脚本目前只测量和打印指标，不会自动执行阈值断言。
+`npx.cmd astro check` → 关闭状态下 `pnpm.cmd build`,按 `docs/on-demand-loading.md` §4 检查页面引用、资源依赖与外部请求 → 开启状态跑对应 Playwright 分片(如 `tests/site/comments-zero-footprint.spec.ts`)+ `tests/site/a11y.spec.ts` → 有页面级影响时运行 `pnpm.cmd perf:measure` 并记录 LCP/CLS；该脚本目前只测量和打印指标，不会自动执行阈值断言。

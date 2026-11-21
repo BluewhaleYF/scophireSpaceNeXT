@@ -29,4 +29,4 @@ description: Working on the Shirone sidebar system, widgets, FAB floating contro
 
 ## 验证命令
 
-`npx.cmd astro check` → 相关分片(`tests/site/fab-navigation.spec.ts`、`tests/site/toc.spec.ts`、widget 对应 spec)+ `tests/site/a11y.spec.ts` → 涉及壳状态时补 Swup 导航断言;改配置排布后跑 `tests/site/post-list.spec.ts`/相关页面 spec 确认布局。
+`npx.cmd astro check` → 相关分片(`tests/site/sidebar-page-filter.spec.ts`、`tests/site/top-app-bar.spec.ts`)+ `tests/site/a11y.spec.ts` → 涉及壳状态时补 Swup 导航断言;改配置排布后跑 `tests/site/post-list.spec.ts`/相关页面 spec 确认布局。

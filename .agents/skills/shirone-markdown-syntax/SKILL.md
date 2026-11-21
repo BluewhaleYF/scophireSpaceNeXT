@@ -9,7 +9,7 @@ description: Authoring content with Shirone's custom Markdown syntaxes - admonit
 
 | 语法 | 写法 | 演示文章 |
 |---|---|---|
-| Field cards / 字段卡片 | `:::: field-group` + `::: field name` with `@type`, `@default`, and required-state metadata | `markdown-fields.md` |
+| Field cards / 字段卡片 | `:::: field-group` + `::: field name` with `@type`, `@default`, and required-state metadata | `docs/markdown-extensions.md` |
 | 提示容器 | `:::tip[标题] ... :::` 或 `> [!NOTE]`,类型:`note/info/tip/important/warning/caution/details` | `admonitions.md` |
 | 折叠面板 | `::: collapse [accordion] [expand]` 包裹无序列表,项首 `:+`/`:-` 控制开合 | `collapse-panels.md` |
 | 选项组(Tabs) | `::: tabs[#同步id]` + `@tab 标题#值`,值相同的组跨页同步 | `option-groups.md` |
@@ -57,7 +57,7 @@ Supported metadata is `@name`, `@type`, `@default`, `@required`, `@optional`, `@
 
 Use four-colon fences for `field-group` when nesting three-colon `field` blocks. A single `field` can also be used without a group. Unknown or malformed `@tags` are preserved as ordinary description text instead of being discarded. Rendering is SSR-only: the cards add no JavaScript or network requests.
 
-Reference implementation and copyable example: `src/plugins/markdown/manifest.json` and `src/content/posts/markdown-fields.md`.
+Reference implementation: `src/plugins/markdown/manifest.json`; the author-facing syntax reference is `docs/markdown-extensions.md`.
 
 ## Bilibili 视频
 

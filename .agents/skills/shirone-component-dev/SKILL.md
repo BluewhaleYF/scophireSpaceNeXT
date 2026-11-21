@@ -41,7 +41,7 @@ description: Creating or modifying UI components in the Shirone theme - atomic d
 
 ## 验证命令
 
-`npx.cmd astro check` → `pnpm.cmd check:manifest`(动过原子时)→ `pnpm.cmd design:lint`(token 违规)→ 最小 Playwright 分片 + `tests/site/icons.spec.ts` + `tests/site/a11y.spec.ts`;动效域变更加 `tests/site/motion.spec.ts`。
+`npx.cmd astro check` → `pnpm.cmd check:manifest`(动过原子时)→ `pnpm.cmd design:lint`(token 违规)→ 最小 Playwright 分片 + `tests/site/a11y.spec.ts`；动效域变更加 `tests/site/post-list.spec.ts`（reduced-motion 路径）与 `tests/site/music-widget.spec.ts`。
 
 ## npm 包兼容性
 

@@ -145,13 +145,10 @@
 				"modules": ["src/utils/abbreviations.ts"],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/markdown-abbreviations.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
 				"tests/plugins/markdown/inline/abbreviations.test.mjs",
-				"tests/site/abbreviations.spec.ts"
+				"tests/site/markdown-smoke.spec.ts"
 			],
 			"notes": [
 				"定义仅在当前文章内生效，定义行不会输出为正文；非法、空或重复定义保留为普通 Markdown。",
@@ -210,11 +207,8 @@
 					"viewport preloading or explicit activation: https://www.acfun.cn/player/{acid}"
 				]
 			},
-			"docs": ["src/content/posts/video.md"],
-			"tests": [
-				"tests/plugins/markdown/leaf/acfun.test.mjs",
-				"tests/site/markdown-runtime.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/leaf/acfun.test.mjs"],
 			"notes": [
 				"初始 SSR DOM 不含 iframe、AcFun 脚本或 provider 请求；标题和 AcFun 页面链接始终保留。",
 				"非法视频 ID 或空标题不触发可选资源；运行时只从验证后的字段生成白名单播放器 URL。"
@@ -272,13 +266,10 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/admonitions.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
 				"tests/plugins/markdown/containers/admonitions.test.mjs",
-				"tests/site/admonitions.spec.ts"
+				"tests/site/markdown-smoke.spec.ts"
 			],
 			"notes": [
 				"方括号标题、空格标题与 GitHub Alert 统一进入同一 Admonition renderer。",
@@ -335,11 +326,8 @@
 					"author-declared video source; preload accepts none or auto"
 				]
 			},
-			"docs": ["src/content/posts/video.md"],
-			"tests": [
-				"tests/plugins/markdown/leaf/artplayer.test.mjs",
-				"tests/site/markdown-runtime.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/leaf/artplayer.test.mjs"],
 			"notes": [
 				"The initial output uses native SSR video controls; preload defaults to none and auto prepares the source near the viewport without an ArtPlayer package or client module.",
 				"Invalid source or title values remain ordinary Markdown and do not declare optional page resources."
@@ -388,14 +376,8 @@
 					"author-declared audio source only after activation; preload=none"
 				]
 			},
-			"docs": [
-				"src/content/posts/audio-reader.md",
-				".agents/skills/shirone-markdown-syntax/SKILL.md"
-			],
-			"tests": [
-				"tests/plugins/markdown/inline/audio-reader.test.mjs",
-				"tests/site/markdown-runtime.spec.ts"
-			],
+			"docs": [".agents/skills/shirone-markdown-syntax/SKILL.md"],
+			"tests": ["tests/plugins/markdown/inline/audio-reader.test.mjs"],
 			"notes": [
 				"The initial SSR output keeps the label as plain text and never renders a navigable source link; the client runtime activates inline playback.",
 				"Invalid source or empty label values remain ordinary Markdown and do not declare optional page resources."
@@ -457,11 +439,8 @@
 					"viewport preloading or explicit activation: https://player.bilibili.com/player.html?bvid={bvid}&p={p}&high_quality=1&danmaku=0"
 				]
 			},
-			"docs": ["src/content/posts/video.md"],
-			"tests": [
-				"tests/plugins/markdown/leaf/bilibili.test.mjs",
-				"tests/site/markdown-runtime.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/leaf/bilibili.test.mjs"],
 			"notes": [
 				"初始 SSR DOM 不含 iframe、Bilibili 脚本或 provider 请求；标题和 Bilibili 页面链接始终保留。",
 				"非法 BV 号、空标题或非法分 P 不触发可选资源；运行时只从验证后的字段生成白名单播放器 URL。"
@@ -530,11 +509,8 @@
 				"modules": ["src/utils/code-tree.ts"],
 				"network": []
 			},
-			"docs": ["src/content/posts/markdown-enhancements.md"],
-			"tests": [
-				"tests/plugins/markdown/containers/code-tree.test.mjs",
-				"tests/site/code-tree.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/containers/code-tree.test.mjs"],
 			"notes": [
 				"本地目录导入限制在工作区根目录内，以 UTF-8 读取文件，并忽略隐藏目录、依赖目录、构建目录及大于 256KB 的文件。"
 			]
@@ -593,14 +569,10 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/collapse-panels.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
 				"tests/plugins/markdown/containers/collapse-panels.test.mjs",
-				"tests/plugins/markdown/core/disclosure.test.mjs",
-				"tests/site/collapse-panels.spec.ts"
+				"tests/plugins/markdown/core/disclosure.test.mjs"
 			],
 			"notes": [
 				"容器只接受一个顶层无序列表，且每项必须包含独立标题段落和正文；非法或混合输入保留为普通 Markdown。",
@@ -643,11 +615,8 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": ["src/content/posts/content-annotations.md"],
-			"tests": [
-				"tests/plugins/markdown/inline/content-annotations.test.mjs",
-				"tests/site/content-annotations.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/inline/content-annotations.test.mjs"],
 			"notes": [
 				"未定义、非法、链接内或代码内的引用保持原文；同一标签可累积多条定义；引用可与正文粗体等标准 Markdown 行内语法相邻组合。",
 				"定义仅在当前 Markdown 文档内生效；功能不读取全局配置，不增加客户端模块或外部请求。",
@@ -735,8 +704,8 @@
 				"modules": ["src/utils/code-copy.ts", "src/utils/code-collapse.ts"],
 				"network": []
 			},
-			"docs": ["src/content/posts/expressive-code.md"],
-			"tests": ["tests/site/post-encryption.spec.ts"],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": [],
 			"notes": ["元数据具体解析规则由 Expressive Code 及已注册插件定义。"]
 		},
 		{
@@ -786,10 +755,7 @@
 			"registeredIn": "src/utils/markdown-processor.mjs",
 			"styles": ["src/styles/markdown/fields.css"],
 			"runtime": { "mode": "none", "modules": [], "network": [] },
-			"docs": [
-				"src/content/posts/markdown-fields.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": ["tests/plugins/markdown/containers/fields.test.mjs"],
 			"notes": [
 				"无效或不完整的字段标签保留为可读 Markdown；组件为纯 SSR 输出，不增加客户端运行时。"
@@ -844,14 +810,10 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/markdown-enhancements.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
 				"tests/plugins/markdown/containers/file-tree.test.mjs",
-				"tests/plugins/markdown/core/disclosure.test.mjs",
-				"tests/site/file-tree.spec.ts"
+				"tests/plugins/markdown/core/disclosure.test.mjs"
 			],
 			"notes": [
 				"目录名尾随 / 表示该目录初始折叠。",
@@ -891,14 +853,8 @@
 					"avatar_url returned by the GitHub API"
 				]
 			},
-			"docs": [
-				"src/content/posts/markdown-extended.md",
-				"src/content/posts/guide/index.md"
-			],
-			"tests": [
-				"tests/plugins/markdown/leaf/github-card.test.mjs",
-				"tests/site/markdown-runtime.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/leaf/github-card.test.mjs"],
 			"notes": [
 				"SSR 始终输出可点击的 owner/repo 链接；命中语法后才动态加载元数据增强模块。",
 				"客户端读取 GitHub API 的描述、星标、分叉、许可证、语言和头像；请求失败时保留 SSR 链接。"
@@ -946,11 +902,8 @@
 				"modules": ["src/utils/fancybox-handler.ts"],
 				"network": ["author-declared image URLs only"]
 			},
-			"docs": ["src/content/posts/image-grid-demo/index.md"],
-			"tests": [
-				"tests/plugins/image-grid.test.mjs",
-				"tests/site/image-grid.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/image-grid.test.mjs"],
 			"notes": ["容器至少包含一张 Markdown 图片；非图片子节点不会成为画廊项。"]
 		},
 		{
@@ -989,7 +942,7 @@
 				"modules": [],
 				"network": ["author-declared image URLs only"]
 			},
-			"docs": ["src/content/posts/spoilers.md", "docs/markdown-extensions.md"],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": ["tests/plugins/rehype-markdown-images.test.mjs"],
 			"notes": ["非法或越界宽度令牌保留在 alt，不静默改写。"]
 		},
@@ -1039,10 +992,7 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/markdown-includes.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": ["tests/plugins/markdown/inline/includes.test.mjs"],
 			"notes": [
 				"只处理独立一行且位于 fenced code 之外的注释；缺失、越界、未闭合或递归包含保留原注释。",
@@ -1088,13 +1038,10 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/marker-highlights.md",
-				"docs/markdown-extensions.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
 				"tests/plugins/markdown/inline/markers.test.mjs",
-				"tests/site/markers.spec.ts"
+				"tests/site/markdown-smoke.spec.ts"
 			],
 			"notes": [
 				"代码围栏、行内代码、未知变体、空内容、未闭合语法和转义文本保留原文。",
@@ -1129,14 +1076,10 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/guide/index.md",
-				"src/content/posts/markdown.md"
-			],
+			"docs": ["docs/markdown-extensions.md"],
 			"tests": [
 				"tests/plugins/markdown/katex-version.test.mjs",
-				"tests/site/math.spec.ts",
-				"tests/site/post-encryption.spec.ts"
+				"tests/site/markdown-smoke.spec.ts"
 			],
 			"notes": ["解析由 remark-math 与 rehype-katex 提供。"]
 		},
@@ -1163,11 +1106,8 @@
 				"modules": ["src/utils/mermaid.ts", "src/utils/mermaid-interaction.ts"],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/markdown-mermaid.md",
-				"src/content/posts/guide/index.md"
-			],
-			"tests": ["tests/site/mermaid.spec.ts"],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": [],
 			"notes": [
 				"客户端脚本与样式仅在页面含 Mermaid 语法时按需加载；初始化必须覆盖直接加载、Swup、主题变化和文章解密。"
 			]
@@ -1217,14 +1157,8 @@
 				"modules": ["src/utils/option-groups.ts"],
 				"network": []
 			},
-			"docs": [
-				"src/content/posts/option-groups.md",
-				"docs/markdown-extensions.md"
-			],
-			"tests": [
-				"tests/plugins/markdown/containers/option-groups.test.mjs",
-				"tests/site/option-groups.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/containers/option-groups.test.mjs"],
 			"notes": [
 				"至少需要两个值不重复的选项且每个选项必须有独立正文；非法结构保留为普通 Markdown。",
 				"SSR 不隐藏任何面板；客户端增强后启用 ARIA tabs、同 id 同步与本地偏好记忆。",
@@ -1254,11 +1188,8 @@
 				"modules": ["src/utils/spoilers.ts"],
 				"network": []
 			},
-			"docs": ["src/content/posts/markdown-extended.md"],
-			"tests": [
-				"tests/plugins/markdown/inline/spoilers.test.mjs",
-				"tests/site/spoilers.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/inline/spoilers.test.mjs"],
 			"notes": ["保留兼容；缺少触屏与键盘契约，不作为新行内语法样板。"]
 		},
 		{
@@ -1302,11 +1233,8 @@
 				"modules": [],
 				"network": []
 			},
-			"docs": ["src/content/posts/steps.md"],
-			"tests": [
-				"tests/plugins/markdown/containers/steps.test.mjs",
-				"tests/site/steps.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/containers/steps.test.mjs"],
 			"notes": [
 				"容器只接受一个有序列表；视觉序号附带 aria-hidden，原始 ol/li 语义保留，纯 SSR 输出且零客户端 JavaScript 负担。"
 			]
@@ -1361,11 +1289,8 @@
 					"viewport preloading or explicit activation: https://www.youtube-nocookie.com/embed/{id}?rel=0&modestbranding=1"
 				]
 			},
-			"docs": ["src/content/posts/video.md"],
-			"tests": [
-				"tests/plugins/markdown/leaf/youtube.test.mjs",
-				"tests/site/markdown-runtime.spec.ts"
-			],
+			"docs": ["docs/markdown-extensions.md"],
+			"tests": ["tests/plugins/markdown/leaf/youtube.test.mjs"],
 			"notes": [
 				"初始 SSR DOM 不含 iframe、YouTube 脚本或 provider 请求；标题和 YouTube 页面链接始终保留。",
 				"非法视频 ID 或空标题不触发可选资源；运行时只从验证后的字段生成白名单播放器 URL。"
