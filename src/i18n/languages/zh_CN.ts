@@ -8,6 +8,7 @@ export const zh_CN: Translation = {
 	[Key.aboutBirthday]: "生日",
 	[Key.aboutLocation]: "现居",
 	[Key.aboutTimezone]: "时区",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "语言",
 	[Key.aboutLanguagesDescription]: "我所掌握和正在学习的语言",
 	[Key.aboutLanguagesCode]: "语言代码",

@@ -9,6 +9,7 @@ enum I18nKey {
 	aboutBirthday = "aboutBirthday",
 	aboutLocation = "aboutLocation",
 	aboutTimezone = "aboutTimezone",
+	aboutMbti = "aboutMbti",
 	/** 关于页语言栏标题 */
 	aboutLanguages = "aboutLanguages",
 	/** 关于页语言栏描述 */

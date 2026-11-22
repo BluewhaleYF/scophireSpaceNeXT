@@ -14,7 +14,7 @@ export const aboutConfig: AboutConfig = withUserConfig("about", {
 			{ key: "occupation", value: "学生" },
 			{ key: "birthday", value: "1月9日" },
 			{ key: "location", value: "中国浙江杭州" },
-			{ key: "timezone", value: "Asia/Shanghai" },
+			{ key: "mbti", value: "ENFP-T" },
 		],
 	},
 	// 正文上方的语言栏：每个语言一张卡片，列出名称、代码与掌握程度。

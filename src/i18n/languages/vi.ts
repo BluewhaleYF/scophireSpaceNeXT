@@ -8,6 +8,7 @@ export const vi: Translation = {
 	[Key.aboutBirthday]: "Sinh nhật",
 	[Key.aboutLocation]: "Nơi ở",
 	[Key.aboutTimezone]: "Múi giờ",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "Ngôn ngữ",
 	[Key.aboutLanguagesDescription]: "Những ngôn ngữ tôi đã biết và đang học",
 	[Key.aboutLanguagesCode]: "Mã ngôn ngữ",

@@ -8,6 +8,7 @@ export const es: Translation = {
 	[Key.aboutBirthday]: "Cumpleaños",
 	[Key.aboutLocation]: "Ubicación",
 	[Key.aboutTimezone]: "Zona horaria",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "Idiomas",
 	[Key.aboutLanguagesDescription]: "Los idiomas que hablo y estoy aprendiendo",
 	[Key.aboutLanguagesCode]: "Código de idioma",

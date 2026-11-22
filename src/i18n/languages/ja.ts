@@ -8,6 +8,7 @@ export const ja: Translation = {
 	[Key.aboutBirthday]: "誕生日",
 	[Key.aboutLocation]: "居住地",
 	[Key.aboutTimezone]: "タイムゾーン",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "言語",
 	[Key.aboutLanguagesDescription]: "習得済みおよび学習中の言語",
 	[Key.aboutLanguagesCode]: "言語コード",

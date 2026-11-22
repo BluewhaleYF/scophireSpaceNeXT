@@ -8,6 +8,7 @@ export const tr: Translation = {
 	[Key.aboutBirthday]: "Doğum günü",
 	[Key.aboutLocation]: "Konum",
 	[Key.aboutTimezone]: "Saat dilimi",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "Diller",
 	[Key.aboutLanguagesDescription]: "Bildiğim ve öğrenmekte olduğum diller",
 	[Key.aboutLanguagesCode]: "Dil kodu",

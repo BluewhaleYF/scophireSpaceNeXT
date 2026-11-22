@@ -8,6 +8,7 @@ export const id: Translation = {
 	[Key.aboutBirthday]: "Ulang tahun",
 	[Key.aboutLocation]: "Lokasi",
 	[Key.aboutTimezone]: "Zona waktu",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "Bahasa",
 	[Key.aboutLanguagesDescription]:
 		"Bahasa yang saya kuasai dan sedang dipelajari",

@@ -5,7 +5,8 @@ export type AboutIntroFactKey =
 	| "occupation"
 	| "birthday"
 	| "location"
-	| "timezone";
+	| "timezone"
+	| "mbti";
 
 /** 关于页顶部个人简介区块中的单个信息项。 */
 export interface AboutIntroFact {

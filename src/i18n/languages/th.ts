@@ -8,6 +8,7 @@ export const th: Translation = {
 	[Key.aboutBirthday]: "วันเกิด",
 	[Key.aboutLocation]: "ที่อยู่อาศัย",
 	[Key.aboutTimezone]: "เขตเวลา",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "ภาษา",
 	[Key.aboutLanguagesDescription]: "ภาษาที่ฉันใช้และกำลังเรียน",
 	[Key.aboutLanguagesCode]: "รหัสภาษา",

@@ -8,6 +8,7 @@ export const ko: Translation = {
 	[Key.aboutBirthday]: "생일",
 	[Key.aboutLocation]: "거주지",
 	[Key.aboutTimezone]: "시간대",
+	[Key.aboutMbti]: "MBTI",
 	[Key.aboutLanguages]: "언어",
 	[Key.aboutLanguagesDescription]: "제가 구사하고 배우고 있는 언어",
 	[Key.aboutLanguagesCode]: "언어 코드",
