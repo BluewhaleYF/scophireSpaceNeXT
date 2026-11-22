@@ -49,7 +49,7 @@ export const gamesData: GameItem[] = [
 	{
 		id: "noexistencen-of-you-and-me",
 		name: "不/存在的你，和我",
-		developer: "Fontainebleau",
+		developer: "0x0Real Studio",
 		category: "adventure",
 		status: "playing",
 		cover: "assets/games/nonand.png",
@@ -60,7 +60,7 @@ export const gamesData: GameItem[] = [
 		year: "2024",
 		tags: ["视觉小说", "Meta"],
 		description:
-			'Explore the truth of "you/girl/world" through the form of a "visual novel".',
+			"以「游戏」为载体展现「你/少女」的世界。 以「视觉小说」为表现形式探索「你/少女/世界」的真相。",
 		link: "https://store.steampowered.com/app/2873080/",
 		featured: true,
 	},
@@ -77,7 +77,7 @@ export const gamesData: GameItem[] = [
 		platform: "iOS / PC",
 		year: "2027",
 		tags: ["RPG", "二次元"],
-		description: "——1889年東京，全新的夢「魔法」開始了。",
+		description: "’89年 東京、新たな夢「まほう」が始まる",
 		link: "https://astraeoratio.plaync.com/zh-tw/index",
 	},
 	{
@@ -93,12 +93,12 @@ export const gamesData: GameItem[] = [
 		platform: "PC",
 		year: "2020",
 		tags: ["策略"],
-		description: "Victory is at your fingertips!",
+		description: "胜利在你指间！",
 		link: "https://www.paradoxinteractive.com/games/hearts-of-iron-iv/about",
 	},
 	{
 		id: "gyakuten-saiban",
-		name: "逆転裁判123 成歩堂セレクション",
+		name: "逆転裁判123 成步堂精选集",
 		developer: "Capcom",
 		category: "adventure",
 		status: "paused",
@@ -108,8 +108,8 @@ export const gamesData: GameItem[] = [
 		hours: 10,
 		platform: "PC",
 		year: "2014",
-		tags: ["AVG", "推理", "法庭"],
-		description: "真実は一つ！証言の矛盾を暴き、依頼人の無実を証明しろ！",
+		tags: ["AVG", "推理"],
+		description: "当你见证所有故事后，将能发现被隐藏的真相。",
 		link: "https://www.ace-attorney.com/trilogy/ja/",
 	},
 ];
